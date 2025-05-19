@@ -330,21 +330,59 @@
         </div>
     </section>
 
-    <!-- Subscribe Section -->
+    <!-- Feedback Section -->
     <section class="container mb-5">
         <div class="row justify-content-center">
-            <div class="col-lg-10">
-                <div class="subscribe-box p-5 text-center rounded" style="background-color: var(--primary-color);">
-                    <h3 class="mb-4">Get Updates on New Releases</h3>
-                    <p class="mb-4">Subscribe to our newsletter and be the first to know about new movies, exclusive content, and more!</p>
+            <div class="col-md-7 col-lg-6">
+                <div class="feedback-box p-4 text-center rounded" style="background-color: var(--primary-color);">
+                    <h3 class="mb-3">We Value Your Feedback</h3>
+                    <p class="mb-3">Let us know your thoughts, suggestions, or issues. Help us improve your CineStream experience!</p>
                     <div class="row justify-content-center">
-                        <div class="col-md-8">
-                            <form class="d-flex">
-                                <input type="email" class="form-control me-2" placeholder="Enter your email">
-                                <button type="submit" class="btn btn-primary">Subscribe</button>
+                        <div class="col-12">
+                            <form class="feedback-form text-start">
+                                <div class="mb-2">
+                                    <label for="feedbackName" class="form-label">Name</label>
+                                    <input type="text" class="form-control" id="feedbackName" placeholder="Your Name">
+                                </div>
+                                <div class="mb-2">
+                                    <label for="feedbackEmail" class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="feedbackEmail" placeholder="Your Email">
+                                </div>
+                                <div class="mb-2">
+                                    <label for="feedbackMessage" class="form-label">Message</label>
+                                    <textarea class="form-control" id="feedbackMessage" rows="3" placeholder="Your Feedback"></textarea>
+                                </div>
+                                <div class="text-center mt-3">
+                                    <button type="submit" class="btn btn-primary px-4">Submit Feedback</button>
+                                </div>
                             </form>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section class="container mb-5">
+        <h2 class="section-title mb-4 text-center">What Our Users Say</h2>
+        <div class="row justify-content-center">
+            <div class="col-md-4 mb-4">
+                <div class="testimonial-card p-4 h-100 text-center rounded">
+                    <p class="testimonial-text mb-3">“CineStream has completely changed my movie nights! The interface is beautiful and the selection is top-notch.”</p>
+                    <h6 class="mb-0">Rahul S.</h6>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="testimonial-card p-4 h-100 text-center rounded">
+                    <p class="testimonial-text mb-3">“I love the recommendations and the easy-to-use watchlist. Highly recommended for all TV show fans!”</p>
+                    <h6 class="mb-0">Priya M.</h6>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="testimonial-card p-4 h-100 text-center rounded">
+                    <p class="testimonial-text mb-3">“A must-have for anyone who loves movies. The feedback form is a great touch for user engagement!”</p>
+                    <h6 class="mb-0">Amit K.</h6>
                 </div>
             </div>
         </div>

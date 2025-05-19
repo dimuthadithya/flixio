@@ -305,6 +305,51 @@
   }
 }
 
+/* --- Responsive Movie/Show Card Fixes --- */
+@media (max-width: 991.98px) {
+  .movie-card, .tvshow-card {
+    width: 100%;
+    min-width: unset;
+    max-width: unset;
+    margin-bottom: 20px;
+  }
+  .movie-poster, .tvshow-poster {
+    height: 220px;
+  }
+}
+@media (max-width: 767.98px) {
+  .movie-card, .tvshow-card {
+    width: 100%;
+    min-width: unset;
+    max-width: unset;
+    margin-bottom: 18px;
+  }
+  .movie-poster, .tvshow-poster {
+    height: 180px;
+  }
+  .row > [class*='col-'] {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+@media (max-width: 575.98px) {
+  .movie-card, .tvshow-card {
+    width: 100%;
+    min-width: unset;
+    max-width: unset;
+    margin-bottom: 14px;
+  }
+  .movie-poster, .tvshow-poster {
+    height: 140px;
+  }
+  .row > [class*='col-'] {
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+}
+
 /* --- movies.css --- */
 /* movies.css - Updated to use unified card/grid styles from index.css for consistency with tvshows.html
  * Remove/override custom .movie-card, .movie-poster, .movie-rating, .movie-info, .movie-name, .movie-year, .movies-grid styles
@@ -388,6 +433,28 @@
   }
   .movie-poster, .tvshow-poster {
     height: 180px;
+  }
+}
+
+/* Center movie/show cards and testimonial cards on mobile */
+@media (max-width: 767.98px) {
+  .row {
+    justify-content: center !important;
+  }
+  .movie-card, .tvshow-card, .testimonial-card {
+    margin-left: auto;
+    margin-right: auto;
+    float: none;
+  }
+}
+@media (max-width: 575.98px) {
+  .row {
+    justify-content: center !important;
+  }
+  .movie-card, .tvshow-card, .testimonial-card {
+    margin-left: auto;
+    margin-right: auto;
+    float: none;
   }
 }
 
@@ -646,4 +713,84 @@ body {
   .tvshow-poster {
     height: 180px;
   }
+}
+
+/* --- Feedback Form Styles --- */
+.feedback-box {
+    background-color: var(--primary-color);
+    color: var(--light-text);
+    box-shadow: 0 4px 24px 0 rgba(0,0,0,0.18);
+    border-radius: 18px;
+    padding: 2rem 1.5rem !important;
+    max-width: 100%;
+}
+.feedback-form .form-label {
+    color: var(--accent-color);
+    font-weight: 500;
+    font-size: 0.98rem;
+}
+.feedback-form .form-control, .feedback-form textarea {
+    background: #181c24;
+    color: #fff;
+    border: 1px solid #2c3440;
+    border-radius: 8px;
+    box-shadow: none;
+    margin-bottom: 6px;
+    font-size: 0.98rem;
+    padding: 0.5rem 0.9rem;
+}
+.feedback-form .form-control:focus, .feedback-form textarea:focus {
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 0.12rem rgba(1,180,228,0.13);
+    background: #232a36;
+    color: #fff;
+}
+.feedback-form button[type="submit"] {
+    border-radius: 30px;
+    font-weight: 600;
+    padding: 8px 24px;
+    background: var(--secondary-color);
+    border: none;
+    transition: all 0.3s;
+    font-size: 1rem;
+}
+.feedback-form button[type="submit"]:hover {
+    background: var(--accent-color);
+    color: #232323;
+}
+
+/* --- Testimonial Section Styles --- */
+.testimonial-card {
+    background: #1a1a1a;
+    color: var(--light-text);
+    border-radius: 16px;
+    box-shadow: 0 4px 24px 0 rgba(0,0,0,0.18);
+    border: 1px solid rgba(255,255,255,0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.testimonial-card:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 8px 32px 0 rgba(1,180,228,0.12);
+}
+.testimonial-text {
+    font-style: italic;
+    color: #b0c4d4;
+    font-size: 1.05rem;
+}
+.testimonial-avatar {
+    display: none !important;
+}
+@media (max-width: 768px) {
+    .testimonial-card {
+        margin-bottom: 20px;
+        min-height: 120px;
+    }
+    .feedback-box {
+        padding: 1.2rem 0.7rem !important;
+    }
 }
