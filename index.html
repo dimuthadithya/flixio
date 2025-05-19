@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineStream - Your Ultimate Movie Destination</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            --primary-color: #032541;
+            --secondary-color: #01b4e4;
+            --accent-color: #90cea1;
+            --dark-bg: #0a1929;
+            --light-text: #f8f9fa;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #121212;
+            color: var(--light-text);
+        }
+        
+        .navbar {
+            background-color: var(--primary-color);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: var(--light-text);
+        }
+        
+        .navbar-brand span {
+            color: var(--secondary-color);
+        }
+        
+        .nav-link {
+            color: var(--light-text) !important;
+            font-weight: 500;
+            transition: all 0.3s;
+            margin: 0 5px;
+        }
+        
+        .nav-link:hover {
+            color: var(--secondary-color) !important;
+            transform: translateY(-2px);
+        }
+        
+        .search-form {
+            position: relative;
+        }
+        
+        .search-form input {
+            border-radius: 30px;
+            padding-left: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: var(--light-text);
+        }
+        
+        .search-form input:focus {
+            background-color: rgba(255, 255, 255, 0.15);
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 0.2rem rgba(1, 180, 228, 0.25);
+            color: var(--light-text);
+        }
+        
+        .search-form i {
+            position: absolute;
+            left: 15px;
+            top: 12px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("/api/placeholder/1920/600") center/cover no-repeat;
+            padding: 120px 0;
+            margin-bottom: 40px;
+        }
+        
+        .hero-content {
+            text-align: center;
+        }
+        
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .btn-primary {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+            border-radius: 30px;
+            padding: 10px 25px;
+            font-weight: 600;
+            text-transform: uppercase;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .section-title {
+            margin-bottom: 30px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+        
+        .movie-card {
+            background-color: #1a1a1a;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            margin-bottom: 25px;
+            position: relative;
+        }
+        
+        .movie-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+        }
+        
+        .movie-poster {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .movie-poster img {
+            transition: all 0.5s ease;
+        }
+        
+        .movie-card:hover .movie-poster img {
+            transform: scale(1.05);
+        }
+        
+        .movie-rating {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 20px;
+            padding: 5px 10px;
+            font-weight: bold;
+        }
+        
+        .movie-content {
+            padding: 15px;
+        }
+        
+        .movie-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        .movie-info {
+            display: flex;
+            justify-content: space-between;
+            color: #adb5bd;
+            font-size: 0.9rem;
+        }
+        
+        .category-tabs {
+            margin-bottom: 30px;
+        }
+        
+        .category-tabs .nav-link {
+            border-radius: 30px;
+            margin: 0 5px;
+            padding: 8px 20px;
+            border: 1px solid transparent;
+            color: #adb5bd !important;
+        }
+        
+        .category-tabs .nav-link.active {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+            color: white !important;
+        }
+        
+        .footer {
+            background-color: var(--dark-bg);
+            padding: 60px 0 30px;
+            margin-top: 50px;
+        }
+        
+        .footer-title {
+            color: var(--light-text);
+            font-weight: 600;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background-color: var(--secondary-color);
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #adb5bd;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary-color);
+            padding-left: 5px;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            width: 36px;
+            height: 36px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 36px;
+            margin-right: 10px;
+            color: var(--light-text);
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            margin-top: 40px;
+            text-align: center;
+            color: #adb5bd;
+        }
+        
+        @media (max-width: 767px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .navbar-collapse {
+                background-color: var(--primary-color);
+                padding: 15px;
+                border-radius: 5px;
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Fli <span>Xio</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Movies</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">TV Shows</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Genres</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Watchlist</a>
+                    </li>
+                </ul>
+                <form class="search-form d-flex">
+                    <i class="fas fa-search"></i>
+                    <input class="form-control me-2" type="search" placeholder="Search movies, TV shows..." aria-label="Search">
+                </form>
+                <div class="ms-3">
+                    <a href="#" class="btn btn-outline-light rounded-pill"><i class="fas fa-user me-1"></i> Sign In</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Unlimited Movies, TV Shows & More</h1>
+                <p>Discover the latest and greatest movies and TV shows all in one place. Your ultimate entertainment destination.</p>
+                <a href="#" class="btn btn-primary btn-lg"><i class="fas fa-play me-2"></i> Browse Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Movies Section -->
+    <section class="container mb-5">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 class="section-title">Featured Movies</h2>
+            <ul class="nav category-tabs">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">All</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Action</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Comedy</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Drama</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="row">
+            <!-- Movie Card 1 -->
+            <div class="col-6 col-md-4 col-lg-3">
+                <div class="movie-card">
+                    <div class="movie-poster">
+                        <img src="/api/placeholder/300/450" class="img-fluid" alt="Movie Poster">
+                        <div class="movie-rating">
+                            <i class="fas fa-star text-warning"></i> 8.5
+                        </div>
+                    </div>
+                    <div class="movie-content">
+                        <h5 class="movie-title">Inception</h5>
+                        <div class="movie-info">
+                            <span><i class="fas fa-calendar"></i> 2020</span>
+                            <span><i class="fas fa-clock"></i> 148 min</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Movie Card 2 -->
+            <div class="col-6 col-md-4 col-lg-3">
+                <div class="movie-card">
+                    <div class="movie-poster">
+                        <img src="/api/placeholder/300/450" class="img-fluid" alt="Movie Poster">
+                        <div class="movie-rating">
+                            <i class="fas fa-star text-warning"></i> 9.2
+                        </div>
+                    </div>
+                    <div class="movie-content">
+                        <h5 class="movie-title">The Shawshank Redemption</h5>
+                        <div class="movie-info">
+                            <span><i class="fas fa-calendar"></i> 1994</span>
+                            <span><i class="fas fa-clock"></i> 142 min</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Movie Card 3 -->
+            <div class="col-6 col-md-4 col-lg-3">
+                <div class="movie-card">
+                    <div class="movie-poster">
+                        <img src="/api/placeholder/300/450" class="img-fluid" alt="Movie Poster">
+                        <div class="movie-rating">
+                            <i class="fas fa-star text-warning"></i> 8.9
+                        </div>
+                    </div>
+                    <div class="movie-content">
+                        <h5 class="movie-title">The Dark Knight</h5>
+                        <div class="movie-info">
+                            <span><i class="fas fa-calendar"></i> 2008</span>
+                            <span><i class="fas fa-clock"></i> 152 min</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Movie Card 4 -->
+            <div class="col-6 col-md-4 col-lg-3">
+                <div class="movie-card">
+                    <div class="movie-poster">
+                        <img src="/api/placeholder/300/450" class="img-fluid" alt="Movie Poster">
+                        <div class="movie-rating">
+                            <i class="fas fa-star text-warning"></i> 8.7
+                        </div>
+                    </div>
+                    <div class="movie-content">
+                        <h5 class="movie-title">Pulp Fiction</h5>
+                        <div class="movie-info">
+                            <span><i class="fas fa-calendar"></i> 1994</span>
+                            <span><i class="fas fa-clock"></i> 154 min</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-4">
+            <a href="#" class="btn btn-outline-light">View All Movies <i class="fas fa-arrow-right ms-2"></i></a>
+        </div>
+    </section>
+
+    <!-- New Releases Section -->
+    <section class="container mb-5">
+        <h2 class="section-title mb-4">New Releases</h2>
+        <div class="row">
+            <!-- Movie Card 1 -->
+            <div class="col-6 col-md-4 col-lg-3">
+                <div class="movie-card">
+                    <div class="movie-poster">
+                        <img src="/api/placeholder/300/450" class="img-fluid" alt="Movie Poster">
+                        <div class="movie-rating">
+                            <i class="fas fa-star text-warning"></i> 7.8
+                        </div>
+                    </div>
+                    <div class="movie-content">
+                        <h5 class="movie-title">Dune</h5>
+                        <div class="movie-info">
+                            <span><i class="fas fa-calendar"></i> 2021</span>
+                            <span><i class="fas fa-clock"></i> 155 min</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Movie Card 2 -->
+            <div class="col-6 col-md-4 col-lg-3">
+                <div class="movie-card">
+                    <div class="movie-poster">
+                        <img src="/api/placeholder/300/450" class="img-fluid" alt="Movie Poster">
+                        <div class="movie-rating">
+                            <i class="fas fa-star text-warning"></i> 8.3
+                        </div>
+                    </div>
+                    <div class="movie-content">
+                        <h5 class="movie-title">No Time to Die</h5>
+                        <div class="movie-info">
+                            <span><i class="fas fa-calendar"></i> 2021</span>
+                            <span><i class="fas fa-clock"></i> 163 min</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Movie Card 3 -->
+            <div class="col-6 col-md-4 col-lg-3">
+                <div class="movie-card">
+                    <div class="movie-poster">
+                        <img src="/api/placeholder/300/450" class="img-fluid" alt="Movie Poster">
+                        <div class="movie-rating">
+                            <i class="fas fa-star text-warning"></i> 7.5
+                        </div>
+                    </div>
+                    <div class="movie-content">
+                        <h5 class="movie-title">The Matrix Resurrections</h5>
+                        <div class="movie-info">
+                            <span><i class="fas fa-calendar"></i> 2021</span>
+                            <span><i class="fas fa-clock"></i> 148 min</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Movie Card 4 -->
+            <div class="col-6 col-md-4 col-lg-3">
+                <div class="movie-card">
+                    <div class="movie-poster">
+                        <img src="/api/placeholder/300/450" class="img-fluid" alt="Movie Poster">
+                        <div class="movie-rating">
+                            <i class="fas fa-star text-warning"></i> 8.1
+                        </div>
+                    </div>
+                    <div class="movie-content">
+                        <h5 class="movie-title">Spider-Man: No Way Home</h5>
+                        <div class="movie-info">
+                            <span><i class="fas fa-calendar"></i> 2021</span>
+                            <span><i class="fas fa-clock"></i> 148 min</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Top Rated Shows Section -->
+    <section class="container mb-5">
+        <h2 class="section-title mb-4">Top Rated TV Shows</h2>
+        <div class="row">
+            <!-- Show Card 1 -->
+            <div class="col-6 col-md-4 col-lg-3">
+                <div class="movie-card">
+                    <div class="movie-poster">
+                        <img src="/api/placeholder/300/450" class="img-fluid" alt="Show Poster">
+                        <div class="movie-rating">
+                            <i class="fas fa-star text-warning"></i> 9.3
+                        </div>
+                    </div>
+                    <div class="movie-content">
+                        <h5 class="movie-title">Breaking Bad</h5>
+                        <div class="movie-info">
+                            <span><i class="fas fa-calendar"></i> 2008</span>
+                            <span><i class="fas fa-film"></i> 5 Seasons</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Show Card 2 -->
+            <div class="col-6 col-md-4 col-lg-3">
+                <div class="movie-card">
+                    <div class="movie-poster">
+                        <img src="/api/placeholder/300/450" class="img-fluid" alt="Show Poster">
+                        <div class="movie-rating">
+                            <i class="fas fa-star text-warning"></i> 9.2
+                        </div>
+                    </div>
+                    <div class="movie-content">
+                        <h5 class="movie-title">Game of Thrones</h5>
+                        <div class="movie-info">
+                            <span><i class="fas fa-calendar"></i> 2011</span>
+                            <span><i class="fas fa-film"></i> 8 Seasons</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Show Card 3 -->
+            <div class="col-6 col-md-4 col-lg-3">
+                <div class="movie-card">
+                    <div class="movie-poster">
+                        <img src="/api/placeholder/300/450" class="img-fluid" alt="Show Poster">
+                        <div class="movie-rating">
+                            <i class="fas fa-star text-warning"></i> 8.9
+                        </div>
+                    </div>
+                    <div class="movie-content">
+                        <h5 class="movie-title">Stranger Things</h5>
+                        <div class="movie-info">
+                            <span><i class="fas fa-calendar"></i> 2016</span>
+                            <span><i class="fas fa-film"></i> 4 Seasons</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Show Card 4 -->
+            <div class="col-6 col-md-4 col-lg-3">
+                <div class="movie-card">
+                    <div class="movie-poster">
+                        <img src="/api/placeholder/300/450" class="img-fluid" alt="Show Poster">
+                        <div class="movie-rating">
+                            <i class="fas fa-star text-warning"></i> 8.8
+                        </div>
+                    </div>
+                    <div class="movie-content">
+                        <h5 class="movie-title">The Crown</h5>
+                        <div class="movie-info">
+                            <span><i class="fas fa-calendar"></i> 2016</span>
+                            <span><i class="fas fa-film"></i> 5 Seasons</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-4">
+            <a href="#" class="btn btn-outline-light">View All TV Shows <i class="fas fa-arrow-right ms-2"></i></a>
+        </div>
+    </section>
+
+    <!-- Subscribe Section -->
+    <section class="container mb-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="subscribe-box p-5 text-center rounded" style="background-color: var(--primary-color);">
+                    <h3 class="mb-4">Get Updates on New Releases</h3>
+                    <p class="mb-4">Subscribe to our newsletter and be the first to know about new movies, exclusive content, and more!</p>
+                    <div class="row justify-content-center">
+                        <div class="col-md-8">
+                            <form class="d-flex">
+                                <input type="email" class="form-control me-2" placeholder="Enter your email">
+                                <button type="submit" class="btn btn-primary">Subscribe</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 mb-4">
+                    <h5 class="footer-title">About CineStream</h5>
+                    <p>Your ultimate destination for movies and TV shows. Discover, explore, and enjoy unlimited entertainment.</p>
+                    <div class="social-links mt-3">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <h5 class="footer-title">Quick Links</h5>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="#"><i class="fas fa-angle-right me-2"></i> Home</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right me-2"></i> Movies</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right me-2"></i> TV Shows</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right me-2"></i> My List</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right me-2"></i> New & Popular</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <h5 class="footer-title">Support</h5>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="#"><i class="fas fa-angle-right me-2"></i> FAQ</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right me-2"></i> Help Center</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right me-2"></i> Terms of Use</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right me-2"></i> Privacy Policy</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right me-2"></i> Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <h5 class="footer-title">Contact</h5>
+                    <ul class="list-unstyled footer-links">
+                        <li><i class="fas fa-map-marker-alt me-2"></i> 1234 Movie St, Hollywood, CA</li>
+                        <li><i class="fas fa-phone me-2"></i> (123) 456-7890</li>
+                        <li><i class="fas fa-envelope me-2"></i> info@cinestream.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 CineStream. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
