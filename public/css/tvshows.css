@@ -1,0 +1,117 @@
+/* tvshows.css - Styling for the TV shows page, matching the movies page theme */
+
+body {
+  background: #181818;
+  color: #fff;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.tvshows-section {
+  background: #181818;
+  min-height: 80vh;
+  padding: 40px 0 60px 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.tvshows-title {
+  color: #fff;
+  font-size: 2.5rem;
+  margin-bottom: 32px;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.tvshows-filters {
+  background: rgba(30, 30, 30, 0.92);
+  border-radius: 18px;
+  box-shadow: 0 4px 24px 0 rgba(0,0,0,0.18);
+  padding: 28px 18px 18px 18px;
+  margin-bottom: 2.5rem;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.tvshows-filters form {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+.tvshows-filters .col-md-4 {
+  flex: 1 1 220px;
+  max-width: 300px;
+  min-width: 180px;
+}
+@media (max-width: 900px) {
+  .tvshows-filters form {
+    gap: 16px;
+  }
+  .tvshows-filters .col-md-4 {
+    max-width: 100%;
+    min-width: 140px;
+  }
+}
+@media (max-width: 600px) {
+  .tvshows-filters form {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+}
+
+.tvshows-filters .form-label {
+  color: #fff;
+  font-weight: 500;
+}
+
+.tvshows-filters .form-select {
+  background: #232323;
+  color: #fff;
+  border: 1px solid #444;
+}
+
+.tvshows-filters .form-select:focus {
+  border-color: #ff0057;
+  box-shadow: 0 0 0 0.2rem rgba(255,0,87,0.15);
+}
+
+.tvshows-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Remove duplicate card styles, use only .movie-card, .tvshow-card from index.css for unified look */
+
+@media (max-width: 768px) {
+  .tvshows-grid {
+    gap: 20px;
+  }
+  .tvshow-card {
+    width: 45vw;
+    min-width: 160px;
+    max-width: 220px;
+  }
+  .tvshow-poster {
+    height: 220px;
+  }
+}
+
+@media (max-width: 480px) {
+  .tvshows-title {
+    font-size: 1.5rem;
+  }
+  .tvshow-card {
+    width: 90vw;
+    min-width: 140px;
+    max-width: 220px;
+  }
+  .tvshow-poster {
+    height: 180px;
+  }
+}

@@ -1,0 +1,180 @@
+/* movies.css - Styling for the movies page, matching the index theme */
+
+body {
+  background: #181818;
+  color: #fff;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.movies-section {
+  background: #181818;
+  min-height: 80vh;
+  padding: 40px 0 60px 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.movies-title {
+  color: #fff;
+  font-size: 2.5rem;
+  margin-bottom: 32px;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.movies-filters {
+  background: rgba(30, 30, 30, 0.92);
+  border-radius: 18px;
+  box-shadow: 0 4px 24px 0 rgba(0,0,0,0.18);
+  padding: 28px 18px 18px 18px;
+  margin-bottom: 2.5rem;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.movies-filters .form-label {
+  color: #fff;
+  font-weight: 500;
+}
+
+.movies-filters .form-select {
+  background: #232323;
+  color: #fff;
+  border: 1px solid #444;
+}
+
+.movies-filters .form-select:focus {
+  border-color: #ff0057;
+  box-shadow: 0 0 0 0.2rem rgba(255,0,87,0.15);
+}
+
+.movies-filters form {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.movies-filters .col-md-4 {
+  flex: 1 1 220px;
+  max-width: 300px;
+  min-width: 180px;
+}
+
+.movies-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.movie-card {
+  background: #232323;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+  width: 220px;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.movie-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+}
+
+.movie-poster {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  display: block;
+}
+
+.movie-rating {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(24,24,24,0.85);
+  color: #ffd700;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.movie-info {
+  padding: 18px 16px 14px 16px;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.movie-name {
+  color: #fff;
+  font-size: 1.25rem;
+  margin: 0 0 8px 0;
+  font-weight: 600;
+}
+
+.movie-year {
+  color: #b3b3b3;
+  font-size: 1rem;
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .movies-filters form {
+    gap: 16px;
+  }
+  .movies-filters .col-md-4 {
+    max-width: 100%;
+    min-width: 140px;
+  }
+}
+
+@media (max-width: 768px) {
+  .movies-grid {
+    gap: 20px;
+  }
+  .movie-card {
+    width: 45vw;
+    min-width: 160px;
+    max-width: 220px;
+  }
+  .movie-poster {
+    height: 220px;
+  }
+}
+
+@media (max-width: 600px) {
+  .movies-filters form {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .movies-title {
+    font-size: 1.5rem;
+  }
+  .movie-card {
+    width: 90vw;
+    min-width: 140px;
+    max-width: 220px;
+  }
+  .movie-poster {
+    height: 180px;
+  }
+}
+
+/* Remove duplicate card styles, use only .movie-card, .tvshow-card from index.css for unified look */
