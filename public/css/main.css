@@ -904,3 +904,9 @@ body {
   font-size: 1.13rem;
   line-height: 1.7;
 }
+
+/* Search form placeholder color */
+.search-form .form-control::placeholder {
+  color: #fff !important;
+  opacity: 1;
+}
