@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Watchlist | Flixio</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="../public/css/main.css">
+</head>
+<body>
+    <!-- Navigation Bar (same as other pages) -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Fli <span>Xio</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./movies.html">Movies</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./tvshows.html">TV Shows</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./about.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="./watchlist.html">Watchlist</a>
+                    </li>
+                </ul>
+                <form class="search-form d-flex">
+                    <i class="fas fa-search"></i>
+                    <input class="form-control me-2" type="search" placeholder="Search movies, TV shows..." aria-label="Search">
+                </form>
+                <div class="ms-3">
+                    <a href="#" class="btn btn-outline-light rounded-pill"><i class="fas fa-user me-1"></i> Sign In</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Watchlist Section -->
+    <section class="container py-5">
+        <h1 class="display-5 fw-bold mb-4 text-white text-center watchlist-title"><i class="fas fa-bookmark text-primary me-2"></i>My Watchlist</h1>
+        <p class="lead text-center text-light mb-5">All your saved movies and TV shows in one place. Start watching or manage your list below!</p>
+        <div class="row g-4 justify-content-center">
+            <!-- Example Movie Card -->
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="watchlist-card card bg-dark text-white border-0 shadow h-100">
+                    <div class="position-relative">
+                        <img src="/api/placeholder/300/450" class="card-img-top rounded-top" alt="Movie Poster">
+                        <span class="badge bg-primary position-absolute top-0 end-0 m-2">Movie</span>
+                        <button class="btn btn-danger btn-sm position-absolute top-0 start-0 m-2 rounded-circle" title="Remove"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title mb-1">Inception</h5>
+                        <div class="mb-2 small text-secondary">2010 &bull; 148 min</div>
+                        <div class="mb-3">
+                            <span class="badge bg-secondary me-1">Action</span>
+                            <span class="badge bg-success me-1">Sci-Fi</span>
+                        </div>
+                        <div class="mt-auto d-flex gap-2">
+                            <a href="./details_movie.html" class="btn btn-primary btn-sm w-100 d-flex justify-content-center align-items-center"><i class="fas fa-play me-1"></i>Watch</a>
+                            <a href="./payments.html" class="btn btn-outline-light btn-sm w-100 d-flex justify-content-center align-items-center"><i class="fas fa-shopping-cart me-1"></i>Buy</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Example TV Show Card -->
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="watchlist-card card bg-dark text-white border-0 shadow h-100">
+                    <div class="position-relative">
+                        <img src="/api/placeholder/300/450" class="card-img-top rounded-top" alt="Show Poster">
+                        <span class="badge bg-success position-absolute top-0 end-0 m-2">TV Show</span>
+                        <button class="btn btn-danger btn-sm position-absolute top-0 start-0 m-2 rounded-circle" title="Remove"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title mb-1">Stranger Things</h5>
+                        <div class="mb-2 small text-secondary">2016 &bull; 4 Seasons</div>
+                        <div class="mb-3">
+                            <span class="badge bg-primary me-1">Thriller</span>
+                            <span class="badge bg-warning text-dark me-1">Mystery</span>
+                        </div>
+                        <div class="mt-auto d-flex gap-2">
+                            <a href="./details_tvshow.html" class="btn btn-primary btn-sm w-100 d-flex justify-content-center align-items-center"><i class="fas fa-play me-1"></i>Watch</a>
+                            <a href="./payments.html" class="btn btn-outline-light btn-sm w-100 d-flex justify-content-center align-items-center"><i class="fas fa-shopping-cart me-1"></i>Buy</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Add more cards dynamically as needed -->
+        </div>
+        <div class="text-center mt-5">
+            <a href="./movies.html" class="btn btn-outline-primary btn-lg px-4"><i class="fas fa-plus me-2"></i>Add More Movies & Shows</a>
+        </div>
+    </section>
+
+    <!-- Footer (same as other pages) -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 mb-4">
+                    <h5 class="footer-title">About Flixio</h5>
+                    <p>Your ultimate destination for movies and TV shows. Discover, explore, and enjoy unlimited entertainment.</p>
+                    <div class="social-links mt-3">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <h5 class="footer-title">Quick Links</h5>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="../index.html"><i class="fas fa-angle-right me-2"></i> Home</a></li>
+                        <li><a href="./movies.html"><i class="fas fa-angle-right me-2"></i> Movies</a></li>
+                        <li><a href="./tvshows.html"><i class="fas fa-angle-right me-2"></i> TV Shows</a></li>
+                        <li><a href="./watchlist.html"><i class="fas fa-angle-right me-2"></i> My List</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right me-2"></i> New & Popular</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <h5 class="footer-title">Support</h5>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="#"><i class="fas fa-angle-right me-2"></i> FAQ</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right me-2"></i> Help Center</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right me-2"></i> Terms of Use</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right me-2"></i> Privacy Policy</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right me-2"></i> Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <h5 class="footer-title">Contact</h5>
+                    <ul class="list-unstyled footer-links">
+                        <li><i class="fas fa-map-marker-alt me-2"></i> 1234 Movie St, Hollywood, CA</li>
+                        <li><i class="fas fa-phone me-2"></i> (123) 456-7890</li>
+                        <li><i class="fas fa-envelope me-2"></i> info@flixio.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Flixio. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
