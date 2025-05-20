@@ -794,3 +794,119 @@ body {
         padding: 1.2rem 0.7rem !important;
     }
 }
+
+/* --- Sign In Button Styles --- */
+@media (max-width: 991.98px) {
+  .navbar .ms-3 {
+    margin-left: 0 !important;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    width: auto;
+    display: flex !important;
+    justify-content: flex-start;
+  }
+  .navbar .ms-3 .btn {
+    font-size: 1.08rem;
+    padding: 0.6rem 1.5rem;
+    border-radius: 2rem;
+    font-weight: 600;
+    width: auto;
+    min-width: 120px;
+    box-shadow: 0 2px 8px rgba(1,180,228,0.10);
+  }
+}
+@media (max-width: 575.98px) {
+  .navbar .ms-3 {
+    width: 100%;
+    justify-content: center;
+    margin-top: 0.7rem;
+    margin-bottom: 0.7rem;
+  }
+  .navbar .ms-3 .btn {
+    width: 100%;
+    min-width: unset;
+    font-size: 1.13rem;
+    padding: 0.7rem 0;
+    border-radius: 2rem;
+    box-shadow: 0 2px 12px rgba(1,180,228,0.13);
+  }
+}
+
+/* --- Single Movie Details Page Styles --- */
+.movie-cover-section {
+  position: relative;
+  min-height: 350px;
+  background: var(--primary-color);
+  margin-bottom: 2.5rem;
+}
+.movie-cover-img-wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 350px;
+  overflow: hidden;
+  border-radius: 0 0 24px 24px;
+}
+.movie-cover-img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  filter: brightness(0.7) blur(0.5px);
+  border-radius: 0 0 24px 24px;
+}
+.movie-cover-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(180deg, rgba(3,37,65,0.7) 60%, rgba(3,37,65,0.98) 100%);
+  z-index: 1;
+  border-radius: 0 0 24px 24px;
+}
+.movie-cover-content {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  z-index: 2;
+  padding-bottom: 2.5rem;
+}
+.movie-detail-poster {
+  max-width: 220px;
+  min-width: 140px;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px 0 rgba(1,180,228,0.18);
+  margin-bottom: 1rem;
+}
+@media (max-width: 991.98px) {
+  .movie-cover-img {
+    height: 260px;
+  }
+  .movie-detail-poster {
+    max-width: 160px;
+  }
+}
+@media (max-width: 767.98px) {
+  .movie-cover-img {
+    height: 180px;
+  }
+  .movie-detail-poster {
+    max-width: 120px;
+  }
+  .movie-cover-content {
+    padding-bottom: 1.2rem;
+  }
+}
+.detail-box {
+  background: #181c24;
+  color: var(--light-text);
+  border-radius: 12px;
+  box-shadow: 0 2px 12px 0 rgba(1,180,228,0.08);
+  min-height: 90px;
+}
+.movie-description {
+  color: #b0c4d4;
+  font-size: 1.13rem;
+  line-height: 1.7;
+}
+
+/* Search form placeholder color */
+.search-form .form-control::placeholder {
+  color: #fff !important;
+  opacity: 1;
+}
