@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TV Show Details - CineStream</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="../public/css/main.css">
+</head>
+<body>
+    <!-- Navigation Bar (same as other pages) -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Fli <span>Xio</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="../index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./movies.html">Movies</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./tvshows.html">TV Shows</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Genres</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Watchlist</a>
+                    </li>
+                </ul>
+                <form class="search-form d-flex">
+                    <i class="fas fa-search"></i>
+                    <input class="form-control me-2" type="search" placeholder="Search movies, TV shows..." aria-label="Search">
+                </form>
+                <div class="ms-3">
+                    <a href="#" class="btn btn-outline-light rounded-pill"><i class="fas fa-user me-1"></i> Sign In</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- TV Show Cover Section -->
+    <section class="movie-cover-section position-relative mb-5">
+        <div class="movie-cover-img-wrapper">
+            <img src="/api/placeholder/900/400" alt="TV Show Cover" class="img-fluid w-100 movie-cover-img">
+            <div class="movie-cover-overlay"></div>
+            <div class="container movie-cover-content text-white">
+                <div class="row align-items-end">
+                    <div class="col-md-4 col-lg-3">
+                        <img src="/api/placeholder/300/450" alt="TV Show Poster" class="img-fluid rounded shadow movie-detail-poster">
+                    </div>
+                    <div class="col-md-8 col-lg-9 mt-4 mt-md-0">
+                        <h1 class="display-5 fw-bold mb-2">Stranger Things</h1>
+                        <div class="mb-2">
+                            <span class="badge bg-primary me-2">Drama</span>
+                            <span class="badge bg-secondary me-2">Fantasy</span>
+                            <span class="badge bg-success me-2">Horror</span>
+                        </div>
+                        <div class="mb-2">
+                            <span class="me-3"><i class="fas fa-calendar"></i> 2016</span>
+                            <span class="me-3"><i class="fas fa-film"></i> 4 Seasons</span>
+                            <span class="me-3"><i class="fas fa-star text-warning"></i> 8.7</span>
+                        </div>
+                        <div class="mb-3">
+                            <span class="me-3"><i class="fas fa-users"></i> Winona Ryder, David Harbour, Millie Bobby Brown</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TV Show Trailer Section -->
+    <section class="container mb-5">
+        <h2 class="section-title mb-4">Watch Trailer</h2>
+        <div class="ratio ratio-16x9 rounded shadow overflow-hidden">
+            <iframe src="https://www.youtube.com/embed/b9EkMc79ZSU" title="Stranger Things Trailer" allowfullscreen></iframe>
+        </div>
+    </section>
+
+    <!-- TV Show Description Section -->
+    <section class="container mb-5">
+        <h2 class="section-title mb-4">Description</h2>
+        <p class="lead movie-description">When a young boy vanishes, a small town uncovers a mystery involving secret experiments, terrifying supernatural forces, and one strange little girl.</p>
+    </section>
+
+    <!-- TV Show Seasons Section -->
+    <section class="container mb-5">
+        <h2 class="section-title mb-4">Seasons</h2>
+        <div class="row g-4">
+            <div class="col-12">
+                <div class="detail-box p-4 rounded h-100 text-center">
+                    <h6 class="text-uppercase text-secondary">Total Seasons</h6>
+                    <p class="fs-4 fw-bold mb-0">4</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TV Show Details Section -->
+    <section class="container mb-5">
+        <h2 class="section-title mb-4">Show Details</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="detail-box p-4 rounded h-100">
+                    <h6 class="text-uppercase text-secondary">Genres</h6>
+                    <p>Drama, Fantasy, Horror</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="detail-box p-4 rounded h-100">
+                    <h6 class="text-uppercase text-secondary">First Air Year</h6>
+                    <p>2016</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="detail-box p-4 rounded h-100">
+                    <h6 class="text-uppercase text-secondary">Seasons</h6>
+                    <p>4</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="detail-box p-4 rounded h-100">
+                    <h6 class="text-uppercase text-secondary">Episodes</h6>
+                    <p>34</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="detail-box p-4 rounded h-100">
+                    <h6 class="text-uppercase text-secondary">Cast</h6>
+                    <p>Winona Ryder, David Harbour, Millie Bobby Brown, Finn Wolfhard</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="detail-box p-4 rounded h-100">
+                    <h6 class="text-uppercase text-secondary">IMDB Rating</h6>
+                    <p>8.7</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (same as other pages) -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 mb-4">
+                    <h5 class="footer-title">About CineStream</h5>
+                    <p>Your ultimate destination for movies and TV shows. Discover, explore, and enjoy unlimited entertainment.</p>
+                    <div class="social-links mt-3">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <h5 class="footer-title">Quick Links</h5>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="#"><i class="fas fa-angle-right me-2"></i> Home</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right me-2"></i> Movies</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right me-2"></i> TV Shows</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right me-2"></i> My List</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right me-2"></i> New & Popular</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <h5 class="footer-title">Support</h5>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="#"><i class="fas fa-angle-right me-2"></i> FAQ</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right me-2"></i> Help Center</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right me-2"></i> Terms of Use</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right me-2"></i> Privacy Policy</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right me-2"></i> Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <h5 class="footer-title">Contact</h5>
+                    <ul class="list-unstyled footer-links">
+                        <li><i class="fas fa-map-marker-alt me-2"></i> 1234 Movie St, Hollywood, CA</li>
+                        <li><i class="fas fa-phone me-2"></i> (123) 456-7890</li>
+                        <li><i class="fas fa-envelope me-2"></i> info@cinestream.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 CineStream. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
