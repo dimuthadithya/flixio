@@ -11,7 +11,7 @@ class TvShowController extends Controller
      */
     public function index()
     {
-        return view('tvShows');
+        return view('tvshows');
     }
 
     /**
