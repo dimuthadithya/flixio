@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use App\Services\TmdbService;
 
 class TmdbServiceProvider extends ServiceProvider
 {
@@ -11,7 +12,9 @@ class TmdbServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        $this->app->singleton(TmdbService::class, function ($app) {
+            return new TmdbService();
+        });
     }
 
     /**
