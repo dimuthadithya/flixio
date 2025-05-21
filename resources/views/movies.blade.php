@@ -50,7 +50,7 @@
 
 
     @foreach ($popularMovies['results'] as $popularMovie )
-    <x-movie-card :movie="$popularMovie" />
+    <x-movie-card :movie="$popularMovie" :image="$getImageUrl($popularMovie['poster_path'])" />
     @endforeach
   </div>
 </main>

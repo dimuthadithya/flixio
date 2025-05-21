@@ -9,15 +9,17 @@ use Illuminate\View\Component;
 class MovieCard extends Component
 {
     public $movie;
+    public $image;
 
 
 
     /**
      * Create a new component instance.
      */
-    public function __construct($movie)
+    public function __construct($movie, $image)
     {
         $this->movie = $movie;
+        $this->image = $image;
     }
 
     /**

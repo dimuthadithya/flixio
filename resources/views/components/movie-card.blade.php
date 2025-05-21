@@ -1,7 +1,7 @@
 <div class="col-6 col-md-4 col-lg-3">
     <div class="movie-card">
         <div class="movie-poster">
-            <img src="{{ $movie['poster_path'] }}" class="img-fluid" alt="Movie Poster">
+            <img src="{{ $image }}" class="img-fluid" alt="Movie Poster">
             <div class="movie-rating">
                 <i class="fas fa-star text-warning"></i> {{ $movie['vote_average'] }}
             </div>

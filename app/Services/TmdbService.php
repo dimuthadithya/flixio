@@ -45,7 +45,7 @@ class TmdbService
      * @param string $size
      * @return string|null
      */
-    public function getImageUrl($path, $size = 'w500')
+    public function getImageUrl($path, $size = '/w500')
     {
         if (empty($path)) {
             return null;

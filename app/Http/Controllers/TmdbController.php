@@ -25,7 +25,7 @@ class TmdbController extends Controller
 
         return view('movies', [
             'popularMovies' => $popularMovies,
-            // 'getImageUrl' => [$this->tmdbService, 'getImageUrl'],
+            'getImageUrl' => [$this->tmdbService, 'getImageUrl'],
         ]);
     }
 }
