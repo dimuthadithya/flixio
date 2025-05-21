@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,18 +12,19 @@
     <!-- Main CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
 </head>
+
 <body>
     <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="#">Fli <span>Xio</span></a>
+            <a class="navbar-brand" href="{{ route('welcome')  }}">Fli <span>Xio</span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" href="./index.html">Home</a>
+                        <a class="nav-link active" href="{{ route('welcome') }}">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="./views/movies.html">Movies</a>
@@ -31,7 +33,7 @@
                         <a class="nav-link" href="./views/tvshows.html">TV Shows</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./views/about.html">About Us</a>
+                        <a class="nav-link" href="{{ route('about') }}">About Us</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="./views/watchlist.html">Watchlist</a>
@@ -52,7 +54,7 @@
 
     <!-- Footer -->
 
-       <footer class="footer">
+    <footer class="footer">
         <div class="container">
             <div class="row">
                 <div class="col-md-3 mb-4">
@@ -68,7 +70,7 @@
                 <div class="col-md-3 mb-4">
                     <h5 class="footer-title">Quick Links</h5>
                     <ul class="list-unstyled footer-links">
-                        <li><a href="#"><i class="fas fa-angle-right me-2"></i> Home</a></li>
+                        <li><a href="{{ route('welcome') }}"><i class="fas fa-angle-right me-2"></i> Home</a></li>
                         <li><a href="#"><i class="fas fa-angle-right me-2"></i> Movies</a></li>
                         <li><a href="#"><i class="fas fa-angle-right me-2"></i> TV Shows</a></li>
                         <li><a href="#"><i class="fas fa-angle-right me-2"></i> My List</a></li>
@@ -103,4 +105,5 @@
     <!-- Bootstrap JS Bundle with Popper -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
