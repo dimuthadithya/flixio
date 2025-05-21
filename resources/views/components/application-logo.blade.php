@@ -4,6 +4,6 @@
 
 
 <div class="container">
-    <a class="navbar-brand" style="font-weight: 700; font-size: 2.2rem; color: #f8f9fa;" href="{{ route('welcome') }}"><span style="font-size: 3.7rem;">F</span>li<span style="color: #3B82F6; font-size: 2.7rem;">Xio</span></a>
+    <a class="navbar-brand" style="font-weight: 700; font-size: 2.2rem; color: #f8f9fa;" href="{{ route('welcome') }}"><span style="font-size: 3.7rem;">F</span>li<span style="color: #01b4e4; font-size: 2.7rem;">Xio</span></a>
     <p style=" color: #f8f9fa; font-size: 0.9rem; font-weight: 500; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-style: italic;">Entertainment</p>
 </div>

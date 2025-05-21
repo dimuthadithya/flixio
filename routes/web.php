@@ -24,6 +24,10 @@ Route::get('/about', function () {
     return view("about");
 })->name('about');
 
+Route::get('/user', function () {
+    return view("user.dashboard");
+})->name('user.dashboard');
+
 Route::get('/movies', [MovieController::class, 'index'])->name('movies');
 Route::get('/tvShows', [TvShowController::class, 'index'])->name('tvShows');
 Route::get('/watchList', [WatchListController::class, 'index'])->name('watchList');

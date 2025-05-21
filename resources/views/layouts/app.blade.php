@@ -36,6 +36,9 @@
                         <a class="nav-link" href="{{ route('about') }}">About Us</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="{{ route('user.dashboard') }}">Us</a>
+                    </li>
+                    <li class="nav-item">
                         @guest
                         <a class="nav-link" href="{{ route('login')}}">Watchlist</a>
                         @else
