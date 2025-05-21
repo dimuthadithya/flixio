@@ -44,7 +44,11 @@
                     <input class="form-control me-2 text-light" type="search" placeholder="Search movies, TV shows..." aria-label="Search">
                 </form>
                 <div class="ms-3">
-                    <a href="#" class="btn btn-outline-light rounded-pill"><i class="fas fa-user me-1"></i> Sign In</a>
+                    @guest
+                        <a href="{{ route('login') }}" class="btn btn-outline-light"><i class="fas fa-user me-1"></i></a>
+                    @else
+                        <a href="#" class="btn btn-outline-light"><i class="fas fa-user me-1"></i></a>
+                    @endguest
                 </div>
             </div>
         </div>

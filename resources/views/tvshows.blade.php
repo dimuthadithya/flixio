@@ -1,0 +1,94 @@
+@extends('layouts.app')
+@section('content')
+
+<main class="tvshows-section">
+  <h1 class="tvshows-title">All TV Shows</h1>
+  <div class="tvshows-filters container mb-4">
+    <form class="row g-3 align-items-end mb-5">
+      <div class="col-md-4">
+        <label for="genre" class="form-label text-light">Genre</label>
+        <select id="genre" class="form-select">
+          <option selected>All</option>
+          <option>Action</option>
+          <option>Comedy</option>
+          <option>Drama</option>
+          <option>Thriller</option>
+          <option>Romance</option>
+          <option>Horror</option>
+          <option>Sci-Fi</option>
+          <option>Animation</option>
+        </select>
+      </div>
+      <div class="col-md-4">
+        <label for="release" class="form-label text-light">Release Date</label>
+        <select id="release" class="form-select">
+          <option selected>All</option>
+          <option>2025</option>
+          <option>2024</option>
+          <option>2023</option>
+          <option>2022</option>
+          <option>2021</option>
+          <option>2020</option>
+          <option>2010-2019</option>
+          <option>2000-2009</option>
+          <option>1990-1999</option>
+        </select>
+      </div>
+      <div class="col-md-4">
+        <label for="popularity" class="form-label text-light">Sort By</label>
+        <select id="popularity" class="form-select">
+          <option selected>Popularity</option>
+          <option>Rating</option>
+          <option>Newest</option>
+          <option>Oldest</option>
+        </select>
+      </div>
+    </form>
+  </div>
+  <div class="tvshows-grid mt-4">
+    <!-- Example static TV show cards; replace with dynamic content as needed -->
+    <div class="tvshow-card">
+      <div style="position:relative;">
+        <img src="/api/placeholder/300/450" alt="Breaking Bad Poster" class="tvshow-poster">
+        <div class="tvshow-rating"><i class="fas fa-star text-warning"></i> 9.3</div>
+      </div>
+      <div class="tvshow-info">
+        <div class="tvshow-name">Breaking Bad</div>
+        <div class="tvshow-year">2008</div>
+      </div>
+    </div>
+    <div class="tvshow-card">
+      <div style="position:relative;">
+        <img src="/api/placeholder/300/450" alt="Game of Thrones Poster" class="tvshow-poster">
+        <div class="tvshow-rating"><i class="fas fa-star text-warning"></i> 9.2</div>
+      </div>
+      <div class="tvshow-info">
+        <div class="tvshow-name">Game of Thrones</div>
+        <div class="tvshow-year">2011</div>
+      </div>
+    </div>
+    <div class="tvshow-card">
+      <div style="position:relative;">
+        <img src="/api/placeholder/300/450" alt="Stranger Things Poster" class="tvshow-poster">
+        <div class="tvshow-rating"><i class="fas fa-star text-warning"></i> 8.9</div>
+      </div>
+      <div class="tvshow-info">
+        <div class="tvshow-name">Stranger Things</div>
+        <div class="tvshow-year">2016</div>
+      </div>
+    </div>
+    <div class="tvshow-card">
+      <div style="position:relative;">
+        <img src="/api/placeholder/300/450" alt="The Crown Poster" class="tvshow-poster">
+        <div class="tvshow-rating"><i class="fas fa-star text-warning"></i> 8.8</div>
+      </div>
+      <div class="tvshow-info">
+        <div class="tvshow-name">The Crown</div>
+        <div class="tvshow-year">2016</div>
+      </div>
+    </div>
+    <!-- Add more TV show cards as needed -->
+  </div>
+</main>
+
+@endsection
