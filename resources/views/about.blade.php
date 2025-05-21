@@ -7,15 +7,15 @@
             <div class="col-lg-6 mb-4 mb-lg-0">
                 <div class="about-gallery row g-3 justify-content-center align-items-center">
                     <div class="col-6">
-                        <img src="https://img.freepik.com/free-photo/cinema-elements-composition_23-2147691025.jpg?w=900" alt="About Flixio" class="img-fluid rounded shadow w-100" style="height:220px; object-fit:cover;">
+                        <img src="{{ asset('assets/images/about_cover_01.png') }}" alt="About Flixio" class="img-fluid rounded shadow w-100" style="height:420px; object-fit:cover;">
                     </div>
                     <div class="col-6 d-flex flex-column gap-3">
-                        <img src="https://img.freepik.com/free-photo/movie-background-collage_23-2149876017.jpg?w=900" alt="Flixio Cinema" class="img-fluid rounded shadow w-100" style="height:105px; object-fit:cover;">
-                        <img src="https://img.freepik.com/free-photo/film-reel-popcorn_23-2147691027.jpg?w=900" alt="Flixio Popcorn" class="img-fluid rounded shadow w-100" style="height:105px; object-fit:cover;">
+                        <img src="{{ asset('assets/images/about_cover_02.png') }}" alt="Flixio Cinema" class="img-fluid rounded shadow w-100" style="height:350px; object-fit:cover;">
+                        <img src="{{ asset('assets/images/about_cover_03.png') }}" alt="Flixio Popcorn" class="img-fluid rounded shadow w-100" style="height:300px; object-fit:cover;">
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-6 p-4">
                 <h1 class="display-5 fw-bold mb-3 about-title">About Flixio</h1>
                 <p class="lead">Flixio is your ultimate destination for streaming the latest movies and TV shows. Our mission is to bring the magic of cinema to your fingertips, offering a seamless, user-friendly, and visually stunning platform for all your entertainment needs.</p>
                 <ul class="list-unstyled mb-4">
@@ -80,7 +80,7 @@
                 </div>
             </div>
             <div class="col-lg-5">
-                <img src="https://img.freepik.com/free-photo/people-watching-movie-theater_23-2149304982.jpg?w=900" alt="Flixio Community" class="img-fluid rounded shadow">
+                <img src="{{ asset('assets/images/about_cover_all.png') }}" alt="Flixio Community" class="img-fluid rounded shadow">
             </div>
         </div>
     </section>
