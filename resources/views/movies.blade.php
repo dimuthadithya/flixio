@@ -47,48 +47,12 @@
     </form>
   </div>
   <div class="movies-grid mt-4">
-    <!-- Example static movie cards; replace with dynamic content as needed -->
-    <div class="movie-card">
-      <div style="position:relative;">
-        <img src="/api/placeholder/300/450" alt="Inception Poster" class="movie-poster">
-        <div class="movie-rating"><i class="fas fa-star text-warning"></i> 8.5</div>
-      </div>
-      <div class="movie-info">
-        <div class="movie-name">Inception</div>
-        <div class="movie-year">2020</div>
-      </div>
-    </div>
-    <div class="movie-card">
-      <div style="position:relative;">
-        <img src="/api/placeholder/300/450" alt="Shawshank Redemption Poster" class="movie-poster">
-        <div class="movie-rating"><i class="fas fa-star text-warning"></i> 9.2</div>
-      </div>
-      <div class="movie-info">
-        <div class="movie-name">The Shawshank Redemption</div>
-        <div class="movie-year">1994</div>
-      </div>
-    </div>
-    <div class="movie-card">
-      <div style="position:relative;">
-        <img src="/api/placeholder/300/450" alt="The Dark Knight Poster" class="movie-poster">
-        <div class="movie-rating"><i class="fas fa-star text-warning"></i> 8.9</div>
-      </div>
-      <div class="movie-info">
-        <div class="movie-name">The Dark Knight</div>
-        <div class="movie-year">2008</div>
-      </div>
-    </div>
-    <div class="movie-card">
-      <div style="position:relative;">
-        <img src="/api/placeholder/300/450" alt="Pulp Fiction Poster" class="movie-poster">
-        <div class="movie-rating"><i class="fas fa-star text-warning"></i> 8.7</div>
-      </div>
-      <div class="movie-info">
-        <div class="movie-name">Pulp Fiction</div>
-        <div class="movie-year">1994</div>
-      </div>
-    </div>
-    <!-- Add more movie cards as needed -->
+
+
+    @foreach ($popularMovies['results'] as $popularMovie )
+    <x-movie-card :movie="$popularMovie" />
+    @endforeach
   </div>
 </main>
+
 @endsection

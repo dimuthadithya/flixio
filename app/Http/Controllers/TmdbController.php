@@ -17,9 +17,15 @@ class TmdbController extends Controller
     public function index()
     {
         $popularMovies = $this->tmdbService->getPopularMovies();
+
+
         // $nowPlayingMovies = $this->tmdbService->getNowPlayingMovies();
         // $upcomingMovies = $this->tmdbService->getUpcomingMovies();
         // $genres = $this->tmdbService->getGenres();
 
+        return view('movies', [
+            'popularMovies' => $popularMovies,
+            // 'getImageUrl' => [$this->tmdbService, 'getImageUrl'],
+        ]);
     }
 }
