@@ -107,6 +107,7 @@
             padding: 1.5rem;
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
             margin-top: 1.5rem;
+            height: 90vh;
         }
         
         .user-profile {

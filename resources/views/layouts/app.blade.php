@@ -36,9 +36,6 @@
                         <a class="nav-link" href="{{ route('about') }}">About Us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('user.dashboard') }}">Us</a>
-                    </li>
-                    <li class="nav-item">
                         @guest
                         <a class="nav-link" href="{{ route('login')}}">Watchlist</a>
                         @else
@@ -54,10 +51,11 @@
                     @guest
                     <a href="{{ route('login') }}" class="btn btn-outline-light"><i class="fas fa-user me-1"></i></a>
                     @else
-                    <form action="{{ route('logout') }}" method="POST">
-                        @csrf
-                        <button type="submit" class="btn btn-outline-light"><i class="fas fa-sign-out-alt me-1"></i></button>
-                    </form>
+                    @if (Auth::user()->role == 'admin')
+                    <a href="{{ route('admin.dashboard') }}" class="btn btn-outline-light"><i class="fas fa-user me-1"></i></a>
+                    @else
+                    <a href="{{ route('user.dashboard') }}" class="btn btn-outline-light"><i class="fas fa-user me-1"></i></a>
+                    @endif
                     @endguest
                 </div>
             </div>
