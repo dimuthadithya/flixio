@@ -1,0 +1,957 @@
+/* --- index.css --- */
+:root {
+     --primary-color: #032541;
+     --secondary-color: #01b4e4;
+     --accent-color: #90cea1;
+     --dark-bg: #0a1929;
+     --light-text: #f8f9fa;
+ }
+
+ body {
+     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+     background-color: #121212;
+     color: var(--light-text);
+ }
+
+ .navbar {
+     background-color: var(--primary-color);
+     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+ }
+
+ .navbar-brand {
+     font-weight: 700;
+     font-size: 1.8rem;
+     color: var(--light-text);
+ }
+
+ .navbar-brand span {
+     color: var(--secondary-color);
+ }
+
+ .nav-link {
+     color: var(--light-text) !important;
+     font-weight: 500;
+     transition: all 0.3s;
+     margin: 0 5px;
+ }
+
+ .nav-link:hover {
+     color: var(--secondary-color) !important;
+     transform: translateY(-2px);
+ }
+
+ .search-form {
+     position: relative;
+ }
+
+ .search-form input {
+     border-radius: 30px;
+     padding-left: 40px;
+     background-color: rgba(255, 255, 255, 0.1);
+     border: 1px solid rgba(255, 255, 255, 0.2);
+     color: var(--light-text);
+ }
+
+ .search-form input:focus {
+     background-color: rgba(255, 255, 255, 0.15);
+     border-color: var(--secondary-color);
+     box-shadow: 0 0 0 0.2rem rgba(1, 180, 228, 0.25);
+     color: var(--light-text);
+ }
+
+ .search-form i {
+     position: absolute;
+     left: 15px;
+     top: 12px;
+     color: rgba(255, 255, 255, 0.7);
+ }
+
+ .hero-section {
+     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("/api/placeholder/1920/600") center/cover no-repeat;
+     padding: 120px 0;
+     margin-bottom: 40px;
+ }
+
+ .hero-content {
+     text-align: center;
+ }
+
+ .hero-content h1 {
+     font-size: 3.5rem;
+     font-weight: 700;
+     margin-bottom: 20px;
+ }
+
+ .hero-content p {
+     font-size: 1.2rem;
+     margin-bottom: 30px;
+     max-width: 600px;
+     margin-left: auto;
+     margin-right: auto;
+ }
+
+ .btn-primary {
+     background-color: var(--secondary-color);
+     border-color: var(--secondary-color);
+     border-radius: 30px;
+     padding: 10px 25px;
+     font-weight: 600;
+     text-transform: uppercase;
+     transition: all 0.3s;
+ }
+
+ .btn-primary:hover {
+     background-color: var(--accent-color);
+     border-color: var(--accent-color);
+     transform: translateY(-3px);
+     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+ }
+
+ .section-title {
+     margin-bottom: 30px;
+     position: relative;
+     display: inline-block;
+ }
+
+ .section-title:after {
+     content: '';
+     position: absolute;
+     bottom: -10px;
+     left: 0;
+     width: 50px;
+     height: 3px;
+     background-color: var(--secondary-color);
+ }
+
+ .movie-card, .tvshow-card {
+  background: #1a1a1a;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  margin-bottom: 25px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.movie-card:hover, .tvshow-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+.movie-poster, .tvshow-poster {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  display: block;
+}
+
+.movie-rating, .tvshow-rating {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: 20px;
+  padding: 5px 10px;
+  font-weight: bold;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  z-index: 2;
+}
+
+.movie-info, .tvshow-info {
+  padding: 15px;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.movie-name, .tvshow-name {
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.movie-year, .tvshow-year {
+  color: #adb5bd;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.category-tabs {
+     margin-bottom: 30px;
+ }
+
+ .category-tabs .nav-link {
+     border-radius: 30px;
+     margin: 0 5px;
+     padding: 8px 20px;
+     border: 1px solid transparent;
+     color: #adb5bd !important;
+ }
+
+ .category-tabs .nav-link.active {
+     background-color: var(--secondary-color);
+     border-color: var(--secondary-color);
+     color: white !important;
+ }
+
+ .footer {
+     background-color: var(--dark-bg);
+     padding: 60px 0 30px;
+     margin-top: 50px;
+ }
+
+ .footer-title {
+     color: var(--light-text);
+     font-weight: 600;
+     margin-bottom: 20px;
+     position: relative;
+     padding-bottom: 10px;
+ }
+
+ .footer-title:after {
+     content: '';
+     position: absolute;
+     bottom: 0;
+     left: 0;
+     width: 30px;
+     height: 2px;
+     background-color: var(--secondary-color);
+ }
+
+ .footer-links li {
+     margin-bottom: 10px;
+ }
+
+ .footer-links a {
+     color: #adb5bd;
+     text-decoration: none;
+     transition: all 0.3s;
+ }
+
+ .footer-links a:hover {
+     color: var(--secondary-color);
+     padding-left: 5px;
+ }
+
+ .social-links a {
+     display: inline-block;
+     width: 36px;
+     height: 36px;
+     background-color: rgba(255, 255, 255, 0.1);
+     border-radius: 50%;
+     text-align: center;
+     line-height: 36px;
+     margin-right: 10px;
+     color: var(--light-text);
+     transition: all 0.3s;
+ }
+
+ .social-links a:hover {
+     background-color: var(--secondary-color);
+     transform: translateY(-3px);
+ }
+
+ .copyright {
+     border-top: 1px solid rgba(255, 255, 255, 0.1);
+     padding-top: 20px;
+     margin-top: 40px;
+     text-align: center;
+     color: #adb5bd;
+ }
+
+ @media (max-width: 767px) {
+     .hero-content h1 {
+         font-size: 2.5rem;
+     }
+
+     .navbar-collapse {
+         background-color: var(--primary-color);
+         padding: 15px;
+         border-radius: 5px;
+         margin-top: 10px;
+     }
+ }
+
+ @media (max-width: 768px) {
+  .movie-card, .tvshow-card {
+    width: 45vw;
+    min-width: 160px;
+    max-width: 220px;
+  }
+  .movie-poster, .tvshow-poster {
+    height: 220px;
+  }
+}
+
+@media (max-width: 480px) {
+  .movie-card, .tvshow-card {
+    width: 90vw;
+    min-width: 140px;
+    max-width: 220px;
+  }
+  .movie-poster, .tvshow-poster {
+    height: 180px;
+  }
+}
+
+/* --- Responsive Movie/Show Card Fixes --- */
+@media (max-width: 991.98px) {
+  .movie-card, .tvshow-card {
+    width: 100%;
+    min-width: unset;
+    max-width: unset;
+    margin-bottom: 20px;
+  }
+  .movie-poster, .tvshow-poster {
+    height: 220px;
+  }
+}
+@media (max-width: 767.98px) {
+  .movie-card, .tvshow-card {
+    width: 100%;
+    min-width: unset;
+    max-width: unset;
+    margin-bottom: 18px;
+  }
+  .movie-poster, .tvshow-poster {
+    height: 180px;
+  }
+  .row > [class*='col-'] {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+@media (max-width: 575.98px) {
+  .movie-card, .tvshow-card {
+    width: 100%;
+    min-width: unset;
+    max-width: unset;
+    margin-bottom: 14px;
+  }
+  .movie-poster, .tvshow-poster {
+    height: 140px;
+  }
+  .row > [class*='col-'] {
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+}
+
+/* --- movies.css --- */
+/* movies.css - Updated to use unified card/grid styles from index.css for consistency with tvshows.html
+ * Remove/override custom .movie-card, .movie-poster, .movie-rating, .movie-info, .movie-name, .movie-year, .movies-grid styles
+ * Use only .movie-card, .movie-poster, etc. from index.css
+ */
+
+/* Remove/override duplicate card styles for a unified look */
+.movies-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Remove custom .movie-card, .movie-poster, .movie-rating, .movie-info, .movie-name, .movie-year styles here to avoid conflicts */
+.movie-card, .movie-poster, .movie-rating, .movie-info, .movie-name, .movie-year {
+  all: unset;
+}
+
+/* Re-apply only layout for grid */
+.movies-grid > .movie-card {
+  margin-bottom: 25px;
+}
+
+/* Ensure all movie posters are the same size and cards are ready for images */
+.movie-card, .tvshow-card {
+  width: 220px;
+  min-width: 180px;
+  max-width: 220px;
+  display: flex;
+  flex-direction: column;
+  background: #1a1a1a;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  margin-bottom: 25px;
+  position: relative;
+  cursor: pointer;
+}
+
+.movie-poster, .tvshow-poster {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  display: block;
+  background: #232323;
+}
+
+/* Responsive tweaks for grid spacing */
+@media (max-width: 900px) {
+  .movies-grid {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .movies-grid {
+    gap: 16px;
+  }
+  .movie-card, .tvshow-card {
+    width: 45vw;
+    min-width: 140px;
+    max-width: 220px;
+  }
+  .movie-poster, .tvshow-poster {
+    height: 220px;
+  }
+}
+
+@media (max-width: 480px) {
+  .movies-grid {
+    gap: 10px;
+  }
+  .movie-card, .tvshow-card {
+    width: 90vw;
+    min-width: 120px;
+    max-width: 220px;
+  }
+  .movie-poster, .tvshow-poster {
+    height: 180px;
+  }
+}
+
+/* Center movie/show cards and testimonial cards on mobile */
+@media (max-width: 767.98px) {
+  .row {
+    justify-content: center !important;
+  }
+  .movie-card, .tvshow-card, .testimonial-card {
+    margin-left: auto;
+    margin-right: auto;
+    float: none;
+  }
+}
+@media (max-width: 575.98px) {
+  .row {
+    justify-content: center !important;
+  }
+  .movie-card, .tvshow-card, .testimonial-card {
+    margin-left: auto;
+    margin-right: auto;
+    float: none;
+  }
+}
+
+/* Center the movies title */
+.movies-title {
+  color: #fff;
+  font-size: 2.5rem;
+  margin-bottom: 32px;
+  margin-top: 40px;
+  text-align: center;
+  letter-spacing: 1px;
+  width: 100%;
+  display: block;
+}
+
+@media (max-width: 600px) {
+  .movies-title {
+    margin-top: 24px;
+    font-size: 1.7rem;
+  }
+}
+
+/* Improve movies filters appearance */
+.movies-filters {
+  background: rgba(20, 24, 32, 0.97);
+  border-radius: 18px;
+  box-shadow: 0 4px 24px 0 rgba(0,0,0,0.18);
+  padding: 6px 8px 6px 8px;
+  margin-bottom: 2.5rem;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.movies-filters .form-label {
+  color: #e0e0e0;
+  font-weight: 500;
+}
+
+.movies-filters .form-select,
+.movies-filters .form-control[type="search"] {
+  background: #181c24;
+  color: #fff;
+  border: 1px solid #2c3440;
+  border-radius: 10px;
+  box-shadow: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.movies-filters .form-select:focus,
+.movies-filters .form-control[type="search"]:focus {
+  border-color: #01b4e4;
+  box-shadow: 0 0 0 0.15rem rgba(1,180,228,0.18);
+  background: #232a36;
+  color: #fff;
+}
+
+.movies-filters .form-select option {
+  background: #232a36;
+  color: #fff;
+}
+
+@media (max-width: 600px) {
+  .movies-filters {
+    padding: 2px 2px 2px 2px;
+    border-radius: 12px;
+    margin: 10px 4px 18px 4px;
+    max-width: 100vw;
+    width: 100vw;
+    box-sizing: border-box;
+    overflow-x: hidden;
+  }
+  .movies-filters .row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+}
+
+/* Let index.css handle card sizing, poster, info, etc. */
+
+/* --- tvshows.css --- */
+/* tvshows.css - Styling for the TV shows page, matching the movies page theme */
+
+body {
+  background: #181818;
+  color: #fff;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.tvshows-title {
+  color: #fff;
+  font-size: 2.5rem;
+  margin-bottom: 32px;
+  margin-top: 40px;
+  text-align: center;
+  letter-spacing: 1px;
+  width: 100%;
+  display: block;
+}
+
+@media (max-width: 600px) {
+  .tvshows-title {
+    margin-top: 24px;
+    font-size: 1.7rem;
+  }
+}
+
+/* Improve tvshows filters appearance and fix mobile overflow */
+.tvshows-filters {
+  background: rgba(20, 24, 32, 0.97);
+  border-radius: 18px;
+  box-shadow: 0 4px 24px 0 rgba(0,0,0,0.18);
+  padding: 6px 8px 6px 8px;
+  margin-bottom: 2.5rem;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.tvshows-filters form {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+.tvshows-filters .col-md-4 {
+  flex: 1 1 220px;
+  max-width: 300px;
+  min-width: 180px;
+}
+@media (max-width: 900px) {
+  .tvshows-filters form {
+    gap: 16px;
+  }
+  .tvshows-filters .col-md-4 {
+    max-width: 100%;
+    min-width: 140px;
+  }
+}
+@media (max-width: 600px) {
+  .tvshows-filters {
+    padding: 2px 2px 2px 2px;
+    border-radius: 12px;
+    margin: 10px 4px 18px 4px;
+    max-width: 100vw;
+    width: 100vw;
+    box-sizing: border-box;
+    overflow-x: hidden;
+  }
+  .tvshows-filters .row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  .tvshows-filters .form-label {
+    font-size: 1rem;
+  }
+  .tvshows-filters .form-select,
+  .tvshows-filters .form-control[type="search"] {
+    font-size: 0.98rem;
+    padding: 8px 10px;
+  }
+}
+
+.tvshows-filters .form-label {
+  color: #e0e0e0;
+  font-weight: 500;
+}
+
+.tvshows-filters .form-select,
+.tvshows-filters .form-control[type="search"] {
+  background: #181c24;
+  color: #fff;
+  border: 1px solid #2c3440;
+  border-radius: 10px;
+  box-shadow: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.tvshows-filters .form-select:focus,
+.tvshows-filters .form-control[type="search"]:focus {
+  border-color: #01b4e4;
+  box-shadow: 0 0 0 0.15rem rgba(1,180,228,0.18);
+  background: #232a36;
+  color: #fff;
+}
+
+.tvshows-filters .form-select option {
+  background: #232a36;
+  color: #fff;
+}
+
+/* TV show cards grid and card sizing (match movies) */
+.tvshows-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.tvshow-card {
+  width: 220px;
+  min-width: 180px;
+  max-width: 220px;
+  display: flex;
+  flex-direction: column;
+  background: #1a1a1a;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  margin-bottom: 25px;
+  position: relative;
+  cursor: pointer;
+}
+
+.tvshow-poster {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  display: block;
+  background: #232323;
+}
+
+@media (max-width: 900px) {
+  .tvshows-grid {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .tvshows-grid {
+    gap: 16px;
+  }
+  .tvshow-card {
+    width: 45vw;
+    min-width: 140px;
+    max-width: 220px;
+  }
+  .tvshow-poster {
+    height: 220px;
+  }
+}
+
+@media (max-width: 480px) {
+  .tvshows-grid {
+    gap: 10px;
+  }
+  .tvshow-card {
+    width: 90vw;
+    min-width: 120px;
+    max-width: 220px;
+  }
+  .tvshow-poster {
+    height: 180px;
+  }
+}
+
+/* --- Feedback Form Styles --- */
+.feedback-box {
+    background-color: var(--primary-color);
+    color: var(--light-text);
+    box-shadow: 0 4px 24px 0 rgba(0,0,0,0.18);
+    border-radius: 18px;
+    padding: 2rem 1.5rem !important;
+    max-width: 100%;
+}
+.feedback-form .form-label {
+    color: var(--accent-color);
+    font-weight: 500;
+    font-size: 0.98rem;
+}
+.feedback-form .form-control, .feedback-form textarea {
+    background: #181c24;
+    color: #fff;
+    border: 1px solid #2c3440;
+    border-radius: 8px;
+    box-shadow: none;
+    margin-bottom: 6px;
+    font-size: 0.98rem;
+    padding: 0.5rem 0.9rem;
+}
+.feedback-form .form-control:focus, .feedback-form textarea:focus {
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 0.12rem rgba(1,180,228,0.13);
+    background: #232a36;
+    color: #fff;
+}
+.feedback-form button[type="submit"] {
+    border-radius: 30px;
+    font-weight: 600;
+    padding: 8px 24px;
+    background: var(--secondary-color);
+    border: none;
+    transition: all 0.3s;
+    font-size: 1rem;
+}
+.feedback-form button[type="submit"]:hover {
+    background: var(--accent-color);
+    color: #232323;
+}
+
+/* --- Testimonial Section Styles --- */
+.testimonial-card {
+    background: #1a1a1a;
+    color: var(--light-text);
+    border-radius: 16px;
+    box-shadow: 0 4px 24px 0 rgba(0,0,0,0.18);
+    border: 1px solid rgba(255,255,255,0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.testimonial-card:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 8px 32px 0 rgba(1,180,228,0.12);
+}
+.testimonial-text {
+    font-style: italic;
+    color: #b0c4d4;
+    font-size: 1.05rem;
+}
+.testimonial-avatar {
+    display: none !important;
+}
+@media (max-width: 768px) {
+    .testimonial-card {
+        margin-bottom: 20px;
+        min-height: 120px;
+    }
+    .feedback-box {
+        padding: 1.2rem 0.7rem !important;
+    }
+}
+
+/* --- Sign In Button Styles --- */
+@media (max-width: 991.98px) {
+  .navbar .ms-3 {
+    margin-left: 0 !important;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    width: auto;
+    display: flex !important;
+    justify-content: flex-start;
+  }
+  .navbar .ms-3 .btn {
+    font-size: 1.08rem;
+    padding: 0.6rem 1.5rem;
+    border-radius: 2rem;
+    font-weight: 600;
+    width: auto;
+    min-width: 120px;
+    box-shadow: 0 2px 8px rgba(1,180,228,0.10);
+  }
+}
+@media (max-width: 575.98px) {
+  .navbar .ms-3 {
+    width: 100%;
+    justify-content: center;
+    margin-top: 0.7rem;
+    margin-bottom: 0.7rem;
+  }
+  .navbar .ms-3 .btn {
+    width: 100%;
+    min-width: unset;
+    font-size: 1.13rem;
+    padding: 0.7rem 0;
+    border-radius: 2rem;
+    box-shadow: 0 2px 12px rgba(1,180,228,0.13);
+  }
+}
+
+/* --- Single Movie Details Page Styles --- */
+.movie-cover-section {
+  position: relative;
+  min-height: 350px;
+  background: var(--primary-color);
+  margin-bottom: 2.5rem;
+}
+.movie-cover-img-wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 350px;
+  overflow: hidden;
+  border-radius: 0 0 24px 24px;
+}
+.movie-cover-img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  filter: brightness(0.7) blur(0.5px);
+  border-radius: 0 0 24px 24px;
+}
+.movie-cover-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(180deg, rgba(3,37,65,0.7) 60%, rgba(3,37,65,0.98) 100%);
+  z-index: 1;
+  border-radius: 0 0 24px 24px;
+}
+.movie-cover-content {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  z-index: 2;
+  padding-bottom: 2.5rem;
+}
+.movie-detail-poster {
+  max-width: 220px;
+  min-width: 140px;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px 0 rgba(1,180,228,0.18);
+  margin-bottom: 1rem;
+}
+@media (max-width: 991.98px) {
+  .movie-cover-img {
+    height: 260px;
+  }
+  .movie-detail-poster {
+    max-width: 160px;
+  }
+}
+@media (max-width: 767.98px) {
+  .movie-cover-img {
+    height: 180px;
+  }
+  .movie-detail-poster {
+    max-width: 120px;
+  }
+  .movie-cover-content {
+    padding-bottom: 1.2rem;
+  }
+}
+.detail-box {
+  background: #181c24;
+  color: var(--light-text);
+  border-radius: 12px;
+  box-shadow: 0 2px 12px 0 rgba(1,180,228,0.08);
+  min-height: 90px;
+}
+.movie-description {
+  color: #b0c4d4;
+  font-size: 1.13rem;
+  line-height: 1.7;
+}
+
+/* Search form placeholder color */
+.search-form .form-control::placeholder {
+  color: #fff !important;
+  opacity: 1;
+}
+
+/* About Us Page Enhancements */
+.about-gallery img {
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 4px 24px 0 rgba(0,0,0,0.25);
+}
+.about-gallery img:hover {
+  transform: scale(1.04) rotate(-2deg);
+  box-shadow: 0 8px 32px 0 rgba(0,0,0,0.35);
+}
+.about-title {
+  color: #fff;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.25);
+  letter-spacing: 1px;
+}
+.about-highlight-box {
+  background: linear-gradient(135deg, var(--primary-color, #0d6efd) 60%, #23272b 100%);
+  color: #fff;
+  border: none;
+  box-shadow: 0 4px 24px 0 rgba(0,0,0,0.18);
+  transition: transform 0.2s;
+}
+.about-highlight-box:hover {
+  transform: translateY(-6px) scale(1.03);
+}
+.about-values-list li {
+  font-size: 1.08rem;
+  padding-left: 0.5rem;
+  margin-bottom: 0.7rem;
+}
+@media (max-width: 991px) {
+  .about-gallery img {
+    max-width: 100% !important;
+    min-width: 120px;
+  }
+}
+@media (max-width: 767px) {
+  .about-title {
+    font-size: 2rem;
+  }
+  .about-gallery {
+    flex-direction: column !important;
+    gap: 1rem !important;
+  }
+}
