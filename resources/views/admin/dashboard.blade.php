@@ -454,8 +454,13 @@
             </div>
             <div class="bottom-nav">
                 <div class="nav-item">
-                    <i class="fas fa-sign-out-alt"></i>
-                    <span>Sign Out</span>
+                    <form action="{{ route('logout') }}" method="POST">
+                        @csrf
+                        <button type="submit" class="nav-link" style="background: none; border: none; color: inherit; cursor: pointer;">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>Sign Out</span>
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
