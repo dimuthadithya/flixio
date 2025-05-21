@@ -67,7 +67,7 @@
  }
 
  .hero-section {
-     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("/api/placeholder/1920/600") center/cover no-repeat;
+     background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url("../images/home_banner.png") center/cover no-repeat;
      padding: 120px 0;
      margin-bottom: 40px;
  }

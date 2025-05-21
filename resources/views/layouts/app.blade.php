@@ -36,7 +36,11 @@
                         <a class="nav-link" href="{{ route('about') }}">About Us</a>
                     </li>
                     <li class="nav-item">
+                        @guest
+                        <a class="nav-link" href="{{ route('login')}}">Watchlist</a>
+                        @else
                         <a class="nav-link" href="{{ route('watchList')}}">Watchlist</a>
+                        @endguest
                     </li>
                 </ul>
                 <form class="search-form d-flex text-light">
