@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\MovieController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TvShowController;
+use App\Http\Controllers\WatchListController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -21,8 +24,8 @@ Route::get('/about', function () {
     return view("about");
 })->name('about');
 
-Route::get('/movies', function () {})->name('movies');
-Route::get('/tvShows', function () {})->name('tvShows');
-Route::get('/watchList', function () {})->name('watchList');
+Route::get('/movies', [MovieController::class, 'index'])->name('movies');
+Route::get('/tvShows', [TvShowController::class, 'index'])->name('tvShows');
+Route::get('/watchList', [WatchListController::class, 'index'])->name('watchList');
 
 require __DIR__ . '/auth.php';

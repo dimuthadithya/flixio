@@ -27,16 +27,16 @@
                         <a class="nav-link active" href="{{ route('welcome') }}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./views/movies.html">Movies</a>
+                        <a class="nav-link" href="{{ route('movies') }}">Movies</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./views/tvshows.html">TV Shows</a>
+                        <a class="nav-link" href="{{ route('tvShows') }}">TV Shows</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('about') }}">About Us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./views/watchlist.html">Watchlist</a>
+                        <a class="nav-link" href="{{ route('watchList')}}">Watchlist</a>
                     </li>
                 </ul>
                 <form class="search-form d-flex text-light">
@@ -45,9 +45,9 @@
                 </form>
                 <div class="ms-3">
                     @guest
-                        <a href="{{ route('login') }}" class="btn btn-outline-light"><i class="fas fa-user me-1"></i></a>
+                    <a href="{{ route('login') }}" class="btn btn-outline-light"><i class="fas fa-user me-1"></i></a>
                     @else
-                        <a href="#" class="btn btn-outline-light"><i class="fas fa-user me-1"></i></a>
+                    <a href="#" class="btn btn-outline-light"><i class="fas fa-user me-1"></i></a>
                     @endguest
                 </div>
             </div>
@@ -75,8 +75,8 @@
                     <h5 class="footer-title">Quick Links</h5>
                     <ul class="list-unstyled footer-links">
                         <li><a href="{{ route('welcome') }}"><i class="fas fa-angle-right me-2"></i> Home</a></li>
-                        <li><a href="#"><i class="fas fa-angle-right me-2"></i> Movies</a></li>
-                        <li><a href="#"><i class="fas fa-angle-right me-2"></i> TV Shows</a></li>
+                        <li><a href="{{ route('movies') }}"><i class="fas fa-angle-right me-2"></i> Movies</a></li>
+                        <li><a href="{{ route('tvshows') }}"><i class="fas fa-angle-right me-2"></i> TV Shows</a></li>
                         <li><a href="#"><i class="fas fa-angle-right me-2"></i> My List</a></li>
                         <li><a href="#"><i class="fas fa-angle-right me-2"></i> New & Popular</a></li>
                     </ul>
