@@ -1,16 +1,16 @@
 <div class="col-6 col-md-4 col-lg-3">
     <div class="movie-card">
         <div class="movie-poster">
-            <img src="/api/placeholder/300/450" class="img-fluid" alt="Movie Poster">
+            <img src="{{ $movie['poster_path'] }}" class="img-fluid" alt="Movie Poster">
             <div class="movie-rating">
-                <i class="fas fa-star text-warning"></i> 8.5
+                <i class="fas fa-star text-warning"></i> {{ $movie['vote_average'] }}
             </div>
         </div>
         <div class="movie-content">
-            <h5 class="movie-title">Inception</h5>
+            <h5 class="movie-title">{{ $movie['title'] }}</h5>
             <div class="movie-info">
-                <span><i class="fas fa-calendar"></i> 2020</span>
-                <span><i class="fas fa-clock"></i> 148 min</span>
+                <span><i class="fas fa-calendar"></i> {{ $movie['release_date'] }}</span>
+                <span><i class="fas fa-clock"></i> </span>
             </div>
         </div>
     </div>

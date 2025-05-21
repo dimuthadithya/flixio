@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
- <main>
-          <section class="hero-section">
+<main>
+    <section class="hero-section">
         <div class="container">
             <div class="hero-content">
                 <h1>Unlimited Movies, TV Shows & More</h1>
@@ -33,81 +33,7 @@
         </div>
 
         <div class="row">
-            <!-- Movie Card 1 -->
-            <div class="col-6 col-md-4 col-lg-3">
-                <div class="movie-card">
-                    <div class="movie-poster">
-                        <img src="/api/placeholder/300/450" class="img-fluid" alt="Movie Poster">
-                        <div class="movie-rating">
-                            <i class="fas fa-star text-warning"></i> 8.5
-                        </div>
-                    </div>
-                    <div class="movie-content">
-                        <h5 class="movie-title">Inception</h5>
-                        <div class="movie-info">
-                            <span><i class="fas fa-calendar"></i> 2020</span>
-                            <span><i class="fas fa-clock"></i> 148 min</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Movie Card 2 -->
-            <div class="col-6 col-md-4 col-lg-3">
-                <div class="movie-card">
-                    <div class="movie-poster">
-                        <img src="/api/placeholder/300/450" class="img-fluid" alt="Movie Poster">
-                        <div class="movie-rating">
-                            <i class="fas fa-star text-warning"></i> 9.2
-                        </div>
-                    </div>
-                    <div class="movie-content">
-                        <h5 class="movie-title">The Shawshank Redemption</h5>
-                        <div class="movie-info">
-                            <span><i class="fas fa-calendar"></i> 1994</span>
-                            <span><i class="fas fa-clock"></i> 142 min</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Movie Card 3 -->
-            <div class="col-6 col-md-4 col-lg-3">
-                <div class="movie-card">
-                    <div class="movie-poster">
-                        <img src="/api/placeholder/300/450" class="img-fluid" alt="Movie Poster">
-                        <div class="movie-rating">
-                            <i class="fas fa-star text-warning"></i> 8.9
-                        </div>
-                    </div>
-                    <div class="movie-content">
-                        <h5 class="movie-title">The Dark Knight</h5>
-                        <div class="movie-info">
-                            <span><i class="fas fa-calendar"></i> 2008</span>
-                            <span><i class="fas fa-clock"></i> 152 min</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Movie Card 4 -->
-            <div class="col-6 col-md-4 col-lg-3">
-                <div class="movie-card">
-                    <div class="movie-poster">
-                        <img src="/api/placeholder/300/450" class="img-fluid" alt="Movie Poster">
-                        <div class="movie-rating">
-                            <i class="fas fa-star text-warning"></i> 8.7
-                        </div>
-                    </div>
-                    <div class="movie-content">
-                        <h5 class="movie-title">Pulp Fiction</h5>
-                        <div class="movie-info">
-                            <span><i class="fas fa-calendar"></i> 1994</span>
-                            <span><i class="fas fa-clock"></i> 154 min</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
 
         <div class="text-center mt-4">
@@ -340,5 +266,5 @@
             </div>
         </div>
     </section>
- </main>
+</main>
 @endsection

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TmdbController;
 use App\Http\Controllers\TvShowController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WatchListController;
@@ -26,13 +27,13 @@ Route::get('/about', function () {
     return view("about");
 })->name('about');
 
+
+Route::get('/movies', [TmdbController::class, 'index'])->name('movies');
+
 Route::get('/user', function () {
     return view("user.dashboard");
 })->name('user.dashboard');
 
-
-
-Route::get('/movies', [MovieController::class, 'index'])->name('movies');
 Route::get('/tvShows', [TvShowController::class, 'index'])->name('tvShows');
 Route::get('/watchList', [WatchListController::class, 'index'])->name('watchList');
 
