@@ -482,6 +482,12 @@
             <div class="col-lg-9">
                 <div class="main-content">
                     <h2 class="page-title">Account Settings</h2>
+
+                    @if (session('success'))
+                        <div class="alert alert-success">   
+                            {{ session('success') }}
+                        </div>
+                    @endif
                     
                     <div class="tab-content">
                         <!-- Profile Tab -->
@@ -607,6 +613,7 @@
                                 <div class="card-body">
                                     <form method="POST" action="{{ route('password.update') }}">
                                         @csrf
+                                        @method('PUT')
                                         <div class="mb-3">
                                             <label for="current_password" class="form-label">Current Password</label>
                                             <input type="password" class="form-control" id="current_password" name="current_password">
@@ -625,7 +632,7 @@
                                             <input type="password" class="form-control" id="password_confirmation" name="password_confirmation">
                                         </div>
                                         
-                                        <button type="submit" class="btn btn-primary">Update Password</button>
+                                        <button type="submit" name="updatePassword" class="btn btn-primary">Update Password</button>
                                     </form>
                                                            
                                 </div>
