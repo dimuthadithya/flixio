@@ -13,9 +13,9 @@
 
     <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2 mb-2">
       <h3 class="fw-bold mb-0" style="color:var(--accent)">All Movies</h3>
-      <button class="btn btn-primary d-flex align-items-center gap-2 px-4 py-2 mb-3" style="font-size:1rem; box-shadow:0 2px 8px rgba(0,168,255,0.10); margin-right: 0.5rem; margin-top: 0.5rem;">
+      <a href="{{ route('admin.movie_add') }}"><button class="btn btn-primary d-flex align-items-center gap-2 px-4 py-2 mb-3" style="font-size:1rem; box-shadow:0 2px 8px rgba(0,168,255,0.10); margin-right: 0.5rem; margin-top: 0.5rem;">
         <i class="fas fa-plus"></i> Add New Movie
-      </button>
+      </button></a>
     </div>
 
     <div class="movies-table-container p-0">

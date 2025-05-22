@@ -30,6 +30,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin/movies', function () {
         return view("admin.movies");
     })->name('admin.movies');
+
+    Route::get('/admin/movies/add', function () {
+        return view("admin.movie_add");
+    })->name('admin.movie_add');
+    
 });
 
 Route::get('/about', function () {
