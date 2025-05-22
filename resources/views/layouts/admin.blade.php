@@ -424,33 +424,21 @@
                 <a style="text-decoration: none" href="{{ route('welcome') }}"><span>Flixio</span></a>
             </div>
             <div class="nav-menu">
-                <div class="nav-item active">
+                <div class="nav-item {{ request()->is('admin/dashboard') ? 'active' : '' }}">
                     <i class="fas fa-tachometer-alt"></i>
                     <a href="{{ route('admin.dashboard') }}" style="text-decoration: none; color: inherit;"><span>Dashboard</span></a>
                 </div>
-                <div class="nav-item">
+                <div class="nav-item {{ request()->is('admin/movies') ? 'active' : '' }}">
                     <i class="fas fa-film"></i>
                     <a href="{{ route('admin.movies') }}" style="text-decoration: none; color: inherit;"><span>Movies</span></a>  
                 </div>
-                <div class="nav-item">
+                <div class="nav-item {{ request()->is('admin/tv-shows') ? 'active' : '' }}">
                     <i class="fas fa-tv"></i>
                     <a href="" style="text-decoration: none; color: inherit;"><span>TV Shows</span></a>
                 </div>
-                <div class="nav-item">
+                <div class="nav-item {{ request()->is('admin/users') ? 'active' : '' }}">
                     <i class="fas fa-users"></i>
-                    <a href="" style="text-decoration: none; color: inherit;"><span>Users</span></a>
-                </div>
-                <div class="nav-item">
-                    <i class="fas fa-credit-card"></i>
-                    <a href="" style="text-decoration: none; color: inherit;"><span>Payments</span></a>
-                </div>
-                <div class="nav-item">
-                    <i class="fas fa-chart-line"></i>
-                    <a href="" style="text-decoration: none; color: inherit;"><span>Analytics</span></a>
-                </div>
-                <div class="nav-item">
-                    <i class="fas fa-cog"></i>
-                    <a href="" style="text-decoration: none; color: inherit;"><span>Settings</span></a>
+                    <a href="{{ route('admin.users') }}" style="text-decoration: none; color: inherit;"><span>Users</span></a>
                 </div>
             </div>
             <div class="bottom-nav">
