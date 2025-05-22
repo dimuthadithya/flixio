@@ -35,7 +35,7 @@ class TmdbController extends Controller
         $tmdbId = $request->input('tmdb_id');
 
         $response = Http::get("https://api.themoviedb.org/3/movie/{$tmdbId}", [
-            'api_key' => env('TMBD_API_KEY'),
+            'api_key' => env('TMDB_API_KEY'),
         ]);
 
         if ($response->successful()) {
@@ -50,7 +50,7 @@ class TmdbController extends Controller
         $tmdbId = $request->input('tmdb_id');
 
         $response = Http::get("https://api.themoviedb.org/3/movie/{$tmdbId}/videos", [
-            'api_key' => env('TMBD_API_KEY'),
+            'api_key' => env('TMDB_API_KEY'),
         ]);
 
         if ($response->successful()) {
