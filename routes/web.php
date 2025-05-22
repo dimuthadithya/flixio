@@ -26,6 +26,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin', function () {
         return view("admin.dashboard");
     })->name('admin.dashboard');
+
+    Route::get('/admin/movies', function () {
+        return view("admin.movies");
+    })->name('admin.movies');
 });
 
 Route::get('/about', function () {

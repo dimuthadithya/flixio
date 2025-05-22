@@ -430,7 +430,7 @@
                 </div>
                 <div class="nav-item">
                     <i class="fas fa-film"></i>
-                    <a href="" style="text-decoration: none; color: inherit;"><span>Movies</span></a>  
+                    <a href="{{ route('admin.movies') }}" style="text-decoration: none; color: inherit;"><span>Movies</span></a>  
                 </div>
                 <div class="nav-item">
                     <i class="fas fa-tv"></i>
@@ -468,6 +468,7 @@
 
         @yield('content')
 
+    </div>
     </div>
 
 </body>
