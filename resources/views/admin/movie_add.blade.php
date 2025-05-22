@@ -9,7 +9,7 @@
             <span>Admin User</span>
         </div>
     </div>
-    
+
     <div class="movies-table-container">
         <form method="POST" action="#" enctype="multipart/form-data" class="movie-form">
             <!-- TMDB Section -->
@@ -18,7 +18,7 @@
                     <label for="tmdb_id" class="form-label">TMDB ID</label>
                     <div class="input-with-button">
                         <input type="text" class="form-control" id="tmdb_id" name="tmdb_id" required>
-                        <button type="button" class="btn btn-primary btn-generate" data-bs-toggle="modal" data-bs-target="#tmdbModal">
+                        <button type="button" onclick="fetchMovieData(event)" class="btn btn-primary btn-generate" data-bs-toggle="modal" data-bs-target="#tmdbModal">
                             <i class="fas fa-magic me-1"></i>Generate
                         </button>
                     </div>
@@ -34,11 +34,11 @@
                         <input type="text" class="form-control" id="title" name="title" required>
                     </div>
                 </div>
-                
+
                 <div class="form-row">
                     <div class="form-group half-width">
-                        <label for="director" class="form-label">Director</label>
-                        <input type="text" class="form-control" id="director" name="director" required>
+                        <label for="trailer" class="form-label">Trailer</label>
+                        <input type="text" class="form-control" id="trailer" name="trailer" required>
                     </div>
                     <div class="form-group half-width">
                         <label for="release_year" class="form-label">Release Year</label>
@@ -108,7 +108,7 @@
     .movies-table-container {
         background: var(--primary);
         border-radius: 10px;
-        box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.10);
         margin: 2.5rem auto 0 auto;
         max-width: 800px;
         padding: 2.5rem;
@@ -190,8 +190,8 @@
         font-size: 0.95rem;
     }
 
-    .movie-form .form-control, 
-    .movie-form .form-select, 
+    .movie-form .form-control,
+    .movie-form .form-select,
     .movie-form textarea {
         background: var(--secondary);
         color: var(--text);
@@ -203,8 +203,8 @@
         margin-bottom: 0;
     }
 
-    .movie-form .form-control:focus, 
-    .movie-form .form-select:focus, 
+    .movie-form .form-control:focus,
+    .movie-form .form-select:focus,
     .movie-form textarea:focus {
         border-color: var(--accent);
         box-shadow: 0 0 0 0.1rem var(--accent);
@@ -222,13 +222,13 @@
         padding: 0.75rem 2rem;
         font-size: 1rem;
         transition: background 0.2s, box-shadow 0.2s;
-        box-shadow: 0 2px 8px rgba(0,168,255,0.10);
+        box-shadow: 0 2px 8px rgba(0, 168, 255, 0.10);
     }
 
     .movie-form .btn-primary:hover {
         background: #0088cc;
         color: #fff;
-        box-shadow: 0 4px 16px rgba(0,168,255,0.18);
+        box-shadow: 0 4px 16px rgba(0, 168, 255, 0.18);
     }
 
     .form-actions {
@@ -315,3 +315,62 @@
         }
     }
 </style>
+
+@push('scripts')
+<script>
+    function fetchMovieData(event) {
+        const tmdbId = document.getElementById("tmdb_id").value;
+        fetch("{{ route('movies.search') }}", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-CSRF-TOKEN": "{{ csrf_token() }}",
+                },
+                body: JSON.stringify({
+                    tmdb_id: tmdbId
+                }),
+            })
+            .then((res) => res.json()).then((data) => {
+                console.log(data);
+                // Set the movie details from TMDB data
+                document.getElementById("title").value = data.original_title;
+                // Release year - extract year from release_date
+                const releaseYear = new Date(data.release_date).getFullYear();
+                document.getElementById("release_year").value = releaseYear;
+                // Join genres into a string
+                const categories = data.genres.map(genre => genre.name).join(', ');
+                document.getElementById("category").value = categories;
+                // Set duration (runtime)
+                document.getElementById("duration").value = data.runtime;
+                // Set rating (vote_average)
+                document.getElementById("rating").value = data.vote_average;
+                // Set poster (construct full URL)
+                document.getElementById("poster").value = `https://image.tmdb.org/t/p/original${data.poster_path}`;
+                // Set description (overview)
+                document.getElementById("description").value = data.overview;
+
+
+            })
+
+
+        fetch("{{ route('movies.trailer') }}", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-CSRF-TOKEN": "{{ csrf_token() }}",
+                },
+                body: JSON.stringify({
+                    tmdb_id: tmdbId
+                }),
+            })
+            .then((res) => res.json()).then((data) => {
+                console.log(data.results[0].key);
+
+                $ytKey = data.results[0].key;
+                // Set trailer URL
+                document.getElementById("trailer").value = `https://www.youtube.com/watch?v=${$ytKey}`;
+            })
+
+    }
+</script>
+@endpush

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 use App\Services\TmdbService;
 
 class TmdbController extends Controller
@@ -27,5 +28,35 @@ class TmdbController extends Controller
             'popularMovies' => $popularMovies,
             'getImageUrl' => [$this->tmdbService, 'getImageUrl'],
         ]);
+    }
+
+    public function search(Request $request)
+    {
+        $tmdbId = $request->input('tmdb_id');
+
+        $response = Http::get("https://api.themoviedb.org/3/movie/{$tmdbId}", [
+            'api_key' => env('TMBD_API_KEY'),
+        ]);
+
+        if ($response->successful()) {
+            return response()->json($response->json());
+        }
+
+        return response()->json(['error' => 'Movie not found'], 404);
+    }
+
+    public function trailer(Request $request)
+    {
+        $tmdbId = $request->input('tmdb_id');
+
+        $response = Http::get("https://api.themoviedb.org/3/movie/{$tmdbId}/videos", [
+            'api_key' => env('TMBD_API_KEY'),
+        ]);
+
+        if ($response->successful()) {
+            return response()->json($response->json());
+        }
+
+        return response()->json(['error' => 'Trailer not found'], 404);
     }
 }
