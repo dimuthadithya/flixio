@@ -39,5 +39,7 @@ Route::get('/movies', [TmdbController::class, 'index'])->name('movies');
 
 Route::get('/tvShows', [TvShowController::class, 'index'])->name('tvShows');
 Route::get('/watchList', [WatchListController::class, 'index'])->name('watchList');
+Route::get("/admin/movies", [MovieController::class, 'store'])->name('admin.movies');
+Route::post("/admin/movies", [MovieController::class, 'store'])->name('admin.movies');
 
 require __DIR__ . '/auth.php';
