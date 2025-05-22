@@ -6,7 +6,6 @@
     <div class="header">
       <div class="page-title">Movies Management</div>
       <div class="admin-profile">
-        <img src="/api/placeholder/40/40" alt="Admin">
         <span>Admin User</span>
       </div>
     </div>
@@ -42,7 +41,7 @@
     </div>
 
      </div>
-    
+
 @endsection
 
 <style>

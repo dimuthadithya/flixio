@@ -6,7 +6,6 @@
         <div class="header">
             <div class="page-title">Users Management</div>
             <div class="admin-profile">
-                <img src="https://via.placeholder.com/40x40/00a8ff/ffffff?text=A" alt="Admin">
                 <span>Admin User</span>
             </div>
         </div>

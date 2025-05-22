@@ -267,4 +267,11 @@
         </div>
     </section>
 </main>
+
+<style>
+.feedback-form .form-control::placeholder {
+    color: #fff !important;
+    opacity: 1;
+}
+</style>
 @endsection
