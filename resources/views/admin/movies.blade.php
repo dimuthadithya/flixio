@@ -6,7 +6,6 @@
     <div class="header">
       <div class="page-title">Movies Management</div>
       <div class="admin-profile">
-        <img src="/api/placeholder/40/40" alt="Admin">
         <span>Admin User</span>
       </div>
     </div>
@@ -23,7 +22,7 @@
         <table class="movies-table table table-hover align-middle mb-0">
           <thead class="align-middle">
             <tr>
-              <th>Movie</th>
+              <th class="text-start">Movie</th>
               <th>Director</th>
               <th>Release Year</th>
               <th>Category</th>
@@ -35,222 +34,14 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>
-                <div class="movie-info">
-                  <img src="/api/placeholder/50/75" alt="Dune" class="movie-poster">
-                  <div class="movie-details">
-                    <h4>Dune</h4>
-                    <p>2h 35m • PG-13</p>
-                  </div>
-                </div>
-              </td>
-              <td>Denis Villeneuve</td>
-              <td>2021</td>
-              <td>Sci-Fi</td>
-              <td>
-                <div class="rating">
-                  <div class="rating-stars">★★★★☆</div>
-                  <div class="rating-number">7.8</div>
-                </div>
-              </td>
-              <td>2.4M</td>
-              <td>May 20, 2025</td>
-              <td><span class="status-badge status-active">Active</span></td>
-              <td>
-                <div class="actions">
-                  <button class="action-btn" title="View">
-                    <i class="fas fa-eye"></i>
-                  </button>
-                  <button class="action-btn" title="Edit">
-                    <i class="fas fa-edit"></i>
-                  </button>
-                  <button class="action-btn delete" title="Delete">
-                    <i class="fas fa-trash"></i>
-                  </button>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <div class="movie-info">
-                  <img src="/api/placeholder/50/75" alt="No Time to Die" class="movie-poster">
-                  <div class="movie-details">
-                    <h4>No Time to Die</h4>
-                    <p>2h 43m • PG-13</p>
-                  </div>
-                </div>
-              </td>
-              <td>Cary Joji Fukunaga</td>
-              <td>2021</td>
-              <td>Action</td>
-              <td>
-                <div class="rating">
-                  <div class="rating-stars">★★★★☆</div>
-                  <div class="rating-number">8.3</div>
-                </div>
-              </td>
-              <td>3.1M</td>
-              <td>May 18, 2025</td>
-              <td><span class="status-badge status-active">Active</span></td>
-              <td>
-                <div class="actions">
-                  <button class="action-btn" title="View">
-                    <i class="fas fa-eye"></i>
-                  </button>
-                  <button class="action-btn" title="Edit">
-                    <i class="fas fa-edit"></i>
-                  </button>
-                  <button class="action-btn delete" title="Delete">
-                    <i class="fas fa-trash"></i>
-                  </button>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <div class="movie-info">
-                  <img src="/api/placeholder/50/75" alt="The Matrix Resurrections" class="movie-poster">
-                  <div class="movie-details">
-                    <h4>The Matrix Resurrections</h4>
-                    <p>2h 28m • R</p>
-                  </div>
-                </div>
-              </td>
-              <td>Lana Wachowski</td>
-              <td>2021</td>
-              <td>Sci-Fi</td>
-              <td>
-                <div class="rating">
-                  <div class="rating-stars">★★★★☆</div>
-                  <div class="rating-number">7.5</div>
-                </div>
-              </td>
-              <td>1.8M</td>
-              <td>May 15, 2025</td>
-              <td><span class="status-badge status-active">Active</span></td>
-              <td>
-                <div class="actions">
-                  <button class="action-btn" title="View">
-                    <i class="fas fa-eye"></i>
-                  </button>
-                  <button class="action-btn" title="Edit">
-                    <i class="fas fa-edit"></i>
-                  </button>
-                  <button class="action-btn delete" title="Delete">
-                    <i class="fas fa-trash"></i>
-                  </button>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <div class="movie-info">
-                  <img src="/api/placeholder/50/75" alt="Spider-Man: No Way Home" class="movie-poster">
-                  <div class="movie-details">
-                    <h4>Spider-Man: No Way Home</h4>
-                    <p>2h 28m • PG-13</p>
-                  </div>
-                </div>
-              </td>
-              <td>Jon Watts</td>
-              <td>2021</td>
-              <td>Action</td>
-              <td>
-                <div class="rating">
-                  <div class="rating-stars">★★★★☆</div>
-                  <div class="rating-number">8.1</div>
-                </div>
-              </td>
-              <td>4.2M</td>
-              <td>May 12, 2025</td>
-              <td><span class="status-badge status-pending">Processing</span></td>
-              <td>
-                <div class="actions">
-                  <button class="action-btn" title="View">
-                    <i class="fas fa-eye"></i>
-                  </button>
-                  <button class="action-btn" title="Edit">
-                    <i class="fas fa-edit"></i>
-                  </button>
-                  <button class="action-btn delete" title="Delete">
-                    <i class="fas fa-trash"></i>
-                  </button>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <div class="movie-info">
-                  <img src="/api/placeholder/50/75" alt="Eternals" class="movie-poster">
-                  <div class="movie-details">
-                    <h4>Eternals</h4>
-                    <p>2h 36m • PG-13</p>
-                  </div>
-                </div>
-              </td>
-              <td>Chloé Zhao</td>
-              <td>2021</td>
-              <td>Action</td>
-              <td>
-                <div class="rating">
-                  <div class="rating-stars">★★★☆☆</div>
-                  <div class="rating-number">6.3</div>
-                </div>
-              </td>
-              <td>1.2M</td>
-              <td>May 10, 2025</td>
-              <td><span class="status-badge status-inactive">Inactive</span></td>
-              <td>
-                <div class="actions">
-                  <button class="action-btn" title="View">
-                    <i class="fas fa-eye"></i>
-                  </button>
-                  <button class="action-btn" title="Edit">
-                    <i class="fas fa-edit"></i>
-                  </button>
-                  <button class="action-btn delete" title="Delete">
-                    <i class="fas fa-trash"></i>
-                  </button>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <div class="movie-info">
-                  <img src="/api/placeholder/50/75" alt="Top Gun: Maverick" class="movie-poster">
-                  <div class="movie-details">
-                    <h4>Top Gun: Maverick</h4>
-                    <p>2h 11m • PG-13</p>
-                  </div>
-                </div>
-              </td>
-              <td>Joseph Kosinski</td>
-              <td>2022</td>
-              <td>Action</td>
-              <td>
-                <div class="rating">
-                  <div class="rating-stars">★★★★★</div>
-                  <div class="rating-number">8.7</div>
-                </div>
-              </td>
-              <td>5.1M</td>
-              <td>May 08, 2025</td>
-              <td><span class="status-badge status-active">Active</span></td>
-              <td>
-                  <button class="action-btn delete" title="Delete">
-                    <i class="fas fa-trash"></i>
-                  </button>
-                </div>
-              </td>
-            </tr>
+            <x-movie-card-admin />
           </tbody>
         </table>
       </div>
     </div>
 
      </div>
-    
+
 @endsection
 
 <style>
