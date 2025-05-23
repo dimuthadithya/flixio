@@ -35,6 +35,10 @@ Route::middleware('auth')->group(function () {
         return view("admin.movie_add");
     })->name('admin.movie_add');
 
+    Route::post('/admin/movies/add', [MovieController::class, 'store'])->name('admin.movie_add.store');
+    Route::post('/api/movies/search', [TmdbController::class, 'search'])->name('movies.search');
+    Route::post('/api/movies/trailer', [TmdbController::class, 'trailer'])->name('movies.trailer');
+
 
 
     Route::get('/admin/users', function () {

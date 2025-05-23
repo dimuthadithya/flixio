@@ -11,14 +11,15 @@
     </div>
 
     <div class="movies-table-container">
-        <form method="POST" action="#" enctype="multipart/form-data" class="movie-form">
+        <form method="POST" action="{{ route('admin.movie_add.store') }}" enctype="multipart/form-data" class="movie-form">
+            @csrf
             <!-- TMDB Section -->
             <div class="form-section">
                 <div class="form-group tmdb-group">
                     <label for="tmdb_id" class="form-label">TMDB ID</label>
                     <div class="input-with-button">
                         <input type="text" class="form-control" id="tmdb_id" name="tmdb_id" required>
-                        <button type="button" onclick="fetchMovieData(event)" class="btn btn-primary btn-generate" data-bs-toggle="modal" data-bs-target="#tmdbModal">
+                        <button type="button" onclick="fetchMovieData(event)" class="btn btn-primary btn-generate">
                             <i class="fas fa-magic me-1"></i>Generate
                         </button>
                     </div>
@@ -29,52 +30,102 @@
             <div class="form-section">
                 <h5 class="section-title">Basic Information</h5>
                 <div class="form-row">
-                    <div class="form-group full-width">
-                        <label for="title" class="form-label">Movie Title</label>
+                    <div class="form-group">
+                        <label for="title" class="form-label">Title</label>
                         <input type="text" class="form-control" id="title" name="title" required>
                     </div>
+                    <div class="form-group">
+                        <label for="original_title" class="form-label">Original Title</label>
+                        <input type="text" class="form-control" id="original_title" name="original_title" required>
+                    </div>
                 </div>
 
                 <div class="form-row">
-                    <div class="form-group half-width">
-                        <label for="trailer" class="form-label">Trailer</label>
-                        <input type="text" class="form-control" id="trailer" name="trailer" required>
+                    <div class="form-group">
+                        <label for="release_date" class="form-label">Release Date</label>
+                        <input type="date" class="form-control" id="release_date" name="release_date" required>
                     </div>
-                    <div class="form-group half-width">
-                        <label for="release_year" class="form-label">Release Year</label>
-                        <input type="number" class="form-control" id="release_year" name="release_year" min="1900" max="2100" required>
+                    <div class="form-group">
+                        <label for="runtime" class="form-label">Runtime (minutes)</label>
+                        <input type="number" class="form-control" id="runtime" name="runtime" min="1">
                     </div>
                 </div>
             </div>
 
-            <!-- Details -->
+            <!-- Movie Details -->
             <div class="form-section">
                 <h5 class="section-title">Movie Details</h5>
-                <div class="form-row three-columns">
+                <div class="form-group">
+                    <label for="overview" class="form-label">Overview</label>
+                    <textarea class="form-control" id="overview" name="overview" rows="4" required></textarea>
+                </div>
+
+                <div class="form-row">
                     <div class="form-group">
-                        <label for="category" class="form-label">Category</label>
-                        <input type="text" class="form-control" id="category" name="category" required>
+                        <label for="tagline" class="form-label">Tagline</label>
+                        <input type="text" class="form-control" id="tagline" name="tagline">
                     </div>
                     <div class="form-group">
-                        <label for="duration" class="form-label">Duration (min)</label>
-                        <input type="number" class="form-control" id="duration" name="duration" min="1" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="rating" class="form-label">Rating (0-10)</label>
-                        <input type="number" step="0.1" class="form-control" id="rating" name="rating" min="0" max="10" required>
+                        <label for="original_language" class="form-label">Original Language</label>
+                        <input type="text" class="form-control" id="original_language" name="original_language" maxlength="2">
                     </div>
                 </div>
             </div>
 
-            <!-- Media & Status -->
+            <!-- Ratings & Metrics -->
             <div class="form-section">
-                <h5 class="section-title">Media & Status</h5>
-                <div class="form-row">
-                    <div class="form-group half-width">
-                        <label for="poster" class="form-label">Poster Image URL</label>
-                        <input type="text" class="form-control" id="poster" name="poster" placeholder="https://example.com/poster.jpg">
+                <h5 class="section-title">Ratings & Metrics</h5>
+                <div class="form-row three-columns">
+                    <div class="form-group">
+                        <label for="vote_average" class="form-label">Rating</label>
+                        <input type="number" step="0.1" class="form-control" id="vote_average" name="vote_average" min="0" max="10">
                     </div>
-                    <div class="form-group half-width">
+                    <div class="form-group">
+                        <label for="vote_count" class="form-label">Vote Count</label>
+                        <input type="number" class="form-control" id="vote_count" name="vote_count">
+                    </div>
+                    <div class="form-group">
+                        <label for="popularity" class="form-label">Popularity</label>
+                        <input type="number" step="0.01" class="form-control" id="popularity" name="popularity">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="budget" class="form-label">Budget</label>
+                        <input type="number" class="form-control" id="budget" name="budget" min="0">
+                    </div>
+                    <div class="form-group">
+                        <label for="revenue" class="form-label">Revenue</label>
+                        <input type="number" class="form-control" id="revenue" name="revenue" min="0">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Media -->
+            <div class="form-section">
+                <h5 class="section-title">Media</h5>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="poster_path" class="form-label">Poster Path</label>
+                        <input type="text" class="form-control" id="poster_path" name="poster_path">
+                    </div>
+                    <div class="form-group">
+                        <label for="backdrop_path" class="form-label">Backdrop Path</label>
+                        <input type="text" class="form-control" id="backdrop_path" name="backdrop_path">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Info -->
+            <div class="form-section">
+                <h5 class="section-title">Additional Information</h5>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="imdb_id" class="form-label">IMDB ID</label>
+                        <input type="text" class="form-control" id="imdb_id" name="imdb_id">
+                    </div>
+                    <div class="form-group">
                         <label for="status" class="form-label">Status</label>
                         <select class="form-select" id="status" name="status" required>
                             <option value="active">Active</option>
@@ -83,13 +134,20 @@
                         </select>
                     </div>
                 </div>
-            </div>
 
-            <!-- Description -->
-            <div class="form-section">
-                <div class="form-group full-width">
-                    <label for="description" class="form-label">Movie Description</label>
-                    <textarea class="form-control" id="description" name="description" rows="4" required placeholder="Enter a detailed description of the movie..."></textarea>
+                <div class="form-row">
+                    <div class="form-group">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="video" name="video">
+                            <label class="form-check-label" for="video">Has Video</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="adult" name="adult">
+                            <label class="form-check-label" for="adult">Adult Content</label>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -333,21 +391,24 @@
             .then((res) => res.json()).then((data) => {
                 console.log(data);
                 // Set the movie details from TMDB data
-                document.getElementById("title").value = data.original_title;
-                // Release year - extract year from release_date
-                const releaseYear = new Date(data.release_date).getFullYear();
-                document.getElementById("release_year").value = releaseYear;
-                // Join genres into a string
-                const categories = data.genres.map(genre => genre.name).join(', ');
-                document.getElementById("category").value = categories;
-                // Set duration (runtime)
-                document.getElementById("duration").value = data.runtime;
-                // Set rating (vote_average)
-                document.getElementById("rating").value = data.vote_average;
-                // Set poster (construct full URL)
-                document.getElementById("poster").value = `https://image.tmdb.org/t/p/original${data.poster_path}`;
-                // Set description (overview)
-                document.getElementById("description").value = data.overview;
+                document.getElementById("tmdb_id").value = data.tmdb_id;
+                document.getElementById("title").value = data.title;
+                document.getElementById("original_title").value = data.original_title;
+                document.getElementById("release_date").value = data.release_date;
+                document.getElementById("runtime").value = data.runtime;
+                document.getElementById("overview").value = data.overview;
+                document.getElementById("poster_path").value = data.poster_path;
+                document.getElementById("backdrop_path").value = data.backdrop_path;
+                document.getElementById("vote_average").value = data.vote_average;
+                document.getElementById("vote_count").value = data.vote_count;
+                document.getElementById("popularity").value = data.popularity;
+                document.getElementById("tagline").value = data.tagline;
+                document.getElementById("budget").value = data.budget;
+                document.getElementById("revenue").value = data.revenue;
+                document.getElementById("imdb_id").value = data.imdb_id;
+                document.getElementById("original_language").value = data.original_language;
+                document.getElementById("video").value = data.video;
+                document.getElementById("adult").value = data.adult;
 
 
             })
