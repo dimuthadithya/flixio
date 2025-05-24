@@ -77,7 +77,7 @@
                 <div class="form-row three-columns">
                     <div class="form-group">
                         <label for="vote_average" class="form-label">Rating</label>
-                        <input type="number" step="0.1" class="form-control" id="vote_average" name="vote_average" min="0" max="10">
+                        <input type="number" step="0.001" class="form-control" id="vote_average" name="vote_average" min="0" max="10">
                     </div>
                     <div class="form-group">
                         <label for="vote_count" class="form-label">Vote Count</label>
@@ -85,7 +85,7 @@
                     </div>
                     <div class="form-group">
                         <label for="popularity" class="form-label">Popularity</label>
-                        <input type="number" step="0.01" class="form-control" id="popularity" name="popularity">
+                        <input type="number" step="0.0001" class="form-control" id="popularity" name="popularity">
                     </div>
                 </div>
 
