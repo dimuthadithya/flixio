@@ -26,7 +26,8 @@ class Movie extends Model
         'imdb_id',
         'original_language',
         'video',
-        'adult'
+        'adult',
+        'trailer'
     ];
 
     protected $casts = [

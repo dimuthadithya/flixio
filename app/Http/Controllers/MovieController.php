@@ -77,8 +77,8 @@ class MovieController extends Controller
             'revenue' => $request->revenue,
             'imdb_id' => $request->imdb_id,
             'original_language' => $request->original_language,
-            'adult' => $request->adult ?? false,
-            'trailer' => $request->trailer
+            'trailer' => $request->trailer,
+            'adult' => $request->adult ?? false
         ]);
 
         return redirect()
