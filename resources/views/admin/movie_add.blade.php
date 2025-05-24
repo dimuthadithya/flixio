@@ -150,12 +150,28 @@
                 </div>
             </div>
 
-            <!-- Submit Button -->
-            <div class="form-actions">
-                <button type="submit" class="btn btn-primary btn-submit">
-                    <i class="fas fa-save me-2"></i>Save Movie
-                </button>
+            <!-- genres -->
+            <div class="form-section">
+                <h5 class="section-title">Genres</h5>
+                <div class="form-group">
+                    <label for="genres" class="form-label">Genres</label>
+                    <input type="text" class="form-control" id="genres" name="genres">
+                </div>
             </div>
+
+            <div class="form-section">
+                <h5 class="section-title">Trailer</h5>
+                <div class="form-group ">
+                    <label for="trailer" class="form-label">Trailer URL</label>
+                    <input type="text" class="form-control" id="trailer" name="trailer">
+                </div>
+
+                <!-- Submit Button -->
+                <div class=" form-actions">
+                    <button type="submit" class="btn btn-primary btn-submit">
+                        <i class="fas fa-save me-2"></i>Save Movie
+                    </button>
+                </div>
         </form>
     </div>
 </div>
@@ -408,8 +424,7 @@
                 document.getElementById("original_language").value = data.original_language;
                 document.getElementById("video").value = data.video;
                 document.getElementById("adult").value = data.adult;
-
-
+                document.getElementById('genres').value = data.genres.map(genre => genre.name).join(', ');
             })
 
 

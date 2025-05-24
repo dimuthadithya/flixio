@@ -96,4 +96,18 @@ class TmdbController extends Controller
 
         return response()->json(['error' => 'Trailer not found'], 404);
     }
+
+
+    public function genres(Request $request)
+    {
+        $response = Http::get("https://api.themoviedb.org/3/genre/movie/list", [
+            'api_key' => env('TMDB_API_KEY'),
+        ]);
+
+        if ($response->successful()) {
+            return response()->json($response->json());
+        }
+
+        return response()->json(['error' => 'Genres not found'], 404);
+    }
 }

@@ -31,7 +31,7 @@ return new class extends Migration
             $table->bigInteger('revenue')->nullable();
             $table->string('imdb_id')->nullable();
             $table->string('original_language', 5);
-            $table->boolean('video')->default(false);
+            $table->string('trailer');
             $table->boolean('adult')->default(false);
             $table->timestamps();
 

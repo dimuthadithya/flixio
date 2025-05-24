@@ -33,6 +33,8 @@ class MovieController extends Controller
      */
     public function store(Request $request)
     {
+
+
         $validated = $request->validate([
             'tmdb_id' => 'required|integer',
             'title' => 'required|string',
@@ -45,15 +47,15 @@ class MovieController extends Controller
             'vote_average' => 'nullable|numeric',
             'vote_count' => 'nullable|integer',
             'popularity' => 'nullable|numeric',
-            'genres' => 'nullable|array',
+            'genres' => 'nullable|string',
             'status' => 'nullable|string',
             'tagline' => 'nullable|string',
             'budget' => 'nullable|integer',
             'revenue' => 'nullable|integer',
             'imdb_id' => 'nullable|string',
             'original_language' => 'nullable|string',
-            'video' => 'nullable|boolean',
-            'adult' => 'nullable|boolean'
+            'adult' => 'nullable|boolean',
+            'trailer' => 'nullable|string',
         ]);
 
         $movie = Movie::create([
@@ -75,8 +77,8 @@ class MovieController extends Controller
             'revenue' => $request->revenue,
             'imdb_id' => $request->imdb_id,
             'original_language' => $request->original_language,
-            'video' => $request->video ?? false,
-            'adult' => $request->adult ?? false
+            'adult' => $request->adult ?? false,
+            'trailer' => $request->trailer
         ]);
 
         return redirect()
