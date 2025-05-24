@@ -4,8 +4,8 @@
 
 <main class="movies-section">
   <h1 class="movies-title">All Movies</h1>
-  <div class="movies-filters container mb-4">
-    <form class="row g-3 align-items-end mb-5 p-2">
+  <div class="container mb-4 movies-filters">
+    <form class="p-2 mb-5 row g-3 align-items-end">
       <div class="col-md-4">
         <label for="genre" class="form-label text-light">Genre</label>
         <select id="genre" class="form-select">
@@ -46,7 +46,7 @@
       </div>
     </form>
   </div>
-  <div class="movies-grid mt-4">
+  <div class="mt-4 movies-grid">
 
 
     @foreach ($popularMovies['results'] as $popularMovie )

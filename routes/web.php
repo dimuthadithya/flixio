@@ -27,17 +27,13 @@ Route::middleware('auth')->group(function () {
         return view("admin.dashboard");
     })->name('admin.dashboard');
 
-    Route::get('/admin/movies', function () {
-        return view("admin.movies");
-    })->name('admin.movies');
+    Route::get('/admin/movies', [MovieController::class, 'index'])->name('admin.movies');
 
     Route::get('/admin/movies/add', function () {
         return view("admin.movie_add");
     })->name('admin.movie_add');
 
     Route::post('/admin/movies/add', [MovieController::class, 'store'])->name('admin.movie_add.store');
-    Route::post('/api/movies/search', [TmdbController::class, 'search'])->name('movies.search');
-    Route::post('/api/movies/trailer', [TmdbController::class, 'trailer'])->name('movies.trailer');
 
 
 

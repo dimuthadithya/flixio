@@ -13,7 +13,11 @@ class MovieController extends Controller
      */
     public function index()
     {
-        return view('movies');
+        $movies = Movie::all()->toArray();
+
+
+
+        return view('admin.movies', ['movies' => $movies]);
     }
 
     /**

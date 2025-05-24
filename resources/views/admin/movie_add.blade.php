@@ -5,7 +5,6 @@
     <div class="header">
         <div class="page-title">Add New Movie</div>
         <div class="admin-profile">
-            <img src="/api/placeholder/40/40" alt="Admin">
             <span>Admin User</span>
         </div>
     </div>
