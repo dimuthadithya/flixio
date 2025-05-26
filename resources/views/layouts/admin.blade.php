@@ -434,10 +434,6 @@
                   <i class="fas fa-film"></i>
                   <a href="{{ route('admin.movies') }}" style="text-decoration: none; color: inherit;"><span>Movies</span></a>
               </div>
-              <div class="nav-item {{ request()->is('admin/tv-shows') ? 'active' : '' }}">
-                  <i class="fas fa-tv"></i>
-                  <a href="" style="text-decoration: none; color: inherit;"><span>TV Shows</span></a>
-              </div>
               <div class="nav-item {{ request()->is('admin/users') ? 'active' : '' }}">
                   <i class="fas fa-users"></i>
                   <a href="{{ route('admin.users') }}" style="text-decoration: none; color: inherit;"><span>Users</span></a>
