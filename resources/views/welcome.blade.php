@@ -12,10 +12,10 @@
         </div>
     </section>
 
-    <!-- Featured Movies Section -->
+    <!-- Box Office Hits Section -->
     <section class="container mb-5">
-        <div class="d-flex justify-content-between align-items-center mb-4">
-            <h2 class="section-title">Featured Movies</h2>
+        <div class="mb-4 d-flex justify-content-between align-items-center">
+            <h2 class="section-title">Box Office Hits</h2>
             <ul class="nav category-tabs">
                 <li class="nav-item">
                     <a class="nav-link active" href="#">All</a>
@@ -33,179 +33,33 @@
         </div>
 
         <div class="row">
-
+            @foreach ($topIncomeMovies as $movie)
+            <x-movie-card :movie="$movie" />
+            @endforeach
         </div>
 
-        <div class="text-center mt-4">
+        <div class="mt-4 text-center">
             <a href="#" class="btn btn-outline-light">View All Movies <i class="fas fa-arrow-right ms-2"></i></a>
         </div>
     </section>
 
     <!-- New Releases Section -->
     <section class="container mb-5">
-        <h2 class="section-title mb-4">New Releases</h2>
+        <h2 class="mb-4 section-title">New Releases</h2>
         <div class="row">
-            <!-- Movie Card 1 -->
-            <div class="col-6 col-md-4 col-lg-3">
-                <div class="movie-card">
-                    <div class="movie-poster">
-                        <img src="/api/placeholder/300/450" class="img-fluid" alt="Movie Poster">
-                        <div class="movie-rating">
-                            <i class="fas fa-star text-warning"></i> 7.8
-                        </div>
-                    </div>
-                    <div class="movie-content">
-                        <h5 class="movie-title">Dune</h5>
-                        <div class="movie-info">
-                            <span><i class="fas fa-calendar"></i> 2021</span>
-                            <span><i class="fas fa-clock"></i> 155 min</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Movie Card 2 -->
-            <div class="col-6 col-md-4 col-lg-3">
-                <div class="movie-card">
-                    <div class="movie-poster">
-                        <img src="/api/placeholder/300/450" class="img-fluid" alt="Movie Poster">
-                        <div class="movie-rating">
-                            <i class="fas fa-star text-warning"></i> 8.3
-                        </div>
-                    </div>
-                    <div class="movie-content">
-                        <h5 class="movie-title">No Time to Die</h5>
-                        <div class="movie-info">
-                            <span><i class="fas fa-calendar"></i> 2021</span>
-                            <span><i class="fas fa-clock"></i> 163 min</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Movie Card 3 -->
-            <div class="col-6 col-md-4 col-lg-3">
-                <div class="movie-card">
-                    <div class="movie-poster">
-                        <img src="/api/placeholder/300/450" class="img-fluid" alt="Movie Poster">
-                        <div class="movie-rating">
-                            <i class="fas fa-star text-warning"></i> 7.5
-                        </div>
-                    </div>
-                    <div class="movie-content">
-                        <h5 class="movie-title">The Matrix Resurrections</h5>
-                        <div class="movie-info">
-                            <span><i class="fas fa-calendar"></i> 2021</span>
-                            <span><i class="fas fa-clock"></i> 148 min</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Movie Card 4 -->
-            <div class="col-6 col-md-4 col-lg-3">
-                <div class="movie-card">
-                    <div class="movie-poster">
-                        <img src="/api/placeholder/300/450" class="img-fluid" alt="Movie Poster">
-                        <div class="movie-rating">
-                            <i class="fas fa-star text-warning"></i> 8.1
-                        </div>
-                    </div>
-                    <div class="movie-content">
-                        <h5 class="movie-title">Spider-Man: No Way Home</h5>
-                        <div class="movie-info">
-                            <span><i class="fas fa-calendar"></i> 2021</span>
-                            <span><i class="fas fa-clock"></i> 148 min</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @foreach ($newReleases as $movie)
+            <x-movie-card :movie="$movie" />
+            @endforeach
         </div>
     </section>
 
-    <!-- Top Rated Shows Section -->
+    <!-- Top Rated Movies Section -->
     <section class="container mb-5">
-        <h2 class="section-title mb-4">Top Rated TV Shows</h2>
+        <h2 class="mb-4 section-title">Top Rated Movies</h2>
         <div class="row">
-            <!-- Show Card 1 -->
-            <div class="col-6 col-md-4 col-lg-3">
-                <div class="movie-card">
-                    <div class="movie-poster">
-                        <img src="/api/placeholder/300/450" class="img-fluid" alt="Show Poster">
-                        <div class="movie-rating">
-                            <i class="fas fa-star text-warning"></i> 9.3
-                        </div>
-                    </div>
-                    <div class="movie-content">
-                        <h5 class="movie-title">Breaking Bad</h5>
-                        <div class="movie-info">
-                            <span><i class="fas fa-calendar"></i> 2008</span>
-                            <span><i class="fas fa-film"></i> 5 Seasons</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Show Card 2 -->
-            <div class="col-6 col-md-4 col-lg-3">
-                <div class="movie-card">
-                    <div class="movie-poster">
-                        <img src="/api/placeholder/300/450" class="img-fluid" alt="Show Poster">
-                        <div class="movie-rating">
-                            <i class="fas fa-star text-warning"></i> 9.2
-                        </div>
-                    </div>
-                    <div class="movie-content">
-                        <h5 class="movie-title">Game of Thrones</h5>
-                        <div class="movie-info">
-                            <span><i class="fas fa-calendar"></i> 2011</span>
-                            <span><i class="fas fa-film"></i> 8 Seasons</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Show Card 3 -->
-            <div class="col-6 col-md-4 col-lg-3">
-                <div class="movie-card">
-                    <div class="movie-poster">
-                        <img src="/api/placeholder/300/450" class="img-fluid" alt="Show Poster">
-                        <div class="movie-rating">
-                            <i class="fas fa-star text-warning"></i> 8.9
-                        </div>
-                    </div>
-                    <div class="movie-content">
-                        <h5 class="movie-title">Stranger Things</h5>
-                        <div class="movie-info">
-                            <span><i class="fas fa-calendar"></i> 2016</span>
-                            <span><i class="fas fa-film"></i> 4 Seasons</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Show Card 4 -->
-            <div class="col-6 col-md-4 col-lg-3">
-                <div class="movie-card">
-                    <div class="movie-poster">
-                        <img src="/api/placeholder/300/450" class="img-fluid" alt="Show Poster">
-                        <div class="movie-rating">
-                            <i class="fas fa-star text-warning"></i> 8.8
-                        </div>
-                    </div>
-                    <div class="movie-content">
-                        <h5 class="movie-title">The Crown</h5>
-                        <div class="movie-info">
-                            <span><i class="fas fa-calendar"></i> 2016</span>
-                            <span><i class="fas fa-film"></i> 5 Seasons</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="text-center mt-4">
-            <a href="#" class="btn btn-outline-light">View All TV Shows <i class="fas fa-arrow-right ms-2"></i></a>
+            @foreach ($topRatedMovies as $movie)
+            <x-movie-card :movie="$movie" />
+            @endforeach
         </div>
     </section>
 
@@ -213,7 +67,7 @@
     <section class="container mb-5">
         <div class="row justify-content-center">
             <div class="col-md-7 col-lg-6">
-                <div class="feedback-box p-4 text-center rounded" style="background-color: var(--primary-color);">
+                <div class="p-4 text-center rounded feedback-box" style="background-color: var(--primary-color);">
                     <h3 class="mb-3">We Value Your Feedback</h3>
                     <p class="mb-3">Let us know your thoughts, suggestions, or issues. Help us improve your CineStream experience!</p>
                     <div class="row justify-content-center">
@@ -231,8 +85,8 @@
                                     <label for="feedbackMessage" class="form-label">Message</label>
                                     <textarea class="form-control" id="feedbackMessage" rows="3" placeholder="Your Feedback"></textarea>
                                 </div>
-                                <div class="text-center mt-3">
-                                    <button type="submit" class="btn btn-primary px-4">Submit Feedback</button>
+                                <div class="mt-3 text-center">
+                                    <button type="submit" class="px-4 btn btn-primary">Submit Feedback</button>
                                 </div>
                             </form>
                         </div>
@@ -244,23 +98,23 @@
 
     <!-- Testimonial Section -->
     <section class="container mb-5">
-        <h2 class="section-title mb-4 text-center">What Our Users Say</h2>
+        <h2 class="mb-4 text-center section-title">What Our Users Say</h2>
         <div class="row justify-content-center">
-            <div class="col-md-4 mb-4">
-                <div class="testimonial-card p-4 h-100 text-center rounded">
-                    <p class="testimonial-text mb-3">“CineStream has completely changed my movie nights! The interface is beautiful and the selection is top-notch.”</p>
+            <div class="mb-4 col-md-4">
+                <div class="p-4 text-center rounded testimonial-card h-100">
+                    <p class="mb-3 testimonial-text">“CineStream has completely changed my movie nights! The interface is beautiful and the selection is top-notch.”</p>
                     <h6 class="mb-0">Rahul S.</h6>
                 </div>
             </div>
-            <div class="col-md-4 mb-4">
-                <div class="testimonial-card p-4 h-100 text-center rounded">
-                    <p class="testimonial-text mb-3">“I love the recommendations and the easy-to-use watchlist. Highly recommended for all TV show fans!”</p>
+            <div class="mb-4 col-md-4">
+                <div class="p-4 text-center rounded testimonial-card h-100">
+                    <p class="mb-3 testimonial-text">“I love the recommendations and the easy-to-use watchlist. Highly recommended for all TV show fans!”</p>
                     <h6 class="mb-0">Priya M.</h6>
                 </div>
             </div>
-            <div class="col-md-4 mb-4">
-                <div class="testimonial-card p-4 h-100 text-center rounded">
-                    <p class="testimonial-text mb-3">“A must-have for anyone who loves movies. The feedback form is a great touch for user engagement!”</p>
+            <div class="mb-4 col-md-4">
+                <div class="p-4 text-center rounded testimonial-card h-100">
+                    <p class="mb-3 testimonial-text">“A must-have for anyone who loves movies. The feedback form is a great touch for user engagement!”</p>
                     <h6 class="mb-0">Amit K.</h6>
                 </div>
             </div>
@@ -269,9 +123,9 @@
 </main>
 
 <style>
-.feedback-form .form-control::placeholder {
-    color: #fff !important;
-    opacity: 1;
-}
+    .feedback-form .form-control::placeholder {
+        color: #fff !important;
+        opacity: 1;
+    }
 </style>
 @endsection
