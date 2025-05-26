@@ -11,13 +11,21 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <!-- Main CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
+
+    <style>
+        .username:hover{
+            cursor: pointer;
+            color: #fff !important;
+        }
+    </style>
+
 </head>
 
 <body>
     <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="{{ route('welcome')  }}">Fli <span>Xio</span></a>
+            <a class="navbar-brand" href="{{ route('welcome') }}">Fli <span>Xio</span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -34,25 +42,36 @@
                     </li>
                     <li class="nav-item">
                         @guest
-                        <a class="nav-link" href="{{ route('login')}}">Watchlist</a>
+                            <a class="nav-link" href="{{ route('login') }}">Watchlist</a>
                         @else
-                        <a class="nav-link" href="{{ route('watchList')}}">Watchlist</a>
+                            <a class="nav-link" href="{{ route('watchList') }}">Watchlist</a>
                         @endguest
                     </li>
                 </ul>
-                <form class="search-form d-flex text-light">
-                    <i class="fas fa-search"></i>
-                    <input class="form-control me-2 text-light" onkeyup="searchMovies(this.value)" type="search" placeholder="Search movies..." aria-label="Search">
-                </form>
+                @if (request()->is('movies') || request()->is('movies/*'))
+                    <form class="search-form d-flex text-light">
+                        <i class="fas fa-search"></i>
+                        <input class="form-control me-2 text-light" onkeyup="searchMovies(this.value)" type="search"
+                            placeholder="Search movies..." aria-label="Search">
+                    </form>
+                @elseif (Auth::check() && Auth::user()->role == 'user')
+                    <p class="nav-link badge username text-white" style="background-color: #01b4e4; padding: 5px 25px; border-radius: 5px; hover: none">{{ Auth::user()->name }}</p>
+                @elseif (Auth::check() && Auth::user()->role == 'admin')
+                    <p class="nav-link badge username text-white" style="background-color: #1de452c7; padding: 5px 25px; border-radius: 5px; hover: none">{{ Auth::user()->name }}</p>
+                @else
+                <p class="nav-link username btn-outline-light fs-6 fw-light">Access your account by clicking the user icon</p>
+                @endif
                 <div class="ms-3">
                     @guest
-                    <a href="{{ route('login') }}" class="btn btn-outline-light"><i class="fas fa-user me-1"></i></a>
+                        <a href="{{ route('login') }}" class="btn btn-outline-light"><i class="fas fa-user-alt-slash"></i></a>
                     @else
-                    @if (Auth::user()->role == 'admin')
-                    <a href="{{ route('admin.dashboard') }}" class="btn btn-outline-light"><i class="fas fa-user me-1"></i></a>
-                    @else
-                    <a href="{{ route('user.dashboard') }}" class="btn btn-outline-light"><i class="fas fa-user me-1"></i></a>
-                    @endif
+                        @if (Auth::user()->role == 'admin')
+                            <a href="{{ route('admin.dashboard') }}" class="btn btn-outline-light"><i
+                                    class="fas fa-user-shield"></i></a>
+                        @else
+                            <a href="{{ route('user.dashboard') }}" class="btn btn-outline-light"><i
+                                    class="fas fa-user-cog"></i></a>
+                        @endif
                     @endguest
                 </div>
             </div>
@@ -68,7 +87,8 @@
             <div class="row">
                 <div class="mb-4 col-md-3">
                     <h5 class="footer-title">About Flixio</h5>
-                    <p>Your ultimate destination for movies and TV shows. Discover, explore, and enjoy unlimited entertainment.</p>
+                    <p>Your ultimate destination for movies and TV shows. Discover, explore, and enjoy unlimited
+                        entertainment.</p>
                     <div class="mt-3 social-links">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
