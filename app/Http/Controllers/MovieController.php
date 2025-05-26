@@ -19,6 +19,8 @@ class MovieController extends Controller
 
     public function userIndex()
     {
+
+
         $movies = Movie::all()->toArray();
         return view('movies', ['movies' => $movies]);
     }
