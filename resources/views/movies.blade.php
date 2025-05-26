@@ -47,11 +47,11 @@
     </form>
   </div>
   <div class="mt-4 movies-grid">
-
-
-    @foreach ($popularMovies['results'] as $popularMovie )
-    <x-movie-card :movie="$popularMovie" :image="$getImageUrl($popularMovie['poster_path'])" />
+    @foreach ($movies as $movie)
+    <x-movie-card :movie="$movie" />
     @endforeach
+
+
   </div>
 </main>
 

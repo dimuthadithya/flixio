@@ -47,7 +47,7 @@ Route::get('/about', function () {
 })->name('about');
 
 
-Route::get('/movies', [TmdbController::class, 'index'])->name('movies');
+Route::get('/movies', [MovieController::class, 'userIndex'])->name('movies');
 Route::post('/api/fetch-movie', [TmdbController::class, 'search'])->name('movies.search');
 Route::post('/api/fetch-movie/trailer', [TmdbController::class, 'trailer'])->name('movies.trailer');
 

@@ -14,10 +14,13 @@ class MovieController extends Controller
     public function index()
     {
         $movies = Movie::all()->toArray();
-
-
-
         return view('admin.movies', ['movies' => $movies]);
+    }
+
+    public function userIndex()
+    {
+        $movies = Movie::all()->toArray();
+        return view('movies', ['movies' => $movies]);
     }
 
     /**
