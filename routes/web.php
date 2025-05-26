@@ -9,6 +9,7 @@ use App\Http\Controllers\WatchListController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [MovieController::class, 'homepage'])->name('welcome');
+// Route::post("/filter/movies", [MovieController::class, 'filter'])->name('movies.filter');
 
 
 Route::middleware('auth')->group(function () {

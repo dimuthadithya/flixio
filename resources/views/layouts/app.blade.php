@@ -22,7 +22,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <ul class="mb-2 navbar-nav me-auto mb-lg-0">
                     <li class="nav-item">
                         <a class="nav-link active" href="{{ route('welcome') }}">Home</a>
                     </li>
@@ -69,17 +69,17 @@
     <footer class="footer">
         <div class="container">
             <div class="row">
-                <div class="col-md-3 mb-4">
+                <div class="mb-4 col-md-3">
                     <h5 class="footer-title">About Flixio</h5>
                     <p>Your ultimate destination for movies and TV shows. Discover, explore, and enjoy unlimited entertainment.</p>
-                    <div class="social-links mt-3">
+                    <div class="mt-3 social-links">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
                         <a href="#"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
-                <div class="col-md-3 mb-4">
+                <div class="mb-4 col-md-3">
                     <h5 class="footer-title">Quick Links</h5>
                     <ul class="list-unstyled footer-links">
                         <li><a href="{{ route('welcome') }}"><i class="fas fa-angle-right me-2"></i> Home</a></li>
@@ -89,7 +89,7 @@
                         <li><a href="#"><i class="fas fa-angle-right me-2"></i> New & Popular</a></li>
                     </ul>
                 </div>
-                <div class="col-md-3 mb-4">
+                <div class="mb-4 col-md-3">
                     <h5 class="footer-title">Support</h5>
                     <ul class="list-unstyled footer-links">
                         <li><a href="#"><i class="fas fa-angle-right me-2"></i> FAQ</a></li>
@@ -99,7 +99,7 @@
                         <li><a href="#"><i class="fas fa-angle-right me-2"></i> Contact Us</a></li>
                     </ul>
                 </div>
-                <div class="col-md-3 mb-4">
+                <div class="mb-4 col-md-3">
                     <h5 class="footer-title">Contact</h5>
                     <ul class="list-unstyled footer-links">
                         <li><i class="fas fa-map-marker-alt me-2"></i> 1234 Movie St, Hollywood, CA</li>
@@ -116,6 +116,34 @@
 
     <!-- Bootstrap JS Bundle with Popper -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        let selectedGenre = 'all';
+        let selectedYear = 'all';
+
+        function applyCombinedFilters() {
+            const movies = document.querySelectorAll('.movies-grid .col-6');
+            movies.forEach(movie => {
+                const matchesGenre = (selectedGenre === 'all' || movie.classList.contains(selectedGenre));
+                const matchesYear = (selectedYear === 'all' || movie.classList.contains(selectedYear));
+
+                if (matchesGenre && matchesYear) {
+                    movie.classList.remove('d-none');
+                } else {
+                    movie.classList.add('d-none');
+                }
+            });
+        }
+
+        function filterMoviesByGenre(genre) {
+            selectedGenre = genre;
+            applyCombinedFilters();
+        }
+
+        function filterMoviesByYear(year) {
+            selectedYear = year;
+            applyCombinedFilters();
+        }
+    </script>
 </body>
 
 </html>
