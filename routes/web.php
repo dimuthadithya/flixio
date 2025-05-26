@@ -11,8 +11,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [MovieController::class, 'homepage'])->name('welcome');
-// Route::post("/filter/movies", [MovieController::class, 'filter'])->name('movies.filter');
-
+Route::get('/movies/{id}', [MovieController::class, 'show'])->name('movie.show');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
