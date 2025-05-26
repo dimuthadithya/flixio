@@ -38,7 +38,7 @@
         @endforeach
     </div>
     <div class="mt-5 text-center">
-        <a href="./movies.html" class="px-4 btn btn-outline-primary btn-lg"><i class="fas fa-plus me-2"></i>Add More Movies & Shows</a>
+        <a href="{{ route('movies') }}" class="px-4 btn btn-outline-primary btn-lg"><i class="fas fa-plus me-2"></i>Add More Movies & Shows</a>
     </div>
 </section>
 

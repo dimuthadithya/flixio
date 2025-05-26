@@ -7,7 +7,7 @@
             <div class="hero-content">
                 <h1>Unlimited Movies, TV Shows & More</h1>
                 <p>Discover the latest and greatest movies and TV shows all in one place. Your ultimate entertainment destination.</p>
-                <a href="#" class="btn btn-primary btn-lg"><i class="fas fa-play me-2"></i> Browse Now</a>
+                <a href="{{ route('movies') }}" class="btn btn-primary btn-lg"><i class="fas fa-play me-2"></i> Browse Now</a>
             </div>
         </div>
     </section>
@@ -25,7 +25,7 @@
         </div>
 
         <div class="mt-4 text-center">
-            <a href="#" class="btn btn-outline-light">View All Movies <i class="fas fa-arrow-right ms-2"></i></a>
+            <a href="{{ route('movies') }}" class="btn btn-outline-light">View All Movies <i class="fas fa-arrow-right ms-2"></i></a>
         </div>
     </section>
 
