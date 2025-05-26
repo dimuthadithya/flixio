@@ -30,9 +30,6 @@
                         <a class="nav-link" href="{{ route('movies') }}">Movies</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('tvShows') }}">TV Shows</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="{{ route('about') }}">About Us</a>
                     </li>
                     <li class="nav-item">
@@ -84,7 +81,6 @@
                     <ul class="list-unstyled footer-links">
                         <li><a href="{{ route('welcome') }}"><i class="fas fa-angle-right me-2"></i> Home</a></li>
                         <li><a href="{{ route('movies') }}"><i class="fas fa-angle-right me-2"></i> Movies</a></li>
-                        <li><a href="{{ route('tvShows') }}"><i class="fas fa-angle-right me-2"></i> TV Shows</a></li>
                         <li><a href="#"><i class="fas fa-angle-right me-2"></i> My List</a></li>
                         <li><a href="#"><i class="fas fa-angle-right me-2"></i> New & Popular</a></li>
                     </ul>
