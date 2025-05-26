@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\WatchList;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class WatchListController extends Controller
 {
@@ -28,7 +30,14 @@ class WatchListController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+
+        $watchList = WatchList::create([
+            'user_id' => Auth::user()->id,
+            'movie_id' => $request->movie_id,
+        ]);
+
+        return redirect()->route('movie.show', $request->movie_id);
     }
 
     /**

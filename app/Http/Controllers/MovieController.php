@@ -122,7 +122,11 @@ class MovieController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Movie::where('id', $id)->delete();
+
+        return redirect()
+            ->route('admin.movies')
+            ->with('success', 'Movie has been deleted successfully.');
     }
 
     public function homepage()

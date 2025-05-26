@@ -48,7 +48,25 @@ $embedUrl = $watchUrl; // Fallback to the original URL if no match
                             <span class="me-3"><i class="fas fa-users"></i> Leonardo DiCaprio, Joseph Gordon-Levitt</span>
                         </div>
                         <div class="flex-wrap gap-3 mb-3 d-flex align-items-center">
-                            <button class="px-4 btn btn-secondary btn-lg rounded-pill"><i class="fas fa-plus me-2"></i>Add to Watchlist</button>
+                            @php
+                            $watchList = [];
+                            if (auth()->check() && auth()->user()->watchList) {
+                            $watchList = auth()->user()->watchList->pluck('movie_id')->toArray();
+                            }
+                            $isInWatchList = in_array($movie['id'], $watchList);
+                            @endphp
+                            @if (auth()->check())
+                            @if ($isInWatchList)
+                            <button class="px-4 btn btn-secondary btn-lg rounded-pill" type="button"><i class="fas fa-check me-2"></i>Added</button>
+                            @else
+                            <form action="{{ route('watchList.add', ['movie_id' => $movie['id']]) }}" method="POST" class="d-inline">
+                                @csrf
+                                <button class="px-4 btn btn-secondary btn-lg rounded-pill" type="submit"><i class="fas fa-plus me-2"></i>Add to Watchlist</button>
+                            </form>
+                            @endif
+                            @else
+                            <a href="{{ route('login') }}" class="px-4 btn btn-secondary btn-lg rounded-pill"><i class="fas fa-plus me-2"></i>Add to Watchlist</a>
+                            @endif
                             <a href="#" class="px-4 btn btn-primary btn-lg rounded-pill"><i class="fas fa-play me-2"></i>Watch Movie</a>
                             <a href="#" class="px-4 btn btn-success btn-lg rounded-pill"><i class="fas fa-download me-2"></i>Download</a>
                         </div>

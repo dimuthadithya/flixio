@@ -57,6 +57,8 @@ Route::get('/about', function () {
     return view("about");
 })->name('about');
 
+Route::delete('/admin/movies/{id}', [MovieController::class, 'destroy'])->name('admin.movie.delete');
+
 
 Route::get('/movies', [MovieController::class, 'userIndex'])->name('movies');
 Route::post('/api/fetch-movie', [TmdbController::class, 'search'])->name('movies.search');
@@ -64,5 +66,7 @@ Route::post('/api/fetch-movie/trailer', [TmdbController::class, 'trailer'])->nam
 
 
 Route::get('/watchList', [WatchListController::class, 'index'])->name('watchList');
+Route::post('/watchList/add', [WatchListController::class, 'store'])->name('watchList.add');
+Route::get('/watchList/remove/{id}', [WatchListController::class, 'destroy'])->name('watchList.remove');
 
 require __DIR__ . '/auth.php';
