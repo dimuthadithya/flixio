@@ -69,8 +69,21 @@ $genres = explode(',', $genre);
                             @else
                             <a href="{{ route('login') }}" class="px-4 btn btn-secondary btn-lg rounded-pill"><i class="fas fa-plus me-2"></i>Add to Watchlist</a>
                             @endif
-                            <a href="#" class="px-4 btn btn-primary btn-lg rounded-pill"><i class="fas fa-play me-2"></i>Watch Movie</a>
-                            <a href="#" class="px-4 btn btn-success btn-lg rounded-pill"><i class="fas fa-download me-2"></i>Download</a>
+                            @if(auth()->check())
+                            @if($movie['movie_file'] || $movie['download_link'])
+                            <a href="{{ route('movie.play', ['id' => $movie['id']]) }}" class="px-4 btn btn-primary btn-lg rounded-pill">
+                                <i class="fas fa-play me-2"></i>Watch Movie
+                            </a>
+                            @else
+                            <button class="px-4 btn btn-primary btn-lg rounded-pill" disabled>
+                                <i class="fas fa-play me-2"></i>Coming Soon
+                            </button>
+                            @endif
+                            @else
+                            <a href="{{ route('login') }}" class="px-4 btn btn-primary btn-lg rounded-pill">
+                                <i class="fas fa-play me-2"></i>Watch Movie
+                            </a>
+                            @endif
                         </div>
                     </div>
                 </div>

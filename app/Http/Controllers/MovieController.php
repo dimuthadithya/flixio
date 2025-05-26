@@ -62,7 +62,21 @@ class MovieController extends Controller
             'original_language' => 'nullable|string',
             'adult' => 'nullable|boolean',
             'trailer' => 'nullable|string',
+            'movie_file' => 'nullable|file|mimes:mp4,mkv,mov|max:4194304', // 4GB max
+            'download_link' => 'nullable|url',
         ]);
+
+        // Handle file upload if present
+        $movieFile = null;
+        $fileSize = null;
+
+        if ($request->hasFile('movie_file')) {
+            $file = $request->file('movie_file');
+            if ($file->isValid()) {
+                $movieFile = $file->store('movies', 'public'); // Store in public/movies directory
+                $fileSize = $file->getSize();
+            }
+        }
 
         $movie = Movie::create([
             'tmdb_id' => $request->tmdb_id,
@@ -84,7 +98,10 @@ class MovieController extends Controller
             'imdb_id' => $request->imdb_id,
             'original_language' => $request->original_language,
             'trailer' => $request->trailer,
-            'adult' => $request->adult ?? false
+            'adult' => $request->adult ?? false,
+            'movie_file' => $movieFile,
+            'download_link' => $request->download_link,
+            'file_size' => $fileSize,
         ]);
 
         return redirect()
@@ -149,5 +166,14 @@ class MovieController extends Controller
 
 
         return view('welcome', compact('newReleases', 'topIncomeMovies', 'topRatedMovies'));
+    }
+
+    /**
+     * Display the movie player page.
+     */
+    public function play($id)
+    {
+        $movie = Movie::findOrFail($id)->toArray();
+        return view('player', ['movie' => $movie]);
     }
 }

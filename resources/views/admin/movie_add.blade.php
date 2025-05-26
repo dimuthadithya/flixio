@@ -10,8 +10,10 @@
     </div>
 
     <div class="movies-table-container">
-        <form method="POST" action="{{ route('admin.movie_add.store') }}" enctype="multipart/form-data" class="movie-form">
+        <form method="POST" action="{{ route('admin.movie_add.store') }}" enctype="multipart/form-data" class="movie-form" accept-charset="UTF-8">
             @csrf
+            <!-- Max file size hint for PHP -->
+            <input type="hidden" name="MAX_FILE_SIZE" value="4294967296" /> <!-- 4GB in bytes -->
             <!-- TMDB Section -->
             <div class="form-section">
                 <div class="form-group tmdb-group">
@@ -161,17 +163,31 @@
 
             <div class="form-section">
                 <h5 class="section-title">Trailer</h5>
-                <div class="form-group ">
+                <div class="form-group">
                     <label for="trailer" class="form-label">Trailer URL</label>
-                    <input type="text" class="form-control" id="trailer" name="trailer">
+                    <div class="trailer-input-group">
+                        <input type="text" class="form-control" id="trailer" name="trailer" required placeholder="https://www.youtube.com/watch?v=...">
+                        <div class="mt-2 trailer-preview" id="trailer-preview"></div>
+                    </div>
                 </div>
+            </div>
 
-                <!-- Submit Button -->
-                <div class=" form-actions">
-                    <button type="submit" class="btn btn-primary btn-submit">
-                        <i class="fas fa-save me-2"></i>Save Movie
-                    </button>
+            <!-- Upload Movie -->
+            <div class="form-section">
+                <h5 class="section-title">Upload Movie</h5>
+                <div class="form-group">
+                    <label for="movie_file" class="form-label">Movie File</label>
+                    <input type="file" class="form-control" id="movie_file" name="movie_file" accept="video/mp4,video/x-matroska,video/quicktime">
+                    <small class="text-muted">Supported formats: MP4, MKV, MOV (Max size: 4GB)</small>
                 </div>
+            </div>
+
+            <!-- Submit Button -->
+            <div class=" form-actions">
+                <button type="submit" class="btn btn-primary btn-submit">
+                    <i class="fas fa-save me-2"></i>Save Movie
+                </button>
+            </div>
         </form>
     </div>
 </div>
@@ -387,6 +403,28 @@
             grid-column: 1 / -1;
         }
     }
+
+    /* Trailer Section Styles */
+    .trailer-input-group {
+        width: 100%;
+    }
+
+    .trailer-preview {
+        border-radius: 8px;
+        overflow: hidden;
+        background: var(--secondary);
+        display: none;
+    }
+
+    .trailer-preview.active {
+        display: block;
+    }
+
+    .trailer-preview iframe {
+        width: 100%;
+        aspect-ratio: 16/9;
+        border: none;
+    }
 </style>
 
 @push('scripts')
@@ -439,13 +477,43 @@
                 }),
             })
             .then((res) => res.json()).then((data) => {
-                console.log(data.results[0].key);
-
-                $ytKey = data.results[0].key;
-                // Set trailer URL
-                document.getElementById("trailer").value = `https://www.youtube.com/watch?v=${$ytKey}`;
+                if (data.results && data.results.length > 0) {
+                    const ytKey = data.results[0].key;
+                    const trailerUrl = `https://www.youtube.com/watch?v=${ytKey}`;
+                    document.getElementById("trailer").value = trailerUrl;
+                    updateTrailerPreview(trailerUrl);
+                }
             })
-
+            .catch(error => {
+                console.error('Error fetching trailer:', error);
+            });
     }
+
+    // Function to update trailer preview
+    function updateTrailerPreview(url) {
+        const previewDiv = document.getElementById('trailer-preview');
+        let videoId = '';
+
+        // Extract video ID from different YouTube URL formats
+        if (url.includes('youtube.com/watch?v=')) {
+            videoId = url.split('v=')[1].split('&')[0];
+        } else if (url.includes('youtu.be/')) {
+            videoId = url.split('youtu.be/')[1];
+        }
+
+        if (videoId) {
+            const embedUrl = `https://www.youtube.com/embed/${videoId}`;
+            previewDiv.innerHTML = `<iframe src="${embedUrl}" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+            previewDiv.classList.add('active');
+        } else {
+            previewDiv.innerHTML = '';
+            previewDiv.classList.remove('active');
+        }
+    }
+
+    // Listen for changes in the trailer input
+    document.getElementById('trailer').addEventListener('input', function(e) {
+        updateTrailerPreview(e.target.value);
+    });
 </script>
 @endpush
