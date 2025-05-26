@@ -17,10 +17,6 @@ class MovieController extends Controller
         return view('admin.movies', ['movies' => $movies]);
     }
 
-    public function filter()
-    {
-        return view('movies.filter');
-    }
 
     public function userIndex()
     {
