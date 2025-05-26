@@ -49,4 +49,5 @@ public function updatePassword(Request $request)
     return back()->with('success', 'Password updated successfully!');
 }
 
+
 }

@@ -444,12 +444,6 @@
                   <span>Users</span>
               </div>
               </a>
-              <a href="{{ route('admin.feedback') }}" style="text-decoration: none; color: inherit;">
-              <div class="nav-item {{ request()->is('admin/feedback') ? 'active' : '' }}">
-                  <i class="fas fa-comments"></i>
-                  <span>Feedback</span>
-              </div>
-              </a>
           </div>
           <div class="bottom-nav">
               <div class="nav-item">

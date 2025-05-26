@@ -5,7 +5,7 @@
     <div class="header">
         <div class="page-title">User Feedback</div>
         <div class="admin-profile">
-            <span>Admin User</span>
+         <span class="badge" style="background: #3cd866; padding: 4px 15px; border-radius: 15px; font-weight: 600; color: #fff">{{ Auth::user()->name }}</span>
         </div>
     </div>
 

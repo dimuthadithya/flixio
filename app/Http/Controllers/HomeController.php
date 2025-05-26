@@ -78,9 +78,5 @@ class HomeController extends Controller
         return redirect()->back()->with('success', 'Feedback submitted successfully.');
     }
 
-    public function show_feedback()
-    {
-        $feedbacks = Feedback::all();
-        return view('admin.feedback', compact('feedbacks'));
-    }
+
 }

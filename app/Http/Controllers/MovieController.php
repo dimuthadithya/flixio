@@ -79,6 +79,13 @@ class MovieController extends Controller
             }
         }
 
+        $idcheck = Movie::where('tmdb_id', $request->tmdb_id)->first();
+        if ($idcheck) {
+            return redirect()
+                ->route('admin.movie_add')
+                ->with('status', 'Movie with TMDB ID ' . $request->tmdb_id . ' already exists.');
+        }
+
         $movie = Movie::create([
             'tmdb_id' => $request->tmdb_id,
             'title' => $request->title,

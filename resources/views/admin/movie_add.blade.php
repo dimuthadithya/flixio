@@ -5,10 +5,19 @@
     <div class="header">
         <div class="page-title">Add New Movie</div>
         <div class="admin-profile">
-            <span>Admin User</span>
+            <span class="badge" style="background: #3cd866; padding: 4px 15px; border-radius: 15px; font-weight: 600; color: #fff">{{ Auth::user()->name }}</span>
         </div>
     </div>
-
+      @if (session('status'))
+      <div class="alert alert-primary" role="alert">
+        {{ session('status') }}
+        </div>
+        @endif
+        @if (session('error'))
+        <div class="alert alert-danger" role="alert">
+        {{ session('error') }}
+        </div>
+        @endif
     <div class="movies-table-container">
         <form method="POST" action="{{ route('admin.movie_add.store') }}" enctype="multipart/form-data" class="movie-form" accept-charset="UTF-8">
             @csrf
@@ -424,6 +433,18 @@
         width: 100%;
         aspect-ratio: 16/9;
         border: none;
+    }
+
+    .alert{
+        margin-bottom: 1rem;
+        padding: 0.75rem 1.25rem;
+        border-radius: 8px;
+        font-size: 0.95rem;
+        font-weight: 500;
+        color: #fff;
+        background-color: var(--alert-bg, #032541);
+        border: 1px solid var(--alert-border, #01b4e4);
+        transition: background-color 0.2s, border-color 0.2s;
     }
 </style>
 

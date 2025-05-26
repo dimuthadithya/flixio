@@ -24,6 +24,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [UserController::class, 'index'])->name('user.dashboard');
     Route::put('/user/update-password', [UserController::class, 'updatePassword'])->name('user.updatePassword');
 
+
     Route::get('/admin', function () {
         $moviesCount = Movie::count();
         $userCount = User::count();
@@ -40,7 +41,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/admin/movies', [MovieController::class, 'index'])->name('admin.movies');
 
-    Route::get('/admin/feedback', [HomeController::class, 'show_feedback'])->name('admin.feedback');
+
 
     Route::get('/admin/movies/add', function () {
         return view("admin.movie_add");

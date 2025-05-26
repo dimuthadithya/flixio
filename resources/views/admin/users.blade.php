@@ -6,7 +6,7 @@
     <div class="header">
         <div class="page-title">Users Management</div>
         <div class="admin-profile">
-            <span>Admin User</span>
+            <span class="badge" style="background: #3cd866; padding: 4px 15px; border-radius: 15px; font-weight: 600; color: #fff">{{ Auth::user()->name }}</span>
         </div>
     </div>
 
@@ -24,7 +24,6 @@
                         <th>Role</th>
                         <th>Join Date</th>
                         <th>Status</th>
-                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -39,13 +38,6 @@
                         <td><span class="role-badge role-user">{{ $user['role'] }}</span></td>
                         <td>{{ \Carbon\Carbon::parse($user['created_at'])->format('M d, Y') }}</td>
                         <td><span class="status-badge status-active">Active</span></td>
-                        <td>
-                            <div class="actions" style="justify-content: center">
-                                <button class="action-btn delete" title="Delete">
-                                    <i class="fas fa-trash"></i>
-                                </button>
-                            </div>
-                        </td>
                     </tr>
                     @endforeach
                 </tbody>
