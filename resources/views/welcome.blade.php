@@ -63,12 +63,12 @@
                     <p class="mb-3">Let us know your thoughts, suggestions, or issues. Help us improve your CineStream experience!</p>
                     <div class="row justify-content-center">
                         <div class="col-12">
-                           
+
                             <form class="feedback-form text-start" method="POST" action="{{ route('feedback.store') }}">
                                 @csrf
                                 <div class="mb-2">
                                     <label for="feedbackEmail" class="form-label">Name</label>
-                                    <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" id="feedbackEmail" placeholder="Your Name" value="" readonly>
+                                    <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" id="feedbackEmail" placeholder="Your Name" value="{{ Auth::user()->name ?? '' }}" required @if(Auth::check()) readonly @endif>
                                     @error('name')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -84,7 +84,7 @@
                                     <button type="submit" class="px-4 btn btn-primary">Submit Feedback</button>
                                 </div>
                             </form>
-                           
+
                         </div>
                     </div>
                 </div>
@@ -99,8 +99,8 @@
             @foreach ($feedbacks as $feedback)
             <div class="mb-4 col-md-4">
                 <div class="p-4 text-center rounded testimonial-card h-100">
-                    <p class="mb-3 testimonial-text">"{{ $feedback->message }}"</p>
-                    <h6 class="mb-0">{{ $feedback->name }}</h6>
+                    <p class="mb-3 testimonial-text"><span style="color: #01b4e4">"</span>{{ $feedback->message }}<span style="color: #01b4e4">"</span></p>
+                    <h6 class="mb-0" style="color: #01b4e4">{{ $feedback->name }}</h6>
                 </div>
             </div>
             @endforeach
