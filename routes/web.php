@@ -63,7 +63,6 @@ Route::post('/api/fetch-movie', [TmdbController::class, 'search'])->name('movies
 Route::post('/api/fetch-movie/trailer', [TmdbController::class, 'trailer'])->name('movies.trailer');
 
 
-Route::get('/tvShows', [TvShowController::class, 'index'])->name('tvShows');
 Route::get('/watchList', [WatchListController::class, 'index'])->name('watchList');
 
 require __DIR__ . '/auth.php';
