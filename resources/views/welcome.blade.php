@@ -16,20 +16,6 @@
     <section class="container mb-5">
         <div class="mb-4 d-flex justify-content-between align-items-center">
             <h2 class="section-title">Box Office Hits</h2>
-            <ul class="nav category-tabs">
-                <li class="nav-item">
-                    <a class="nav-link active" href="#">All</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Action</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Comedy</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Drama</a>
-                </li>
-            </ul>
         </div>
 
         <div class="row">
@@ -45,7 +31,9 @@
 
     <!-- New Releases Section -->
     <section class="container mb-5">
-        <h2 class="mb-4 section-title">New Releases</h2>
+        <div class="mb-4 d-flex justify-content-between align-items-center">
+            <h2 class="section-title">New Releases</h2>
+        </div>
         <div class="row">
             @foreach ($newReleases as $movie)
             <x-movie-card :movie="$movie" />
@@ -55,7 +43,9 @@
 
     <!-- Top Rated Movies Section -->
     <section class="container mb-5">
-        <h2 class="mb-4 section-title">Top Rated Movies</h2>
+        <div class="mb-4 d-flex justify-content-between align-items-center">
+            <h2 class="section-title">Top Rated Movies</h2>
+        </div>
         <div class="row">
             @foreach ($topRatedMovies as $movie)
             <x-movie-card :movie="$movie" />
