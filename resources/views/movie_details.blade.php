@@ -16,6 +16,8 @@ $embedUrl = 'https://www.youtube.com/embed/' . $videoId;
 $embedUrl = $watchUrl; // Fallback to the original URL if no match
 }
 
+$genre = str_replace(['"', '\\\"'], '', trim($movie['genres']));
+$genres = explode(',', $genre);
 
 
 @endphp
@@ -34,9 +36,9 @@ $embedUrl = $watchUrl; // Fallback to the original URL if no match
                     <div class="mt-4 col-md-8 col-lg-9 mt-md-0">
                         <h1 class="mb-2 display-5 fw-bold">{{ $movie['title'] }}</h1>
                         <div class="mb-2">
-                            <span class="badge bg-primary me-2">Action</span>
-                            <span class="badge bg-secondary me-2">Sci-Fi</span>
-                            <span class="badge bg-success me-2">Thriller</span>
+                            @foreach ($genres as $genre )
+                            <span class="badge bg-danger me-2">{{ $genre }}</span>
+                            @endforeach
                         </div>
                         <div class="mb-2">
                             <span class="me-3"><i class="fas fa-calendar"></i> {{ \Carbon\Carbon::parse($movie['release_date'])->format('Y') }}</span>

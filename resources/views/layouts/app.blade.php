@@ -42,7 +42,7 @@
                 </ul>
                 <form class="search-form d-flex text-light">
                     <i class="fas fa-search"></i>
-                    <input class="form-control me-2 text-light" type="search" placeholder="Search movies..." aria-label="Search">
+                    <input class="form-control me-2 text-light" onkeyup="searchMovies(this.value)" type="search" placeholder="Search movies..." aria-label="Search">
                 </form>
                 <div class="ms-3">
                     @guest
@@ -138,6 +138,18 @@
         function filterMoviesByYear(year) {
             selectedYear = year;
             applyCombinedFilters();
+        }
+
+        function searchMovies(query) {
+            const movies = document.querySelectorAll('.movies-grid .col-6');
+            movies.forEach(movie => {
+                const movieTitle = movie.querySelector('.movie-title').textContent.toLowerCase();
+                if (movieTitle.includes(query.toLowerCase())) {
+                    movie.classList.remove('d-none');
+                } else {
+                    movie.classList.add('d-none');
+                }
+            });
         }
     </script>
 </body>
