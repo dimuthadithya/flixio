@@ -19,9 +19,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::put('/user/password', [UserController::class, 'updatePassword'])->name('password.update');
 
-    Route::get('/user', function () {
-        return view("user.dashboard");
-    })->name('user.dashboard');
+    Route::get('/dashboard', [UserController::class, 'index'])->name('user.dashboard');
+    Route::put('/user/update-password', [UserController::class, 'updatePassword'])->name('user.updatePassword');
 
     Route::get('/admin', function () {
         $moviesCount = Movie::count();
