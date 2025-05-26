@@ -14,7 +14,14 @@ class WatchListController extends Controller
      */
     public function index()
     {
-        return view('watchlist');
+        $watchlists = WatchList::where('user_id', Auth::user()->id)
+            ->join('movies', 'watchlists.movie_id', '=', 'movies.id')
+            ->select('movies.*')
+            ->get()
+            ->toArray();
+
+
+        return view('watchlist', ['watchlists' => $watchlists]);
     }
 
     /**

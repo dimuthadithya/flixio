@@ -69,4 +69,5 @@ Route::get('/watchList', [WatchListController::class, 'index'])->name('watchList
 Route::post('/watchList/add', [WatchListController::class, 'store'])->name('watchList.add');
 Route::get('/watchList/remove/{id}', [WatchListController::class, 'destroy'])->name('watchList.remove');
 
+
 require __DIR__ . '/auth.php';
