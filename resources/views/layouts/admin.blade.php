@@ -426,22 +426,30 @@
               <a style="text-decoration: none" href="{{ route('welcome') }}"><span>Flixio</span></a>
           </div>
           <div class="nav-menu">
+            <a href="{{ route('admin.dashboard') }}" style="text-decoration: none; color: inherit;">
               <div class="nav-item {{ request()->is('admin/dashboard') ? 'active' : '' }}">
                   <i class="fas fa-tachometer-alt"></i>
-                  <a href="{{ route('admin.dashboard') }}" style="text-decoration: none; color: inherit;"><span>Dashboard</span></a>
+                  <span>Dashboard</span>
               </div>
+              </a>
+              <a href="{{ route('admin.movies') }}" style="text-decoration: none; color: inherit;">
               <div class="nav-item {{ request()->is('admin/movies') ? 'active' : '' }}">
                   <i class="fas fa-film"></i>
-                  <a href="{{ route('admin.movies') }}" style="text-decoration: none; color: inherit;"><span>Movies</span></a>
+                  <span>Movies</span>
               </div>
+              </a>
+              <a href="{{ route('admin.users') }}" style="text-decoration: none; color: inherit;">
               <div class="nav-item {{ request()->is('admin/users') ? 'active' : '' }}">
                   <i class="fas fa-users"></i>
-                  <a href="{{ route('admin.users') }}" style="text-decoration: none; color: inherit;"><span>Users</span></a>
+                  <span>Users</span>
               </div>
+              </a>
+              <a href="{{ route('admin.feedback') }}" style="text-decoration: none; color: inherit;">
               <div class="nav-item {{ request()->is('admin/feedback') ? 'active' : '' }}">
                   <i class="fas fa-comments"></i>
-                  <a href="{{ route('admin.feedback') }}" style="text-decoration: none; color: inherit;"><span>Feedback</span></a>
+                  <span>Feedback</span>
               </div>
+              </a>
           </div>
           <div class="bottom-nav">
               <div class="nav-item">
