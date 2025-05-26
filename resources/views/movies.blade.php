@@ -6,7 +6,7 @@
   <h1 class="movies-title">All Movies</h1>
   <div class="container mb-4 movies-filters">
     <form class="p-2 mb-5 row g-3 align-items-end" method="POST">
-      <div class="col-md-4">
+      <div class="col-6">
         <label for="genre" class="form-label text-light">Genre</label>
         <select id="genre" class="form-select" name="genre" onchange="filterMoviesByGenre(this.value)">
           <option value="all" selected>All</option>
@@ -20,7 +20,8 @@
           <option value="Animation">Animation</option>
         </select>
       </div>
-      <div class="col-md-4">
+
+      <div class="col-6">
         <label for="release" class="form-label text-light">Release Year</label>
         <select id="release" class="form-select" name="release" onchange="filterMoviesByYear(this.value)">
           <option value="all" selected>All</option>
