@@ -10,7 +10,7 @@
         </div>
     </div>
 
-    <div class="flex-wrap gap-2 mb-2 mb-4 d-flex justify-content-between align-items-center">
+    <div class="flex-wrap gap-2 d-flex justify-content-between align-items-center">
         <h3 class="mb-4 fw-bold" style="color:var(--accent)">All Users</h3>
     </div>
 
