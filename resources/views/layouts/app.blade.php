@@ -45,7 +45,7 @@
                 </ul>
                 <form class="search-form d-flex text-light">
                     <i class="fas fa-search"></i>
-                    <input class="form-control me-2 text-light" type="search" placeholder="Search movies, TV shows..." aria-label="Search">
+                    <input class="form-control me-2 text-light" type="search" placeholder="Search movies..." aria-label="Search">
                 </form>
                 <div class="ms-3">
                     @guest

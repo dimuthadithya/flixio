@@ -1,115 +1,102 @@
 @extends('layouts.admin')
 
 @section('content')
-        <div class="main-content">
-            <div class="header">
-                <div class="page-title">Dashboard</div>
-                <div class="admin-profile">
-                    <span>Admin User</span>
+<div class="main-content">
+    <div class="header">
+        <div class="page-title">Dashboard</div>
+        <div class="admin-profile">
+            <span>Admin User</span>
+        </div>
+    </div>
+
+    <!-- Stat Cards -->
+    <div class="stat-cards">
+        <div class="stat-card">
+            <div class="stat-card-title">Total Movies</div>
+            <div class="stat-card-value">
+                <div>
+                    {{ number_format($moviesCount) }}
+                </div>
+                <div class="stat-card-icon">
+                    <i class="fas fa-film"></i>
                 </div>
             </div>
-
-            <!-- Stat Cards -->
-            <div class="stat-cards">
-                <div class="stat-card">
-                    <div class="stat-card-title">Total Movies</div>
-                    <div class="stat-card-value">
-                        <div>1,247</div>
-                        <div class="stat-card-icon">
-                            <i class="fas fa-film"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="stat-card users">
-                    <div class="stat-card-title">Total Users</div>
-                    <div class="stat-card-value">
-                        <div>45,289</div>
-                        <div class="stat-card-icon">
-                            <i class="fas fa-users"></i>
-                        </div>
-                    </div>
+        </div>
+        <div class="stat-card users">
+            <div class="stat-card-title">Total Users</div>
+            <div class="stat-card-value">
+                <div>{{ number_format($userCount) }}</div>
+                <div class="stat-card-icon">
+                    <i class="fas fa-users"></i>
                 </div>
             </div>
+        </div>
+    </div>
 
 
-            <!-- Recent Movies -->
-            <div class="content-section">
-                <div class="section-header">
-                    <div class="section-title">Recently Added Movies</div>
-                    <div>
-                        <button class="section-action">View All</button>
-                    </div>
-                </div>
-                <table class="recent-table">
-                    <thead>
-                        <tr>
-                            <th>Movie</th>
-                            <th>Date Added</th>
-                            <th>Category</th>
-                            <th>Rating</th>
-                            <th>Release Year</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <div class="movie-info">
-                                    <img src="/api/placeholder/40/60" alt="Movie" class="movie-poster">
-                                    <div>Dune</div>
-                                </div>
-                            </td>
-                            <td>May 20, 2025</td>
-                            <td>Sci-Fi</td>
-                            <td>7.8</td>
-                            <td><span class="status-badge status-active">2022</span></td>
-                        </tr>
-                    </tbody>
-                </table>
+    <!-- Recent Movies -->
+    <div class="content-section">
+        <div class="section-header">
+            <div class="section-title">Recently Added Movies</div>
+            <div>
+                <button class="section-action">View All</button>
             </div>
+        </div>
+        <table class="recent-table">
+            <thead>
+                <tr>
+                    <th>Movie</th>
+                    <th>Date Added</th>
+                    <th>Category</th>
+                    <th>Rating</th>
+                    <th>Release Year</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($recentlyAddedMovies as $movie )
+                <tr>
+                    <td>
+                        <div class="movie-info">
+                            <img src="https://image.tmdb.org/t/p/w500{{ $movie['poster_path'] }}" alt="Movie" class="movie-poster">
+                            <div>{{ $movie['title'] }}</div>
+                        </div>
+                    </td>
+                    <td>{{ \Carbon\Carbon::parse($movie['created_at'])->format('M d, Y') }}</td>
+                    <td>{{ $movie['genres'] }}</td>
+                    <td>{{ $movie['vote_average'] }}</td>
+                    <td><span class="status-badge status-active">{{ \Carbon\Carbon::parse($movie['release_date'])->format('Y') }}</span></td>
+                </tr>
+                @endforeach
 
-            <!-- Recent Users -->
-            <div class="content-section">
-                <div class="section-header">
-                    <div class="section-title">Recent Users</div>
-                    <div>
-                        <button class="section-action">View All</button>
-                    </div>
-                </div>
-                <div class="user-list">
-                    <div class="user-card">
-                        <img src="/api/placeholder/50/50" alt="User" class="user-avatar">
-                        <div class="user-info">
-                            <div class="user-name">Sarah Johnson</div>
-                            <div class="user-email">sarah.j@example.com</div>
-                            <div class="user-status">
-                                <span class="status-dot dot-active"></span> Active
-                            </div>
-                        </div>
-                    </div>
-                    <div class="user-card">
-                        <img src="/api/placeholder/50/50" alt="User" class="user-avatar">
-                        <div class="user-info">
-                            <div class="user-name">Michael Smith</div>
-                            <div class="user-email">m.smith@example.com</div>
-                            <div class="user-status">
-                                <span class="status-dot dot-active"></span> Active
-                            </div>
-                        </div>
-                    </div>
-                    <div class="user-card">
-                        <img src="/api/placeholder/50/50" alt="User" class="user-avatar">
-                        <div class="user-info">
-                            <div class="user-name">Emma Davis</div>
-                            <div class="user-email">emma.d@example.com</div>
-                            <div class="user-status">
-                                <span class="status-dot dot-inactive"></span> Inactive
-                            </div>
-                        </div>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Recent Users -->
+    <div class="content-section">
+        <div class="section-header">
+            <div class="section-title">Recent Users</div>
+            <div>
+                <button class="section-action">View All</button>
+            </div>
+        </div>
+        <div class="user-list">
+            @foreach ($recentlyAddedUsers as $user)
+            <div class="user-card">
+                <img src="/api/placeholder/50/50" alt="User" class="user-avatar">
+                <div class="user-info">
+                    <div class="user-name">{{ $user['name'] }}</div>
+                    <div class="user-email">{{ $user['email'] }}</div>
+                    <div class="user-status">
+                        <span class="status-dot dot-active"></span> Active
                     </div>
                 </div>
             </div>
+            @endforeach
 
         </div>
+    </div>
+
+</div>
 
 @endsection
-

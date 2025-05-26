@@ -6,6 +6,8 @@ use App\Http\Controllers\TmdbController;
 use App\Http\Controllers\TvShowController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WatchListController;
+use App\Models\Movie;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [MovieController::class, 'homepage'])->name('welcome');
@@ -23,7 +25,17 @@ Route::middleware('auth')->group(function () {
     })->name('user.dashboard');
 
     Route::get('/admin', function () {
-        return view("admin.dashboard");
+        $moviesCount = Movie::count();
+        $userCount = User::count();
+        $recentlyAddedMovies = Movie::orderBy('created_at', 'desc')->take(5)->get()->toArray();
+        $recentlyAddedUsers = User::orderBy('created_at', 'desc')->take(5)->get()->toArray();
+
+        return view("admin.dashboard", [
+            'moviesCount' => $moviesCount,
+            'userCount' => $userCount,
+            'recentlyAddedMovies' => $recentlyAddedMovies,
+            'recentlyAddedUsers' => $recentlyAddedUsers
+        ]);
     })->name('admin.dashboard');
 
     Route::get('/admin/movies', [MovieController::class, 'index'])->name('admin.movies');
