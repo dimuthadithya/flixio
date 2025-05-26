@@ -125,17 +125,17 @@ class MovieController extends Controller
     {
         $newReleases = Movie::where('status', 'active')
             ->orderBy('release_date', 'desc')
-            ->take(10)
+            ->take(8)
             ->get();
 
         $topIncomeMovies = Movie::where('status', 'active')
             ->orderBy('revenue', 'desc')
-            ->take(10)
+            ->take(8)
             ->get();
 
         $topRatedMovies = Movie::where('status', 'active')
             ->orderBy('vote_average', 'desc')
-            ->take(10)
+            ->take(8)
             ->get();
 
 
