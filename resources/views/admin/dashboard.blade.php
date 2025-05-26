@@ -39,7 +39,11 @@
         <div class="section-header">
             <div class="section-title">Recently Added Movies</div>
             <div>
-                <button class="section-action">View All</button>
+                <a href="{{ route('admin.movies') }}">
+                    <button class="section-action">
+                        View All
+                    </button>
+                </a>
             </div>
         </div>
         <table class="recent-table">
@@ -67,7 +71,6 @@
                     <td><span class="status-badge status-active">{{ \Carbon\Carbon::parse($movie['release_date'])->format('Y') }}</span></td>
                 </tr>
                 @endforeach
-
             </tbody>
         </table>
     </div>
@@ -77,7 +80,9 @@
         <div class="section-header">
             <div class="section-title">Recent Users</div>
             <div>
-                <button class="section-action">View All</button>
+                <a href="{{ route('admin.users') }}">
+                    <button class="section-action">View All</button>
+                </a>
             </div>
         </div>
         <div class="user-list">
