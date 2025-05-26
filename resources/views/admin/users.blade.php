@@ -2,38 +2,57 @@
 
 @section('content')
 
- <div class="main-content">
-        <div class="header">
-            <div class="page-title">Users Management</div>
-            <div class="admin-profile">
-                <span>Admin User</span>
-            </div>
-        </div>
-
-        <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2 mb-2">
-            <h3 class="fw-bold mb-4" style="color:var(--accent)">All Users</h3>
-        </div>
-
-        <div class="users-table-container p-0" style="margin-top: 20px">
-            <div class="table-responsive">
-                <table class="users-table table table-hover align-middle mb-0">
-                    <thead class="align-middle">
-                        <tr>
-                            <th>User</th>
-                            <th>Email</th>
-                            <th>Role</th>
-                            <th>Join Date</th>
-                            <th>Status</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <x-user-card-admin />
-                    </tbody>
-                </table>
-            </div>
+<div class="main-content">
+    <div class="header">
+        <div class="page-title">Users Management</div>
+        <div class="admin-profile">
+            <span>Admin User</span>
         </div>
     </div>
+
+    <div class="flex-wrap gap-2 mb-2 mb-4 d-flex justify-content-between align-items-center">
+        <h3 class="mb-4 fw-bold" style="color:var(--accent)">All Users</h3>
+    </div>
+
+    <div class="p-0 users-table-container" style="margin-top: 20px">
+        <div class="table-responsive">
+            <table class="table mb-0 align-middle users-table table-hover">
+                <thead class="align-middle">
+                    <tr>
+                        <th>User</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                        <th>Join Date</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($users as $user )
+                    <tr>
+                        <td class="text-center">
+                            <div class="user-details">
+                                <h4>{{ $user['name'] }}</h4>
+                            </div>
+                        </td>
+                        <td>{{ $user['email'] }}</td>
+                        <td><span class="role-badge role-user">{{ $user['role'] }}</span></td>
+                        <td>{{ \Carbon\Carbon::parse($user['created_at'])->format('M d, Y') }}</td>
+                        <td><span class="status-badge status-active">Active</span></td>
+                        <td>
+                            <div class="actions" style="justify-content: center">
+                                <button class="action-btn delete" title="Delete">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 
 <style>
     :root {
@@ -47,7 +66,8 @@
         --danger: #e74c3c;
     }
 
-    body, .main-content {
+    body,
+    .main-content {
         background: var(--secondary) !important;
         color: var(--text);
     }
@@ -58,14 +78,19 @@
         min-height: 100vh;
     }
 
-    .header, .users-header, .search-filter-bar, .users-table-container, .bulk-actions {
+    .header,
+    .users-header,
+    .search-filter-bar,
+    .users-table-container,
+    .bulk-actions {
         background: var(--primary);
         color: var(--text);
         border-radius: 10px;
-        box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.10);
     }
 
-    .header, .users-header {
+    .header,
+    .users-header {
         margin-bottom: 1.5rem;
         padding: 1.2rem 2rem;
         display: flex;
@@ -101,7 +126,7 @@
         border-radius: 8px;
         font-weight: 500;
         transition: background 0.2s, box-shadow 0.2s;
-        box-shadow: 0 2px 8px rgba(0,168,255,0.10);
+        box-shadow: 0 2px 8px rgba(0, 168, 255, 0.10);
         margin-right: 0.5rem;
         margin-top: 1.5rem;
         margin-bottom: 1.5rem;
@@ -111,13 +136,13 @@
     .btn-primary:hover {
         background: #0088cc;
         color: #fff;
-        box-shadow: 0 4px 16px rgba(0,168,255,0.18);
+        box-shadow: 0 4px 16px rgba(0, 168, 255, 0.18);
     }
 
     .users-table-container {
         background: var(--primary);
         border-radius: 10px;
-        box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.10);
         padding: 0;
         overflow-x: auto;
     }
@@ -308,10 +333,13 @@
         .main-content {
             padding: 1rem;
         }
-        .users-table th, .users-table td {
+
+        .users-table th,
+        .users-table td {
             padding: 0.75rem 0.5rem;
             font-size: 0.95rem;
         }
+
         .user-details h4 {
             font-size: 0.95rem;
         }
@@ -321,27 +349,33 @@
         .main-content {
             padding: 0.5rem;
         }
+
         .users-table {
             min-width: 800px;
             font-size: 0.92rem;
         }
+
         .user-avatar {
             width: 40px;
             height: 40px;
         }
+
         .d-flex.justify-content-between.align-items-center.mb-4.flex-wrap.gap-2 {
             flex-direction: column;
             align-items: stretch !important;
             gap: 0.75rem;
         }
+
         .btn-primary {
             width: 100%;
             margin-right: 0;
             margin-top: 0.5rem;
         }
+
         .header {
             padding: 1rem;
         }
+
         .page-title {
             font-size: 1.5rem;
         }

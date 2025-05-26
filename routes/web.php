@@ -49,7 +49,8 @@ Route::middleware('auth')->group(function () {
 
 
     Route::get('/admin/users', function () {
-        return view("admin.users");
+        $users = User::orderBy('created_at', 'desc')->get()->toArray();
+        return view("admin.users", ['users' => $users]);
     })->name('admin.users');
 });
 
