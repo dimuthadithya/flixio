@@ -604,7 +604,7 @@
                                         </div>
 
                                         <div class="mb-3">
-                                            <label for="new_password" class="form-label">New Password</label>
+                                            <label for="new_password" class="form-label">New Password (8+ characters)</label>
                                             <input type="password"
                                                 class="form-control @error('password') is-invalid @enderror"
                                                 id="new_password" name="password">

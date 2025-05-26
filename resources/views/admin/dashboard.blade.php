@@ -88,7 +88,6 @@
         <div class="user-list">
             @foreach ($recentlyAddedUsers as $user)
             <div class="user-card">
-                <img src="/api/placeholder/50/50" alt="User" class="user-avatar">
                 <div class="user-info">
                     <div class="user-name">{{ $user['name'] }}</div>
                     <div class="user-email">{{ $user['email'] }}</div>
