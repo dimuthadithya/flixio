@@ -27,7 +27,10 @@ class Movie extends Model
         'original_language',
         'video',
         'adult',
-        'trailer'
+        'trailer',
+        'movie_file',
+        'download_link',
+        'file_size'
     ];
 
     protected $casts = [

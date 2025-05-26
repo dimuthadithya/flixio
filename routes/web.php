@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [MovieController::class, 'homepage'])->name('welcome');
 Route::get('/movies/{id}', [MovieController::class, 'show'])->name('movie.show');
+Route::get('/movies/{id}/play', [MovieController::class, 'play'])->middleware('auth')->name('movie.play');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

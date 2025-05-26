@@ -33,6 +33,9 @@ return new class extends Migration
             $table->string('original_language', 5);
             $table->string('trailer');
             $table->boolean('adult')->default(false);
+            $table->string('movie_file')->nullable();
+            $table->string('download_link')->nullable();
+            $table->integer('file_size')->nullable();
             $table->timestamps();
 
             // Indexes for better performance
