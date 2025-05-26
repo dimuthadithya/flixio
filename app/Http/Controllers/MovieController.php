@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Feedback;
 use App\Models\Movie;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -163,9 +164,11 @@ class MovieController extends Controller
             ->take(8)
             ->get();
 
+        $feedbacks = Feedback::all()->take(6);
 
 
-        return view('welcome', compact('newReleases', 'topIncomeMovies', 'topRatedMovies'));
+
+        return view('welcome', compact('newReleases', 'topIncomeMovies', 'topRatedMovies', 'feedbacks'));
     }
 
     /**

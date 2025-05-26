@@ -438,6 +438,10 @@
                   <i class="fas fa-users"></i>
                   <a href="{{ route('admin.users') }}" style="text-decoration: none; color: inherit;"><span>Users</span></a>
               </div>
+              <div class="nav-item {{ request()->is('admin/feedback') ? 'active' : '' }}">
+                  <i class="fas fa-comments"></i>
+                  <a href="{{ route('admin.feedback') }}" style="text-decoration: none; color: inherit;"><span>Feedback</span></a>
+              </div>
           </div>
           <div class="bottom-nav">
               <div class="nav-item">

@@ -6,6 +6,7 @@ use App\Http\Controllers\TmdbController;
 use App\Http\Controllers\TvShowController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WatchListController;
+use App\Http\Controllers\HomeController;
 use App\Models\Movie;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
@@ -51,6 +52,10 @@ Route::middleware('auth')->group(function () {
         $users = User::orderBy('created_at', 'desc')->get()->toArray();
         return view("admin.users", ['users' => $users]);
     })->name('admin.users');
+
+    Route::post('/feedback', [HomeController::class, 'feedbackStore'])->name('feedback.store');
+
+    Route::get('/admin/feedback', [HomeController::class, 'index'])->name('admin.feedback');
 });
 
 Route::get('/about', function () {

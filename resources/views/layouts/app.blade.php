@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
 
     <style>
-        .username:hover{
+        .username:hover {
             cursor: pointer;
             color: #fff !important;
         }
@@ -42,36 +42,36 @@
                     </li>
                     <li class="nav-item">
                         @guest
-                            <a class="nav-link" href="{{ route('login') }}">Watchlist</a>
+                        <a class="nav-link" href="{{ route('login') }}">Watchlist</a>
                         @else
-                            <a class="nav-link" href="{{ route('watchList') }}">Watchlist</a>
+                        <a class="nav-link" href="{{ route('watchList') }}">Watchlist</a>
                         @endguest
                     </li>
                 </ul>
                 @if (request()->is('movies') || request()->is('movies/*'))
-                    <form class="search-form d-flex text-light">
-                        <i class="fas fa-search"></i>
-                        <input class="form-control me-2 text-light" onkeyup="searchMovies(this.value)" type="search"
-                            placeholder="Search movies..." aria-label="Search">
-                    </form>
+                <form class="search-form d-flex text-light">
+                    <i class="fas fa-search"></i>
+                    <input class="form-control me-2 text-light" onkeyup="searchMovies(this.value)" type="search"
+                        placeholder="Search movies..." aria-label="Search">
+                </form>
                 @elseif (Auth::check() && Auth::user()->role == 'user')
-                    <p class="nav-link badge username text-white" style="background-color: #01b4e4; padding: 5px 25px; border-radius: 5px; hover: none">{{ Auth::user()->name }}</p>
+                <p class="text-white nav-link badge username" style="background-color: #01b4e4; padding: 5px 25px; border-radius: 5px; hover: none">{{ Auth::user()->name }}</p>
                 @elseif (Auth::check() && Auth::user()->role == 'admin')
-                    <p class="nav-link badge username text-white" style="background-color: #1de452c7; padding: 5px 25px; border-radius: 5px; hover: none">{{ Auth::user()->name }}</p>
+                <p class="text-white nav-link badge username" style="background-color: #1de452c7; padding: 5px 25px; border-radius: 5px; hover: none">{{ Auth::user()->name }}</p>
                 @else
                 <p class="nav-link username btn-outline-light fs-6 fw-light">Access your account by clicking the user icon</p>
                 @endif
                 <div class="ms-3">
                     @guest
-                        <a href="{{ route('login') }}" class="btn btn-outline-light"><i class="fas fa-user-alt-slash"></i></a>
+                    <a href="{{ route('login') }}" class="btn btn-outline-light"><i class="fas fa-user-alt-slash"></i></a>
                     @else
-                        @if (Auth::user()->role == 'admin')
-                            <a href="{{ route('admin.dashboard') }}" class="btn btn-outline-light"><i
-                                    class="fas fa-user-shield"></i></a>
-                        @else
-                            <a href="{{ route('user.dashboard') }}" class="btn btn-outline-light"><i
-                                    class="fas fa-user-cog"></i></a>
-                        @endif
+                    @if (Auth::user()->role == 'admin')
+                    <a href="{{ route('admin.dashboard') }}" class="btn btn-outline-light"><i
+                            class="fas fa-user-shield"></i></a>
+                    @else
+                    <a href="{{ route('user.dashboard') }}" class="btn btn-outline-light"><i
+                            class="fas fa-user-cog"></i></a>
+                    @endif
                     @endguest
                 </div>
             </div>

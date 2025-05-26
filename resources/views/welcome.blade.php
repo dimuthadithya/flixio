@@ -53,6 +53,7 @@
         </div>
     </section>
 
+
     <!-- Feedback Section -->
     <section class="container mb-5">
         <div class="row justify-content-center">
@@ -62,23 +63,28 @@
                     <p class="mb-3">Let us know your thoughts, suggestions, or issues. Help us improve your CineStream experience!</p>
                     <div class="row justify-content-center">
                         <div class="col-12">
-                            <form class="feedback-form text-start">
+                           
+                            <form class="feedback-form text-start" method="POST" action="{{ route('feedback.store') }}">
+                                @csrf
                                 <div class="mb-2">
-                                    <label for="feedbackName" class="form-label">Name</label>
-                                    <input type="text" class="form-control" id="feedbackName" placeholder="Your Name">
-                                </div>
-                                <div class="mb-2">
-                                    <label for="feedbackEmail" class="form-label">Email</label>
-                                    <input type="email" class="form-control" id="feedbackEmail" placeholder="Your Email">
+                                    <label for="feedbackEmail" class="form-label">Name</label>
+                                    <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" id="feedbackEmail" placeholder="Your Name" value="" readonly>
+                                    @error('name')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                 <div class="mb-2">
                                     <label for="feedbackMessage" class="form-label">Message</label>
-                                    <textarea class="form-control" id="feedbackMessage" rows="3" placeholder="Your Feedback"></textarea>
+                                    <textarea name="message" class="form-control @error('message') is-invalid @enderror" id="feedbackMessage" rows="3" placeholder="Your Feedback" required></textarea>
+                                    @error('message')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                 <div class="mt-3 text-center">
                                     <button type="submit" class="px-4 btn btn-primary">Submit Feedback</button>
                                 </div>
                             </form>
+                           
                         </div>
                     </div>
                 </div>
@@ -90,24 +96,14 @@
     <section class="container mb-5">
         <h2 class="mb-4 text-center section-title">What Our Users Say</h2>
         <div class="row justify-content-center">
+            @foreach ($feedbacks as $feedback)
             <div class="mb-4 col-md-4">
                 <div class="p-4 text-center rounded testimonial-card h-100">
-                    <p class="mb-3 testimonial-text">“CineStream has completely changed my movie nights! The interface is beautiful and the selection is top-notch.”</p>
-                    <h6 class="mb-0">Rahul S.</h6>
+                    <p class="mb-3 testimonial-text">"{{ $feedback->message }}"</p>
+                    <h6 class="mb-0">{{ $feedback->name }}</h6>
                 </div>
             </div>
-            <div class="mb-4 col-md-4">
-                <div class="p-4 text-center rounded testimonial-card h-100">
-                    <p class="mb-3 testimonial-text">“I love the recommendations and the easy-to-use watchlist. Highly recommended for all TV show fans!”</p>
-                    <h6 class="mb-0">Priya M.</h6>
-                </div>
-            </div>
-            <div class="mb-4 col-md-4">
-                <div class="p-4 text-center rounded testimonial-card h-100">
-                    <p class="mb-3 testimonial-text">“A must-have for anyone who loves movies. The feedback form is a great touch for user engagement!”</p>
-                    <h6 class="mb-0">Amit K.</h6>
-                </div>
-            </div>
+            @endforeach
         </div>
     </section>
 </main>
