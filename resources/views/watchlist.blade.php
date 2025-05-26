@@ -18,7 +18,9 @@
                 <div class="position-relative">
                     <img src="{{ 'https://image.tmdb.org/t/p/w500' . $watchlist['poster_path'] }}" class="card-img-top rounded-top" alt="Movie Poster">
                     <span class="top-0 m-2 badge bg-primary position-absolute end-0">Movie</span>
-                    <button class="top-0 m-2 btn btn-danger btn-sm position-absolute start-0 rounded-circle" title="Remove"><i class="fas fa-times"></i></button>
+                    <a href="{{ route('watchList.remove', ['id' => $watchlist['id']]) }}" class="stretched-link">
+                        <button class="top-0 m-2 btn btn-danger btn-sm position-absolute start-0 rounded-circle" title="Remove"><i class="fas fa-times"></i></button>
+                    </a>
                 </div>
                 <div class="card-body d-flex flex-column">
                     <h5 class="mb-1 card-title">{{ $watchlist['title'] }}</h5>
@@ -29,8 +31,7 @@
                         @endforeach
                     </div>
                     <div class="gap-2 mt-auto d-flex">
-                        <a href="./details_movie.html" class="btn btn-primary btn-sm w-100 d-flex justify-content-center align-items-center"><i class="fas fa-play me-1"></i>Watch</a>
-                        <a href="./payments.html" class="btn btn-outline-light btn-sm w-100 d-flex justify-content-center align-items-center"><i class="fas fa-shopping-cart me-1"></i>Buy</a>
+                        <a href="{{ route('movie.play', ['id' => $watchlist['id']]) }}" class="btn btn-primary btn-sm w-100 d-flex justify-content-center align-items-center"><i class="fas fa-play me-1"></i>Watch</a>
                     </div>
                 </div>
             </div>

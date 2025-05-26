@@ -76,6 +76,14 @@ class WatchListController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $watchlist = WatchList::where('user_id', Auth::user()->id)
+            ->where('movie_id', $id)
+            ->first();
+
+        if ($watchlist) {
+            $watchlist->delete();
+        }
+
+        return redirect()->route('watchList');
     }
 }
