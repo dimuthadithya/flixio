@@ -40,8 +40,8 @@ Route::middleware('auth')->group(function () {
     })->name('admin.dashboard');
 
     Route::get('/admin/movies', [MovieController::class, 'index'])->name('admin.movies');
-
-
+    Route::get('/admin/movies/{id}/edit', [MovieController::class, 'edit'])->name('admin.movie.edit');
+    Route::put('/admin/movies/{id}', [MovieController::class, 'update'])->name('admin.movie.update');
 
     Route::get('/admin/movies/add', function () {
         return view("admin.movie_add");
