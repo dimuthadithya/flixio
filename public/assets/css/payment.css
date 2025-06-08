@@ -1,0 +1,239 @@
+/* Modern Payment Page Styling */
+.payment-container {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f6f8fb 0%, #e9eff5 100%);
+    padding: 48px 20px;
+}
+
+.payment-card {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.payment-box {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+}
+
+.payment-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, #3b82f6, #60a5fa);
+}
+
+.payment-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 32px;
+    text-align: center;
+}
+
+.movie-info {
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 32px;
+}
+
+.movie-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 8px;
+}
+
+.movie-price {
+    color: #64748b;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.form-group {
+    margin-bottom: 24px;
+    position: relative;
+}
+
+.form-label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: #4b5563;
+    margin-bottom: 8px;
+}
+
+.form-input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    background: #f8fafc;
+    color: #1f2937;
+}
+
+.form-input:hover {
+    border-color: #cbd5e1;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    background: white;
+}
+
+.error-message {
+    display: none;
+    color: #dc2626;
+    font-size: 13px;
+    margin-top: 6px;
+    padding-left: 4px;
+    display: flex;
+    align-items: center;
+}
+
+.error-message.visible {
+    display: flex;
+}
+
+.error-message::before {
+    content: '⚠';
+    margin-right: 6px;
+    font-size: 14px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 40px;
+    gap: 16px;
+}
+
+.btn {
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-cancel {
+    background-color: #f1f5f9;
+    color: #64748b;
+    border: 2px solid #e2e8f0;
+    min-width: 120px;
+}
+
+.btn-cancel:hover {
+    background-color: #e2e8f0;
+    color: #475569;
+}
+
+.btn-submit {
+    background: linear-gradient(90deg, #3b82f6, #60a5fa);
+    color: white;
+    min-width: 140px;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+}
+
+.btn-submit:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(59, 130, 246, 0.3);
+}
+
+.btn-submit:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+}
+
+/* Card Number Input Formatting */
+.form-input[name="cardNumber"] {
+    letter-spacing: 1px;
+    font-family: monospace;
+}
+
+/* Secure Badge */
+.payment-box::after {
+    content: '🔒 Secure Payment';
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 14px;
+    color: #64748b;
+    font-weight: 500;
+}
+
+/* Responsive Design */
+@media (max-width: 640px) {
+    .payment-container {
+        padding: 20px 16px;
+    }
+
+    .payment-box {
+        padding: 30px 20px;
+    }
+
+    .payment-box::after {
+        display: none;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .button-group {
+        flex-direction: column-reverse;
+    }
+
+    .btn {
+        width: 100%;
+        padding: 14px;
+    }
+}
+
+/* Loading State */
+.btn-submit.loading {
+    position: relative;
+    pointer-events: none;
+    color: transparent;
+}
+
+.btn-submit.loading::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255,255,255,0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 1s infinite linear;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}

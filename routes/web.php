@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\MovieController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SubscriptionController;
 use App\Http\Controllers\TmdbController;
 use App\Http\Controllers\TvShowController;
 use App\Http\Controllers\UserController;
@@ -59,6 +61,10 @@ Route::middleware('auth')->group(function () {
     Route::post('/feedback', [HomeController::class, 'feedbackStore'])->name('feedback.store');
 
     Route::get('/admin/feedback', [HomeController::class, 'index'])->name('admin.feedback');
+
+    // Payment routes
+    Route::get('/movies/{movie}/payment', [PaymentController::class, 'show'])->name('payment.show');
+    Route::post('/movies/{movie}/payment', [PaymentController::class, 'process'])->name('payment.process');
 });
 
 Route::get('/about', function () {

@@ -19,7 +19,7 @@
             color: #fff !important;
         }
     </style>
-
+    @stack('styles')
 </head>
 
 <body>
@@ -173,6 +173,8 @@
             });
         }
     </script>
+
+    @stack('scripts')
 </body>
 
 </html>
