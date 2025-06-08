@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\MovieController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SubscriptionController;
 use App\Http\Controllers\TmdbController;
 use App\Http\Controllers\TvShowController;
 use App\Http\Controllers\UserController;
@@ -40,8 +42,8 @@ Route::middleware('auth')->group(function () {
     })->name('admin.dashboard');
 
     Route::get('/admin/movies', [MovieController::class, 'index'])->name('admin.movies');
-
-
+    Route::get('/admin/movies/{id}/edit', [MovieController::class, 'edit'])->name('admin.movie.edit');
+    Route::put('/admin/movies/{id}', [MovieController::class, 'update'])->name('admin.movie.update');
 
     Route::get('/admin/movies/add', function () {
         return view("admin.movie_add");
@@ -59,6 +61,10 @@ Route::middleware('auth')->group(function () {
     Route::post('/feedback', [HomeController::class, 'feedbackStore'])->name('feedback.store');
 
     Route::get('/admin/feedback', [HomeController::class, 'index'])->name('admin.feedback');
+
+    // Payment routes
+    Route::get('/movies/{movie}/payment', [PaymentController::class, 'show'])->name('payment.show');
+    Route::post('/movies/{movie}/payment', [PaymentController::class, 'process'])->name('payment.process');
 });
 
 Route::get('/about', function () {

@@ -34,10 +34,13 @@
   </td>
   <td class="action-cell">
     <div class="action-buttons">
+      <button type="button" class="btn btn-sm btn-outline-primary edit-movie-btn" onclick="editMovie({{ $movie['id'] }})" title="Edit">
+        <i class="fas fa-edit"></i>
+      </button>
       <form action="{{ route('admin.movie.delete', $movie['id']) }}" method="POST" class="d-inline">
         @csrf
         @method('DELETE')
-        <button type="submit" class="btn btn-sm btn-outline-danger" onclick="return confirm('Are you sure you want to delete this movie?')">
+        <button type="submit" class="btn btn-sm btn-outline-danger" onclick="return confirm('Are you sure you want to delete this movie?')" title="Delete">
           <i class="fas fa-trash"></i>
         </button>
       </form>
@@ -139,17 +142,38 @@
     align-items: center;
   }
 
-  .btn-outline-primary {
+  .btn-outline-primary,
+  .btn-outline-danger {
     color: var(--accent);
     border-color: var(--accent);
     padding: 0.3rem 0.6rem;
     transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+  }
+
+  .btn-outline-danger {
+    color: var(--danger);
+    border-color: var(--danger);
   }
 
   .btn-outline-primary:hover {
     background-color: var(--accent);
     color: #fff;
     transform: translateY(-1px);
+  }
+
+  .btn-outline-danger:hover {
+    background-color: var(--danger);
+    color: #fff;
+    transform: translateY(-1px);
+  }
+
+  .action-buttons .fas {
+    font-size: 0.875rem;
   }
 
   .btn-outline-danger {

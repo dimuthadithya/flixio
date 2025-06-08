@@ -131,7 +131,8 @@ class MovieController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $movie = Movie::findOrFail($id);
+        return response()->json($movie);
     }
 
     /**
@@ -139,7 +140,38 @@ class MovieController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $validated = $request->validate([
+            'title' => 'required|string',
+            'original_title' => 'required|string',
+            'release_date' => 'required|date',
+            'runtime' => 'nullable|integer|min:1',
+            'overview' => 'required|string',
+            'vote_average' => 'required|numeric|between:0,10',
+            'vote_count' => 'required|integer|min:0',
+            'popularity' => 'required|numeric|min:0',
+            'genres' => 'nullable|string',
+            'status' => 'required|string|in:active,inactive,pending',
+            'trailer' => 'nullable|string',
+            'movie_file' => 'nullable|file|mimes:mp4,mkv,mov|max:4194304',
+        ]);
+
+        $movie = Movie::findOrFail($id);
+
+        // Handle file upload if present
+        if ($request->hasFile('movie_file')) {
+            $file = $request->file('movie_file');
+            if ($file->isValid()) {
+                $movieFile = $file->store('movies', 'public');
+                $movie->movie_file = $movieFile;
+                $movie->file_size = $file->getSize();
+            }
+        }
+
+        $movie->update($validated);
+
+        return redirect()
+            ->route('admin.movies')
+            ->with('success', 'Movie "' . $movie->title . '" has been updated successfully.');
     }
 
     /**

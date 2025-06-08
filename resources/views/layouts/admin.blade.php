@@ -5,8 +5,12 @@
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Flixio Admin Dashboard</title>
+      <!-- Bootstrap CSS -->
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+      <!-- Font Awesome -->
       <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-     <link rel="icon" href="{{ asset('/favicon.ico') }}" >
+      <link rel="icon" href="{{ asset('/favicon.ico') }}">
+      @stack('styles')
       <style>
           :root {
               --primary: #1a242f;
@@ -426,23 +430,23 @@
               <a style="text-decoration: none" href="{{ route('welcome') }}"><span>Flixio</span></a>
           </div>
           <div class="nav-menu">
-            <a href="{{ route('admin.dashboard') }}" style="text-decoration: none; color: inherit;">
-              <div class="nav-item {{ request()->is('admin/dashboard') ? 'active' : '' }}">
-                  <i class="fas fa-tachometer-alt"></i>
-                  <span>Dashboard</span>
-              </div>
+              <a href="{{ route('admin.dashboard') }}" style="text-decoration: none; color: inherit;">
+                  <div class="nav-item {{ request()->is('admin/dashboard') ? 'active' : '' }}">
+                      <i class="fas fa-tachometer-alt"></i>
+                      <span>Dashboard</span>
+                  </div>
               </a>
               <a href="{{ route('admin.movies') }}" style="text-decoration: none; color: inherit;">
-              <div class="nav-item {{ request()->is('admin/movies') ? 'active' : '' }}">
-                  <i class="fas fa-film"></i>
-                  <span>Movies</span>
-              </div>
+                  <div class="nav-item {{ request()->is('admin/movies') ? 'active' : '' }}">
+                      <i class="fas fa-film"></i>
+                      <span>Movies</span>
+                  </div>
               </a>
               <a href="{{ route('admin.users') }}" style="text-decoration: none; color: inherit;">
-              <div class="nav-item {{ request()->is('admin/users') ? 'active' : '' }}">
-                  <i class="fas fa-users"></i>
-                  <span>Users</span>
-              </div>
+                  <div class="nav-item {{ request()->is('admin/users') ? 'active' : '' }}">
+                      <i class="fas fa-users"></i>
+                      <span>Users</span>
+                  </div>
               </a>
           </div>
           <div class="bottom-nav">
@@ -463,6 +467,8 @@
       </div>
       </div>
 
+      <!-- Bootstrap JS -->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
       @stack('scripts')
   </body>
 
