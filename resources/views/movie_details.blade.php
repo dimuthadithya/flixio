@@ -2,8 +2,7 @@
 
 @section('content')
 @php
-
-$watchUrl = $movie['trailer'];
+$watchUrl = $movie->trailer;
 
 $embedUrl = '';
 if (strpos($watchUrl, 'youtube.com/watch?v=') !== false) {
@@ -16,8 +15,7 @@ $embedUrl = 'https://www.youtube.com/embed/' . $videoId;
 $embedUrl = $watchUrl; // Fallback to the original URL if no match
 }
 
-$genre = str_replace(['"', '\\\"'], '', trim($movie['genres']));
-$genres = explode(',', $genre);
+$genres = is_array($movie->genres) ? $movie->genres : explode(',', $movie->genres);
 
 
 @endphp
@@ -26,24 +24,24 @@ $genres = explode(',', $genre);
     <!-- Movie Cover Section -->
     <section class="mb-5 movie-cover-section position-relative">
         <div class="movie-cover-img-wrapper">
-            <img src="https://image.tmdb.org/t/p/w1280{{ $movie['backdrop_path'] }}" alt="Movie Cover" class="img-fluid w-100 movie-cover-img">
+            <img src="https://image.tmdb.org/t/p/w1280{{ $movie->backdrop_path }}" alt="Movie Cover" class="img-fluid w-100 movie-cover-img">
             <div class="movie-cover-overlay"></div>
             <div class="container text-white movie-cover-content">
                 <div class="row align-items-end">
                     <div class="col-md-4 col-lg-3">
-                        <img src="{{ 'https://image.tmdb.org/t/p/w500' . $movie['poster_path'] }}" alt="Movie Poster" class="rounded shadow img-fluid movie-detail-poster">
+                        <img src="{{ 'https://image.tmdb.org/t/p/w500' . $movie->poster_path }}" alt="Movie Poster" class="rounded shadow img-fluid movie-detail-poster">
                     </div>
                     <div class="mt-4 col-md-8 col-lg-9 mt-md-0">
-                        <h1 class="mb-2 display-5 fw-bold">{{ $movie['title'] }}</h1>
+                        <h1 class="mb-2 display-5 fw-bold">{{ $movie->title }}</h1>
                         <div class="mb-2">
-                            @foreach ($genres as $genre )
+                            @foreach ($genres as $genre)
                             <span class="badge bg-danger me-2">{{ $genre }}</span>
                             @endforeach
                         </div>
                         <div class="mb-2">
-                            <span class="me-3"><i class="fas fa-calendar"></i> {{ \Carbon\Carbon::parse($movie['release_date'])->format('Y') }}</span>
-                            <span class="me-3"><i class="fas fa-clock"></i>{{ $movie['runtime'] }}</span>
-                            <span class="me-3"><i class="fas fa-star text-warning"></i> {{ $movie['vote_average'] }}</span>
+                            <span class="me-3"><i class="fas fa-calendar"></i> {{ \Carbon\Carbon::parse($movie->release_date)->format('Y') }}</span>
+                            <span class="me-3"><i class="fas fa-clock"></i>{{ $movie->runtime }}</span>
+                            <span class="me-3"><i class="fas fa-star text-warning"></i> {{ $movie->vote_average }}</span>
                         </div>
                         <div class="mb-3">
                             <span class="me-3"><i class="fas fa-film"></i> Christopher Nolan</span>
@@ -55,13 +53,13 @@ $genres = explode(',', $genre);
                             if (auth()->check() && auth()->user()->watchList) {
                             $watchList = auth()->user()->watchList->pluck('movie_id')->toArray();
                             }
-                            $isInWatchList = in_array($movie['id'], $watchList);
+                            $isInWatchList = in_array($movie->id, $watchList);
                             @endphp
                             @if (auth()->check())
                             @if ($isInWatchList)
                             <button class="px-4 btn btn-secondary btn-lg rounded-pill" type="button"><i class="fas fa-check me-2"></i>Added</button>
                             @else
-                            <form action="{{ route('watchList.add', ['movie_id' => $movie['id']]) }}" method="POST" class="d-inline">
+                            <form action="{{ route('watchList.add', ['movie_id' => $movie->id]) }}" method="POST" class="d-inline">
                                 @csrf
                                 <button class="px-4 btn btn-secondary btn-lg rounded-pill" type="submit"><i class="fas fa-plus me-2"></i>Add to Watchlist</button>
                             </form>
@@ -70,13 +68,13 @@ $genres = explode(',', $genre);
                             <a href="{{ route('login') }}" class="px-4 btn btn-secondary btn-lg rounded-pill"><i class="fas fa-plus me-2"></i>Add to Watchlist</a>
                             @endif
                             @if(auth()->check())
-                            @if($movie['movie_file'] || $movie['download_link'])
+                            @if($movie->movie_file || $movie->download_link)
                             @if($movie->hasPaid(auth()->id()))
-                            <a href="{{ route('movie.play', ['movie' => $movie['id']]) }}" class="px-4 btn btn-success btn-lg rounded-pill">
+                            <a href="{{ route('movie.play', ['id' => $movie->id]) }}" class="px-4 btn btn-success btn-lg rounded-pill">
                                 <i class="fas fa-play me-2"></i>Watch Now
                             </a>
                             @else
-                            <a href="{{ route('payment.show', ['movie' => $movie['id']]) }}" class="px-4 btn btn-primary btn-lg rounded-pill">
+                            <a href="{{ route('payment.show', ['movie' => $movie->id]) }}" class="px-4 btn btn-primary btn-lg rounded-pill">
                                 <i class="fas fa-credit-card me-2"></i>Pay to Watch
                             </a>
                             @endif
