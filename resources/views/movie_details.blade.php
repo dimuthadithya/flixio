@@ -71,9 +71,15 @@ $genres = explode(',', $genre);
                             @endif
                             @if(auth()->check())
                             @if($movie['movie_file'] || $movie['download_link'])
-                            <a href="{{ route('payment.show', ['movie' => $movie['id']]) }}" class="px-4 btn btn-primary btn-lg rounded-pill">
-                                <i class="fas fa-play me-2"></i>Watch Movie
+                            @if($movie->hasPaid(auth()->id()))
+                            <a href="{{ route('movie.play', ['movie' => $movie['id']]) }}" class="px-4 btn btn-success btn-lg rounded-pill">
+                                <i class="fas fa-play me-2"></i>Watch Now
                             </a>
+                            @else
+                            <a href="{{ route('payment.show', ['movie' => $movie['id']]) }}" class="px-4 btn btn-primary btn-lg rounded-pill">
+                                <i class="fas fa-credit-card me-2"></i>Pay to Watch
+                            </a>
+                            @endif
                             @else
                             <button class="px-4 btn btn-primary btn-lg rounded-pill" disabled>
                                 <i class="fas fa-play me-2"></i>Coming Soon
