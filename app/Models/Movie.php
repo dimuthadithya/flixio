@@ -79,4 +79,15 @@ class Movie extends Model
         $minutes = $this->runtime % 60;
         return $hours > 0 ? "{$hours}h {$minutes}m" : "{$minutes}m";
     }
+
+    // Payment relationship
+    public function payments()
+    {
+        return $this->hasMany(UserPayment::class);
+    }
+
+    public function hasPaid($userId)
+    {
+        return $this->payments()->where('user_id', $userId)->exists();
+    }
 }

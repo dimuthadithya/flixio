@@ -122,7 +122,7 @@ class MovieController extends Controller
      */
     public function show(string $id)
     {
-        $movie = Movie::where('id', $id)->first()->toArray();
+        $movie = Movie::where('id', $id)->first();
         return view('movie_details', ['movie' => $movie]);
     }
 

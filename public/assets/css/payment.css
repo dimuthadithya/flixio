@@ -91,24 +91,33 @@
     background: white;
 }
 
+.form-input.valid {
+    border-color: #34c759;
+}
+
+.form-input.invalid {
+    border-color: #ff3b30;
+}
+
 .error-message {
     display: none;
-    color: #dc2626;
     font-size: 13px;
     margin-top: 6px;
     padding-left: 4px;
-    display: flex;
-    align-items: center;
 }
 
 .error-message.visible {
-    display: flex;
+    display: block;
 }
 
-.error-message::before {
-    content: '⚠';
-    margin-right: 6px;
-    font-size: 14px;
+/* Valid state icon */
+.error-message.valid {
+    color: #34c759;
+}
+
+/* Invalid state icon */
+.error-message.invalid {
+    color: #ff3b30;
 }
 
 .form-row {
